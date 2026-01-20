@@ -1,42 +1,12 @@
 [
   {
-    "objectID": "Introduction.html",
-    "href": "Introduction.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Introduction to myself",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "Introduction to Remote Sensing.html",
-    "href": "Introduction to Remote Sensing.html",
-    "title": "1  Introduction to Remote XXX",
-    "section": "",
-    "text": "1.1 Remote sensing\niuhdewiudehd",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote XXX</span>"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "rs_portfolio_proj",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "About\nIntroduction to myself blah blah blah",
     "crumbs": [
       "About"
-    ]
-  },
-  {
-    "objectID": "Introduction to Remote Sensing.html#landsat-vs-sentinel",
-    "href": "Introduction to Remote Sensing.html#landsat-vs-sentinel",
-    "title": "1  Introduction to Remote XXX",
-    "section": "1.2 LandSat vs sentinel",
-    "text": "1.2 LandSat vs sentinel\nkjhdwudwhdo",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote XXX</span>"
     ]
   },
   {
@@ -45,16 +15,6 @@
     "title": "1  Introduction to Remote Sensing",
     "section": "",
     "text": "1.1 What is remote sensing?\nPut simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
-    ]
-  },
-  {
-    "objectID": "1_RS_intro.html#landsat-vs-sentinel",
-    "href": "1_RS_intro.html#landsat-vs-sentinel",
-    "title": "1  Introduction to Remote Sensing",
-    "section": "1.5 LandSat vs sentinel",
-    "text": "1.5 LandSat vs sentinel\nkjhdwudwhdo\nReflection\n\nsnapshot of the real world, but sensors can also be used to track movements",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
     ]
@@ -70,6 +30,16 @@
     ]
   },
   {
+    "objectID": "1_RS_intro.html#spectral-signatures",
+    "href": "1_RS_intro.html#spectral-signatures",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "1.3 Spectral Signatures",
+    "text": "1.3 Spectral Signatures\nSpectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.\n\nHumans are able to see in the visible part of the electromagnetic spectrum (wavelengths of 380 to 700nm). If we take a closer look into these wavelengths, we see a higher reflectance of healthy vegetation within the green wavelengths in comparison to blue and red, which aligns with healthy vegetation having a green colour.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
+    ]
+  },
+  {
     "objectID": "1_RS_intro.html#resolutions",
     "href": "1_RS_intro.html#resolutions",
     "title": "1  Introduction to Remote Sensing",
@@ -80,21 +50,21 @@
     ]
   },
   {
-    "objectID": "1_RS_intro.html#references",
-    "href": "1_RS_intro.html#references",
+    "objectID": "1_RS_intro.html#landsat-vs-sentinel",
+    "href": "1_RS_intro.html#landsat-vs-sentinel",
     "title": "1  Introduction to Remote Sensing",
-    "section": "1.6 References",
-    "text": "1.6 References\nhttps://www.nv5geospatialsoftware.com/What-is-Remote-Sensing\nspectral signature image = https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407",
+    "section": "1.5 LandSat vs sentinel",
+    "text": "1.5 LandSat vs sentinel\nkjhdwudwhdo\nReflection\n\nsnapshot of the real world, but sensors can also be used to track movements",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
     ]
   },
   {
-    "objectID": "1_RS_intro.html#spectral-signatures",
-    "href": "1_RS_intro.html#spectral-signatures",
+    "objectID": "1_RS_intro.html#references",
+    "href": "1_RS_intro.html#references",
     "title": "1  Introduction to Remote Sensing",
-    "section": "1.3 Spectral Signatures",
-    "text": "1.3 Spectral Signatures\nSpectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.\n\nHumans are able to see in the visible part of the electromagnetic spectrum (wavelengths of 380 to 700nm). If we take a closer look into these wavelengths, we see a higher reflectance of healthy vegetation within the green wavelengths in comparison to blue and red, which aligns with healthy vegetation having a green colour.",
+    "section": "1.6 References",
+    "text": "1.6 References\nhttps://www.nv5geospatialsoftware.com/What-is-Remote-Sensing\nspectral signature image = https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
     ]
