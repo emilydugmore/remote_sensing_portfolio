@@ -134,6 +134,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#resolutions" id="toc-resolutions" class="nav-link" data-scroll-target="#resolutions"><span class="header-section-number">1.4</span> Resolutions</a>
   <ul class="collapse">
   <li><a href="#spectral-resolution" id="toc-spectral-resolution" class="nav-link" data-scroll-target="#spectral-resolution"><span class="header-section-number">1.4.1</span> Spectral Resolution</a></li>
+  <li><a href="#other-resolutions" id="toc-other-resolutions" class="nav-link" data-scroll-target="#other-resolutions"><span class="header-section-number">1.4.2</span> Other Resolutions</a></li>
   </ul></li>
   <li><a href="#landsat-vs-sentinel" id="toc-landsat-vs-sentinel" class="nav-link" data-scroll-target="#landsat-vs-sentinel"><span class="header-section-number">1.5</span> LandSat vs sentinel</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.6</span> References</a></li>
@@ -168,7 +169,6 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="active-vs-passive-sensors" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="active-vs-passive-sensors"><span class="header-section-number">1.2</span> Active vs passive sensors</h2>
-<p><img src="images/active_passive.jpg" class="img-fluid"></p>
 <p><strong>Passive sensors</strong> rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.</p>
 <p><strong>Active sensors</strong> emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to ‘pass through’ atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).</p>
 </section>
@@ -181,10 +181,29 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="resolutions" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="resolutions"><span class="header-section-number">1.4</span> Resolutions</h2>
+<p>The characteristics of remote sensors will determine the level of accuracy and detail of the information about the Earth’s surface.</p>
 <section id="spectral-resolution" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="spectral-resolution"><span class="header-section-number">1.4.1</span> Spectral Resolution</h3>
-<iframe width="560" height="315" src="https://youtu.be/onMzjMi5Md0?si=QdEkZaB5jfoh3SxH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
+<p>Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.</p>
+<p>Sometimes there are large gaps of wavelength ranges in the EMS in which no information is collected, and this is because the atmosphere does not allow certain wavelengths to pass. Thus, bands are often limited to atmospheric windows where wavelengths can penetrate.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/spectral_resolution.png" class="img-fluid figure-img"></p>
+<figcaption>Spectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.</figcaption>
+</figure>
+</div>
+<section id="what-happens-next" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="what-happens-next">What happens next?</h4>
+<p>Looking more closely at the Landsat 1 (MSS) satellite…</p>
+<p>The information captured by each of the four spectral bands are stored as a greyscale image, which shows the reflection intensity of the Earth’s surface within each band. By combining the refletance information from each band, and then comparing this with spectral signatures, we can distinguish features of the Earth’s surface.</p>
+<p><img src="images/clipboard-3618918105.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="other-resolutions" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="other-resolutions"><span class="header-section-number">1.4.2</span> Other Resolutions</h3>
+<p><strong>Spatial</strong> = The size of the raster grid per pixel, from 10cm to several kilometers.</p>
+<p><strong>Temporal</strong> = The time between revisits of information collection for a given location.</p>
+<p><strong>Radiometric</strong> = The ability of a sensor to identify and show small differences in energy.</p>
 </section>
 </section>
 <section id="landsat-vs-sentinel" class="level2" data-number="1.5">

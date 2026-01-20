@@ -6,8 +6,6 @@ Put simply, remote sensing is a method of acquiring information from a distance 
 
 ## Active vs passive sensors
 
-![](images/active_passive.jpg)
-
 **Passive sensors** rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.
 
 **Active sensors** emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to 'pass through' atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).
@@ -24,11 +22,31 @@ Humans are able to see in the visible part of the electromagnetic spectrum (wave
 
 ## Resolutions
 
+The characteristics of remote sensors will determine the level of accuracy and detail of the information about the Earth's surface.
+
 ### Spectral Resolution
 
-<iframe width="560" height="315" src="https://youtu.be/onMzjMi5Md0?si=QdEkZaB5jfoh3SxH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.
 
-</iframe>
+Sometimes there are large gaps of wavelength ranges in the EMS in which no information is collected, and this is because the atmosphere does not allow certain wavelengths to pass. Thus, bands are often limited to atmospheric windows where wavelengths can penetrate.
+
+![Spectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.](images/spectral_resolution.png)
+
+#### What happens next? {.unnumbered}
+
+Looking more closely at the Landsat 1 (MSS) satellite...
+
+The information captured by each of the four spectral bands are stored as a greyscale image, which shows the reflection intensity of the Earth's surface within each band. By combining the refletance information from each band, and then comparing this with spectral signatures, we can distinguish features of the Earth's surface.
+
+![](images/clipboard-3618918105.png)
+
+### Other Resolutions
+
+**Spatial** = The size of the raster grid per pixel, from 10cm to several kilometers.
+
+**Temporal** = The time between revisits of information collection for a given location.
+
+**Radiometric** = The ability of a sensor to identify and show small differences in energy.
 
 ## LandSat vs sentinel
 
