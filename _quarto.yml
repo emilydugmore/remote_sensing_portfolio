@@ -8,8 +8,7 @@ book:
   date: "1/20/2026"
   chapters:
     - index.qmd
-    - Introduction.qmd
-    - Introduction to Remote Sensing.qmd
+    - 1_RS_intro.qmd
 bibliography: references.bib
 
 format:

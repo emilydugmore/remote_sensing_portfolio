@@ -1,0 +1,45 @@
+# Introduction to Remote Sensing
+
+## What is remote sensing?
+
+Put simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).
+
+## Active vs passive sensors
+
+![](images/active_passive.jpg)
+
+**Passive sensors** rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.
+
+**Active sensors** emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to 'pass through' atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).
+
+## Spectral Signatures
+
+Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.
+
+![](images/spectral_sig.png)
+
+Humans are able to see in the visible part of the electromagnetic spectrum (wavelengths of 380 to 700nm). If we take a closer look into these wavelengths, we see a higher reflectance of healthy vegetation within the green wavelengths in comparison to blue and red, which aligns with healthy vegetation having a green colour.
+
+![](images/spectral_sig_plants.png)
+
+## Resolutions
+
+### Spectral Resolution
+
+<iframe width="560" height="315" src="https://www.google.com/search?sca_esv=fb6ec2c420ab31bb&sxsrf=ANbL-n5FVICoVadNNgZsYU7z1RkA6nZHWA:1768924113466&udm=7&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTXz9awvmwbLijfri5gfg3jJCJPQ0h4oA7srHripsC9qMhOaJO871LC9_g9gX8FjjC7ekFA-JcM8c97MVUb58RvaiROWi51HnHbW0hgw_2HK1uGF_twIxfrxe0bNm-yzBLmc49mW9vJ8RIFjdoGJluKY4Kj_k2GBmZaQPfvqOnrnukjBXDvw&q=spectral+resolution+explanation&sa=X&ved=2ahUKEwi-vqvru5qSAxWeV0EAHefFJqsQtKgLegQIFxAB&biw=1445&bih=730&dpr=1.25&aic=0#fpstate=ive&vld=cid:2e257f0d,vid:onMzjMi5Md0,st:0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## LandSat vs sentinel
+
+kjhdwudwhdo
+
+Reflection
+
+-   snapshot of the real world, but sensors can also be used to track movements
+
+## References
+
+<https://www.nv5geospatialsoftware.com/What-is-Remote-Sensing>
+
+spectral signature image = <https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407>

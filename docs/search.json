@@ -2,21 +2,21 @@
   {
     "objectID": "Introduction.html",
     "href": "Introduction.html",
-    "title": "Preface",
+    "title": "Introduction",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2\n\n\nIntroduction section\nAbout me\netc\netc",
+    "text": "Introduction to myself",
     "crumbs": [
-      "Preface"
+      "Introduction"
     ]
   },
   {
     "objectID": "Introduction to Remote Sensing.html",
     "href": "Introduction to Remote Sensing.html",
-    "title": "1  Introduction",
+    "title": "1  Introduction to Remote XXX",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "1.1 Remote sensing\niuhdewiudehd",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote XXX</span>"
     ]
   },
   {
@@ -26,7 +26,77 @@
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
-      "Preface"
+      "About"
+    ]
+  },
+  {
+    "objectID": "Introduction to Remote Sensing.html#landsat-vs-sentinel",
+    "href": "Introduction to Remote Sensing.html#landsat-vs-sentinel",
+    "title": "1  Introduction to Remote XXX",
+    "section": "1.2 LandSat vs sentinel",
+    "text": "1.2 LandSat vs sentinel\nkjhdwudwhdo",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote XXX</span>"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html",
+    "href": "1_RS_intro.html",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "",
+    "text": "1.1 What is remote sensing?\nPut simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#landsat-vs-sentinel",
+    "href": "1_RS_intro.html#landsat-vs-sentinel",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "1.5 LandSat vs sentinel",
+    "text": "1.5 LandSat vs sentinel\nkjhdwudwhdo\nReflection\n\nsnapshot of the real world, but sensors can also be used to track movements",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#active-vs-passive-sensors",
+    "href": "1_RS_intro.html#active-vs-passive-sensors",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "1.2 Active vs passive sensors",
+    "text": "1.2 Active vs passive sensors\n\nPassive sensors rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.\nActive sensors emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to ‘pass through’ atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#resolutions",
+    "href": "1_RS_intro.html#resolutions",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "1.4 Resolutions",
+    "text": "1.4 Resolutions\n\n1.4.1 Spectral Resolution",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#references",
+    "href": "1_RS_intro.html#references",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "1.6 References",
+    "text": "1.6 References\nhttps://www.nv5geospatialsoftware.com/What-is-Remote-Sensing\nspectral signature image = https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#spectral-signatures",
+    "href": "1_RS_intro.html#spectral-signatures",
+    "title": "1  Introduction to Remote Sensing",
+    "section": "1.3 Spectral Signatures",
+    "text": "1.3 Spectral Signatures\nSpectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.\n\nHumans are able to see in the visible part of the electromagnetic spectrum (wavelengths of 380 to 700nm). If we take a closer look into these wavelengths, we see a higher reflectance of healthy vegetation within the green wavelengths in comparison to blue and red, which aligns with healthy vegetation having a green colour.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Remote Sensing</span>"
     ]
   }
 ]
