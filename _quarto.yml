@@ -1,0 +1,24 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "rs_portfolio_proj"
+  author: "Norah Jones"
+  date: "1/20/2026"
+  chapters:
+    - index.qmd
+    - Introduction.qmd
+    - Introduction to Remote Sensing.qmd
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
