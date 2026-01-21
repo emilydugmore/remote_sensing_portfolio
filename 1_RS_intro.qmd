@@ -1,30 +1,26 @@
-# Introduction to Remote Sensing
+# Introduction to Remote Sensing {.unnumbered}
 
 ## What is remote sensing?
 
 Put simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).
 
-## Active vs passive sensors
+### Active vs passive sensors
 
 **Passive sensors** rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.
 
 **Active sensors** emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to 'pass through' atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).
 
-## Spectral Signatures
+### Spectral Signatures
 
 Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.
 
 ![](images/spectral_sig.png)
 
-Humans are able to see in the visible part of the electromagnetic spectrum (wavelengths of 380 to 700nm). If we take a closer look into these wavelengths, we see a higher reflectance of healthy vegetation within the green wavelengths in comparison to blue and red, which aligns with healthy vegetation having a green colour.
-
-![](images/spectral_sig_plants.png)
-
-## Resolutions
+### Resolutions
 
 The characteristics of remote sensors will determine the level of accuracy and detail of the information about the Earth's surface.
 
-### Spectral Resolution
+#### Spectral Resolution
 
 Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.
 
@@ -32,7 +28,7 @@ Sometimes there are large gaps of wavelength ranges in the EMS in which no infor
 
 ![Spectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.](images/spectral_resolution.png)
 
-#### What happens next? {.unnumbered}
+##### What happens next? {.unnumbered}
 
 Looking more closely at the Landsat 1 (MSS) satellite...
 
@@ -40,7 +36,7 @@ The information captured by each of the four spectral bands are stored as a grey
 
 ![](images/clipboard-3618918105.png)
 
-### Other Resolutions
+#### Other Resolutions
 
 **Spatial** = The size of the raster grid per pixel, from 10cm to several kilometers.
 
@@ -48,7 +44,25 @@ The information captured by each of the four spectral bands are stored as a grey
 
 **Radiometric** = The ability of a sensor to identify and show small differences in energy.
 
-## LandSat vs sentinel
+\*\*\* Something about balancing / trade offs \*\*\*
+
+### Colour composites
+
+![](https://vtesniere.github.io/CASA0023_book/Week_1/Sentinel_Images/Comparison-of-spectral-bands-between-Sentinel-2-and-Landsat-8-overlapping-response-with.pbm)
+
+Colour composites are images created by assigning different spectral bands to the red, green, and blue (RGB) display bands within our software, and are used to highlight specific features that are often not visible to the human eye.
+
+**True colour composites** (B4, B3, B2 for Sentinel-2) display the Earth as we would see it with our eyes.
+
+**False colour composites** use non-visible bands in the near-infrared range alongside red and green (B8, B4, B3 for Sentinel-2) to provide information particularly useful for vegetation analysis. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (see **spectral signatures** for a reminder of this).
+
+**Atmospheric penetration composites** (B12, B11, B8A for Sentinel-2) have no visible bands so that the image penetrate atmospheric particles and reduces the effect of atmospheric scattering. The resulting image from this composite shows vegetation as blue and urban areas as white/grey or cyan/purple.
+
+### Sentinel 2
+
+Many problems were met with loading data on the Sentinel Application Platform (SNAP). Usually, the software can be used for basic raster image processing and analysis.
+
+### LandSat vs sentinel
 
 kjhdwudwhdo
 
