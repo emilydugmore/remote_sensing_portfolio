@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Norah Jones">
+<meta name="dcterms.date" content="2026-01-20">
 
-<title>Introduction to Remote Sensing – rs_portfolio_proj</title>
+<title>rs_portfolio_proj</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./index.html" rel="prev">
+<link href="./1_RS_intro.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -81,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_RS_intro.html">Introduction to Remote Sensing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,13 +110,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_RS_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./1_RS_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Remote Sensing</span></a>
   </div>
 </li>
@@ -128,19 +130,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-remote-sensing" id="toc-what-is-remote-sensing" class="nav-link active" data-scroll-target="#what-is-remote-sensing">What is remote sensing?</a>
-  <ul class="collapse">
-  <li><a href="#active-vs-passive-sensors" id="toc-active-vs-passive-sensors" class="nav-link" data-scroll-target="#active-vs-passive-sensors">Active vs passive sensors</a></li>
-  <li><a href="#spectral-signatures" id="toc-spectral-signatures" class="nav-link" data-scroll-target="#spectral-signatures">Spectral Signatures</a></li>
-  <li><a href="#resolutions" id="toc-resolutions" class="nav-link" data-scroll-target="#resolutions">Resolutions</a></li>
-  <li><a href="#colour-composites" id="toc-colour-composites" class="nav-link" data-scroll-target="#colour-composites">Colour composites</a></li>
-  </ul></li>
-  <li><a href="#landsat-sentinel-applications" id="toc-landsat-sentinel-applications" class="nav-link" data-scroll-target="#landsat-sentinel-applications">LandSat &amp; Sentinel Applications</a>
-  <ul class="collapse">
-  <li><a href="#sentinel-2-vs-landsat-8" id="toc-sentinel-2-vs-landsat-8" class="nav-link" data-scroll-target="#sentinel-2-vs-landsat-8">Sentinel-2 vs LandSat 8</a></li>
-  </ul></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   </ul>
 </nav>
     </div>
@@ -149,14 +139,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Remote Sensing</h1>
+<h1 class="title">rs_portfolio_proj</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Norah Jones </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 20, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -166,157 +168,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-is-remote-sensing" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-remote-sensing">What is remote sensing?</h2>
-<p>Put simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).</p>
-<section id="active-vs-passive-sensors" class="level3">
-<h3 class="anchored" data-anchor-id="active-vs-passive-sensors">Active vs passive sensors</h3>
-<p><strong>Passive sensors</strong> rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.</p>
-<p><strong>Active sensors</strong> emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to ‘pass through’ atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).</p>
-</section>
-<section id="spectral-signatures" class="level3">
-<h3 class="anchored" data-anchor-id="spectral-signatures">Spectral Signatures</h3>
-<p>Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.</p>
-<p><img src="images/spectral_sig.png" class="img-fluid"></p>
-<p>An important feature in the spectral signature is the <strong>red edge</strong> - a sharp increase in reflectance around 700 nm in vegetation’s spectral signature, which indicates chlorophyll content and plant health.</p>
-</section>
-<section id="resolutions" class="level3">
-<h3 class="anchored" data-anchor-id="resolutions">Resolutions</h3>
-<p>The characteristics of remote sensors will determine the level of accuracy and detail of the information about the Earth’s surface.</p>
-<section id="spectral-resolution" class="level4">
-<h4 class="anchored" data-anchor-id="spectral-resolution">Spectral Resolution</h4>
-<p>Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.</p>
-<p>Sometimes there are large gaps of wavelength ranges in the EMS in which no information is collected, and this is because the atmosphere does not allow certain wavelengths to pass. Thus, bands are often limited to atmospheric windows where wavelengths can penetrate.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/spectral_resolution.png" class="img-fluid figure-img"></p>
-<figcaption>Spectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.</figcaption>
-</figure>
-</div>
-<section id="what-happens-next" class="level5 unnumbered">
-<h5 class="unnumbered anchored" data-anchor-id="what-happens-next">What happens next?</h5>
-<p>Looking more closely at the Landsat 1 (MSS) satellite…</p>
-<p>The information captured by each of the four spectral bands are stored as a greyscale image, which shows the reflection intensity of the Earth’s surface within each band. By combining the refletance information from each band, and then comparing this with spectral signatures, we can distinguish features of the Earth’s surface.</p>
-<p><img src="images/clipboard-3618918105.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="other-resolutions" class="level4">
-<h4 class="anchored" data-anchor-id="other-resolutions">Other Resolutions</h4>
-<p><strong>Spatial</strong> = The size of the raster grid per pixel, from 10cm to several kilometers.</p>
-<p><strong>Temporal</strong> = The time between revisits of information collection for a given location.</p>
-<p><strong>Radiometric</strong> = The ability of a sensor to identify and show small differences in energy.</p>
-<p>*** Something about balancing / trade offs ***</p>
-</section>
-</section>
-<section id="colour-composites" class="level3">
-<h3 class="anchored" data-anchor-id="colour-composites">Colour composites</h3>
-<p>Colour composites are images created by assigning different spectral bands to the red, green, and blue (RGB) display bands, and are used to highlight specific features that are often not visible to the human eye.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vtesniere.github.io/CASA0023_book/Week_1/Sentinel_Images/Comparison-of-spectral-bands-between-Sentinel-2-and-Landsat-8-overlapping-response-with.pbm" class="img-fluid figure-img"></p>
-<figcaption>Comparison of the spectral resolutions of Landsat 7 &amp; 8 with Sentinel-2</figcaption>
-</figure>
-</div>
-<p><strong>True colour composites</strong> (B4, B3, B2 for Sentinel-2) display the Earth as we would see it with our eyes.</p>
-<p><strong>False colour composites</strong> use non-visible bands in the near-infrared range alongside red and green (B8, B4, B3 for Sentinel-2) to provide information particularly useful for vegetation analysis. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (see <strong>spectral signatures</strong> for a reminder of this).</p>
-<p>Expanding on this a bit more, we can make scatterplots (called a spectral feature space) of two bands against one another to see how much of our study area is covered by different features (in this case, dense vs sparse vegetation and dry vs wet soil).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-913266028.png" class="img-fluid figure-img"></p>
-<figcaption>Source: Remote Sensing 4113</figcaption>
-</figure>
-</div>
-<p><strong>Atmospheric penetration composites</strong> (B12, B11, B8A for Sentinel-2) have no visible bands so that the image penetrate atmospheric particles and reduces the effect of atmospheric scattering. The resulting image from this composite shows vegetation as blue and urban areas as white/grey or cyan/purple.</p>
-<p><img src="https://ltb.itc.utwente.nl/uploads/studyarea/498/Pics_2015_jpg/Fig5_6.jpg" class="img-fluid"></p>
-<section id="tasseled-cap-function" class="level4">
-<h4 class="anchored" data-anchor-id="tasseled-cap-function">Tasseled Cap function</h4>
-<p>Although this isn’t a true colour composite, and rather acts more as a spectral index, it’s interpretation is somewhat similar.</p>
-<p>The tasseled cap function is a spectral transformation that combines multiple spectral bands into three new composite layers - brightness, greenness, and wetness (which are assigned to the red, green and blue bands, respectively). The resulting image is a representation of different land cover types (red = urban structures, green = vegetation, blue = water/moisture).</p>
-<p><img src="images/clipboard-409740593.png" class="img-fluid"></p>
-</section>
-</section>
-</section>
-<section id="landsat-sentinel-applications" class="level2">
-<h2 class="anchored" data-anchor-id="landsat-sentinel-applications">LandSat &amp; Sentinel Applications</h2>
-<p>CASA’s very own Ollie Ballinger used satellite images (with the help of complex AI software) from <em>Copernicus’ Sentinel Hub</em> to identify and track US Navy vessels operating with disabled transponders in the Caribbean. His findings appeared in a <em>New York Times</em> article, revealing a larger, more consistent presence of US Navy ships in the region than officials had admitted. The research ultimately pre-empted Operation Absolute Resolve in January 2026 - the large-scale US military strike that led to the capture of Venezuelan President Nicolás Maduro.</p>
-<p><img src="images/clipboard-1079227062.png" class="img-fluid"></p>
-<p>A bit more up my area of expertise (coming from background of ecology and conservation biology), is a study (<a href="https://www.mdpi.com/2072-4292/16/5/798" class="uri">https://www.mdpi.com/2072-4292/16/5/798</a>) which usedsatellite imagery from Landsat 5 TM and Landsat 8 OLI to map and monitor the spread of the invasive plant <em>Dichrostachys cinerea</em> (marabú) in central Cuba over nearly three decades.</p>
-<p>Something I thought was particularly interesting about this study is that it went beyond simply mapping the extent of invasive spread, by also quantifying the impact that its presence had on specific land covers. This is an important aspect of invasive species studies (and I think one which is often skipped), and shows that remote sensing can be used to inform management strategies and detect areas of priority.</p>
-<section id="sentinel-2-vs-landsat-8" class="level3">
-<h3 class="anchored" data-anchor-id="sentinel-2-vs-landsat-8">Sentinel-2 vs LandSat 8</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Landsat 8</th>
-<th>Sentinel-2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Satellite Constellation</strong></td>
-<td>Single satellite</td>
-<td>2 satellites (2A &amp; 2B)</td>
-</tr>
-<tr class="even">
-<td><strong>Spatial Resolution</strong></td>
-<td>30 m</td>
-<td>10 m, 20 m, 60 m depending on band</td>
-</tr>
-<tr class="odd">
-<td><strong>Panchromatic Band</strong></td>
-<td>15 m</td>
-<td>None</td>
-</tr>
-<tr class="even">
-<td><strong>Thermal Band</strong></td>
-<td>Yes, 100 m (resampled to 30 m)</td>
-<td>No</td>
-</tr>
-<tr class="odd">
-<td><strong>Red Edge Bands</strong></td>
-<td>No</td>
-<td>3 bands (705, 740, 783 nm)*</td>
-</tr>
-<tr class="even">
-<td><strong>Number of Bands</strong></td>
-<td>11</td>
-<td>13</td>
-</tr>
-<tr class="odd">
-<td><strong>Revisit Time</strong></td>
-<td>16 days</td>
-<td>5 days</td>
-</tr>
-<tr class="even">
-<td><strong>Key Applications</strong></td>
-<td>Land use/land cover mapping, thermal monitoring, water temperature, urban heat studies</td>
-<td>Agriculture, forestry, water quality, vegetation health, disaster monitoring</td>
-</tr>
-</tbody>
-</table>
-<p>* More bands within the red edge is useful for vegetation application due to the red edge!</p>
-<p>This is a sentence with a <span title="This is the hover note!">hover note</span>.</p>
-</section>
-</section>
-<section id="reflection" class="level2">
-<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>Academically, my use of remotely sensed imagery has been limited to using true colour composites as a means of contextualizing a study area and setting the scene in the form of basemaps. Personally, I use Google Earth extensively to look for different hiking routes and places that look interesting when I am travelling.</p>
-<p>This is the first time that I am going deeper than that. Even just from the first week it feels like I have learned to much about how remote sensors collect information, downloading the data and manipulating it to suite the needs of different applications.</p>
-<p>Something that stood out for me was colour composites and spectral indexes. In my previous degree, Normalised Difference Vegetation Index (NDVI) was spoken about a lot as a proxy for vegetation health. Finally understanding how this is calculated using remote sensors (and distinct properties of the spectral signatures of vegetation) is really satisfying!</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><a href="https://www.nv5geospatialsoftware.com/What-is-Remote-Sensing" class="uri">https://www.nv5geospatialsoftware.com/What-is-Remote-Sensing</a></p>
-<p>spectral signature image = <a href="https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407" class="uri">https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407</a></p>
-<p><a href="https://www.instagram.com/p/DTRSx-6kbXO/" class="uri">https://www.instagram.com/p/DTRSx-6kbXO/</a></p>
-<p>chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://geofaculty.uwyo.edu/rhowell/classes/remote_sensing/labs/lab_11_2018_alternate_vegetation.pdf</p>
-<p><a href="https://ltb.itc.utwente.nl/498/concept/81525" class="uri">https://ltb.itc.utwente.nl/498/concept/81525</a></p>
+<section id="about" class="level1 unnumbered">
+<h1 class="unnumbered">About</h1>
+<p>Introduction to myself blah blah blah</p>
 
 
 </section>
@@ -723,11 +577,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="About">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./1_RS_intro.html" class="pagination-link" aria-label="Introduction to Remote Sensing">
+        <span class="nav-page-text">Introduction to Remote Sensing</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

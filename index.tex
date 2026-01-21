@@ -235,6 +235,11 @@ it interacts with electromagnetic radiation.
 
 \pandocbounded{\includegraphics[keepaspectratio]{images/spectral_sig.png}}
 
+An important feature in the spectral signature is the \textbf{red edge}
+- a sharp increase in reflectance around 700\,nm in vegetation's
+spectral signature, which indicates chlorophyll content and plant
+health.
+
 \subsection*{Resolutions}\label{resolutions}
 \addcontentsline{toc}{subsection}{Resolutions}
 
@@ -299,12 +304,20 @@ small differences in energy.
 \subsection*{Colour composites}\label{colour-composites}
 \addcontentsline{toc}{subsection}{Colour composites}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/mediabag/Comparison-of-spectr.pbm}}
-
 Colour composites are images created by assigning different spectral
-bands to the red, green, and blue (RGB) display bands within our
-software, and are used to highlight specific features that are often not
-visible to the human eye.
+bands to the red, green, and blue (RGB) display bands, and are used to
+highlight specific features that are often not visible to the human eye.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{index_files/mediabag/Comparison-of-spectr.pbm}}
+
+}
+
+\caption{Comparison of the spectral resolutions of Landsat 7 \& 8 with
+Sentinel-2}
+
+\end{figure}%
 
 \textbf{True colour composites} (B4, B3, B2 for Sentinel-2) display the
 Earth as we would see it with our eyes.
@@ -316,32 +329,135 @@ choice of these three bands has to do with plants reflecting
 near-infrared and green light while absorbing red light (see
 \textbf{spectral signatures} for a reminder of this).
 
+Expanding on this a bit more, we can make scatterplots (called a
+spectral feature space) of two bands against one another to see how much
+of our study area is covered by different features (in this case, dense
+vs sparse vegetation and dry vs wet soil).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-913266028.png}}
+
+}
+
+\caption{Source: Remote Sensing 4113}
+
+\end{figure}%
+
 \textbf{Atmospheric penetration composites} (B12, B11, B8A for
 Sentinel-2) have no visible bands so that the image penetrate
 atmospheric particles and reduces the effect of atmospheric scattering.
 The resulting image from this composite shows vegetation as blue and
 urban areas as white/grey or cyan/purple.
 
-\subsection*{Sentinel 2}\label{sentinel-2}
-\addcontentsline{toc}{subsection}{Sentinel 2}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/mediabag/Fig5_6.jpg}}
 
-Many problems were met with loading data on the Sentinel Application
-Platform (SNAP). Usually, the software can be used for basic raster
-image processing and analysis.
+\subsubsection*{Tasseled Cap function}\label{tasseled-cap-function}
+\addcontentsline{toc}{subsubsection}{Tasseled Cap function}
 
-\subsection*{LandSat vs sentinel}\label{landsat-vs-sentinel}
-\addcontentsline{toc}{subsection}{LandSat vs sentinel}
+Although this isn't a true colour composite, and rather acts more as a
+spectral index, it's interpretation is somewhat similar.
 
-kjhdwudwhdo
+The tasseled cap function is a spectral transformation that combines
+multiple spectral bands into three new composite layers - brightness,
+greenness, and wetness (which are assigned to the red, green and blue
+bands, respectively). The resulting image is a representation of
+different land cover types (red = urban structures, green = vegetation,
+blue = water/moisture).
 
-Reflection
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-409740593.png}}
 
-\begin{itemize}
-\tightlist
-\item
-  snapshot of the real world, but sensors can also be used to track
-  movements
-\end{itemize}
+\section*{LandSat \& Sentinel
+Applications}\label{landsat-sentinel-applications}
+\addcontentsline{toc}{section}{LandSat \& Sentinel Applications}
+
+\markright{LandSat \& Sentinel Applications}
+
+CASA's very own Ollie Ballinger used satellite images (with the help of
+complex AI software) from \emph{Copernicus' Sentinel Hub} to identify
+and track US Navy vessels operating with disabled transponders in the
+Caribbean. His findings appeared in a \emph{New York Times} article,
+revealing a larger, more consistent presence of US Navy ships in the
+region than officials had admitted. The research ultimately pre-empted
+Operation Absolute Resolve in January 2026 - the large-scale US military
+strike that led to the capture of Venezuelan President Nicolás Maduro.
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-1079227062.png}}
+
+A bit more up my area of expertise (coming from background of ecology
+and conservation biology), is a study
+(\url{https://www.mdpi.com/2072-4292/16/5/798}) which usedsatellite
+imagery from Landsat 5 TM and Landsat 8 OLI to map and monitor the
+spread of the invasive plant \emph{Dichrostachys cinerea} (marabú) in
+central Cuba over nearly three decades.
+
+Something I thought was particularly interesting about this study is
+that it went beyond simply mapping the extent of invasive spread, by
+also quantifying the impact that its presence had on specific land
+covers. This is an important aspect of invasive species studies (and I
+think one which is often skipped), and shows that remote sensing can be
+used to inform management strategies and detect areas of priority.
+
+\subsection*{Sentinel-2 vs LandSat 8}\label{sentinel-2-vs-landsat-8}
+\addcontentsline{toc}{subsection}{Sentinel-2 vs LandSat 8}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2877}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3425}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3699}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Feature
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Landsat 8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sentinel-2
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Satellite Constellation} & Single satellite & 2 satellites (2A
+\& 2B) \\
+\textbf{Spatial Resolution} & 30 m & 10 m, 20 m, 60 m depending on
+band \\
+\textbf{Panchromatic Band} & 15 m & None \\
+\textbf{Thermal Band} & Yes, 100 m (resampled to 30 m) & No \\
+\textbf{Red Edge Bands} & No & 3 bands (705, 740, 783 nm)* \\
+\textbf{Number of Bands} & 11 & 13 \\
+\textbf{Revisit Time} & 16 days & 5 days \\
+\textbf{Key Applications} & Land use/land cover mapping, thermal
+monitoring, water temperature, urban heat studies & Agriculture,
+forestry, water quality, vegetation health, disaster monitoring \\
+\end{longtable}
+
+* More bands within the red edge is useful for vegetation application
+due to the red edge!
+
+This is a sentence with a {hover note}.
+
+\section*{Reflection}\label{reflection}
+\addcontentsline{toc}{section}{Reflection}
+
+\markright{Reflection}
+
+Academically, my use of remotely sensed imagery has been limited to
+using true colour composites as a means of contextualizing a study area
+and setting the scene in the form of basemaps. Personally, I use Google
+Earth extensively to look for different hiking routes and places that
+look interesting when I am travelling.
+
+This is the first time that I am going deeper than that. Even just from
+the first week it feels like I have learned to much about how remote
+sensors collect information, downloading the data and manipulating it to
+suite the needs of different applications.
+
+Something that stood out for me was colour composites and spectral
+indexes. In my previous degree, Normalised Difference Vegetation Index
+(NDVI) was spoken about a lot as a proxy for vegetation health. Finally
+understanding how this is calculated using remote sensors (and distinct
+properties of the spectral signatures of vegetation) is really
+satisfying!
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -352,6 +468,12 @@ Reflection
 
 spectral signature image =
 \url{https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407}
+
+\url{https://www.instagram.com/p/DTRSx-6kbXO/}
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://geofaculty.uwyo.edu/rhowell/classes/remote\_sensing/labs/lab\_11\_2018\_alternate\_vegetation.pdf
+
+\url{https://ltb.itc.utwente.nl/498/concept/81525}
 
 
 
