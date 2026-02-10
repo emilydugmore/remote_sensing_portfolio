@@ -84,10 +84,12 @@ A bit more up my area of expertise (coming from background of ecology and conser
 
 Something I thought was particularly interesting about this study is that it went beyond simply mapping the extent of invasive spread, by also quantifying the impact that its presence had on specific land covers. This is an important aspect of invasive species studies (and I think one which is often skipped), and shows that remote sensing can be used to inform management strategies and detect areas of priority.
 
+![](images/clipboard-2590207954.png)
+
 ### Sentinel-2 vs LandSat 8
 
 | Feature | Landsat 8 | Sentinel-2 |
-|---------------------|-------------------------|---------------------------|
+|----|----|----|
 | **Satellite Constellation** | Single satellite | 2 satellites (2A & 2B) |
 | **Spatial Resolution** | 30 m | 10 m, 20 m, 60 m depending on band |
 | **Panchromatic Band** | 15 m | None |
