@@ -2,4 +2,104 @@
 title: "4_policy"
 ---
 
-# RS in policy applications
+# Applying RS to a Climate Policy in South Africa
+
+**Following the practical and subsequent discussion** write up your case study city
+
+The case study will be marked in the same manner set out in mark scheme for the learning diary. Specifically:
+
+-   The summary criterion will refer to the summary of the policy and city you have selected.
+
+-   The application criterion will refer to how the remotely sensed data you sourced could be used to assist with contributing to the policy goal. How could the data be applied to solve the policy challenge.
+
+-   The reflection criterion will refer to what you have learnt in relation to the policy, city and the application of the data.
+
+Should you struggle to find current approaches within your city explore other cities discussed within the practical.
+
+## The Climate Change Act and 
+
+South Africa's informal settlement landscape is extremely complex, and is largely a byproduct of historical spatial inclusion, rapid urbanization and severe shortage of affordable formal housing. Land on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country's metro cities (like Durban and Johannesburg), these areas which are 'unsuitable' for formal development often end up being occupied by poorer communities as a means of accessing the nearby urban economies. In addition, complete lack of municipal infrastructure in informal settlements can drive people closer to rivers for sanitation and domestic use (washing clothes and cleaning).
+
+[![Jukskei River flood in Alexandra Township (one of the largest townships in SA).](https://groundup.org.za/media/uploads/images/photographers/Ihsaan%20Haffejee/JHBFlood-20161110/FLOODING%20DAMAGE%20ALEX%20IH%204.jpg)](https://groundup.org.za/article/floods-bring-hardship-and-loss-johannesburg-immigrant-community/)
+
+The **Climate Change Act (2024)** is a national act specifically mandating that provinces and municipalities "must identify and spatially map, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, risks, vulnerabilities, areas, ecosystems and communities that will arise, or that are vulnerable to the impacts of climate change".
+
+The phrasing of this mandate is pretty typical of South African governance, which is notoriously vague with how acts should be implemented and who is going to implement them, ultimately allowing different levels of government to pass the responsibility to someone else.
+
+The **White Paper for Human Settlements (2025)** policy document also
+
+states that "government will endeavour to integrate climate resilience and sustainable development approaches into the planning, design, construction, and operation of human settlements in an effort to avoid the devastating impacts of climate change", specifically mentioning the integration of "innovative systems" and "new technologies".
+
+#### **1. The "Marginal Land" Logic**
+
+In the competitive urban land market, the only "free" or unoccupied land is often land that is deemed **unsuitable for formal development**. Since formal developers cannot build on floodplains or steep riverbanks due to insurance and safety regulations, these "buffer zones" remain vacant. For a person arriving in a city with no capital, this "unwanted" land is the only accessible space where they can erect a structure without immediate eviction.
+
+South Africa's informal settlement landscape is extremely complex, and is largely a byproduct of historical spatial inclusion, rapid urbanization and severe shortage of affordable formal housing. Land like that on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country's metro cities (like Durban and Johannesburg), these areas which are 'unsuitable' for formal development often end up being occupied by poorer communities as a means of accessing the nearby urban economies.
+
+## **1. Introduction and Policy Context**
+
+South Africa faces a dual crisis: a legacy of "sprawling, mono-functional" urban design and an accelerating climate emergency. As informal settlements expand—often into "environmentally precarious" land near riverbanks—the risk to human life from extreme weather events has transitioned from a theoretical threat to a frequent reality. This assignment discusses how Remote Sensing (RS) can serve as the primary implementation tool for two landmark policies: the **Climate Change Act (No. 22 of 2024)** and the **White Paper for Human Settlements (2025)**.
+
+### **The Policy Mandates**
+
+-   **The Climate Change Act (2024):** Specifically mandates that provincial and metropolitan municipalities must **"identify and spatially map... risks, vulnerabilities, areas, ecosystems and communities"** vulnerable to climate impacts.
+
+-   **The White Paper for Human Settlements (2025):** Recognizes that settlements characterized by poverty and "underdevelopment" are the most vulnerable. It calls for the integration of **"innovative systems"** and **"new technologies"** to transition toward climate-resilient society.
+
+The "implementation gap" exists because while the law *mandates* mapping, traditional ground-based survey methods are too slow to keep pace with informal urban growth. RS provides the only viable path to fulfill these legal requirements in real-time.
+
+------------------------------------------------------------------------
+
+## **2. Proposed Remote Sensing Methodology**
+
+To satisfy the requirements of Section 4.5 of the White Paper and the mapping mandate of the Climate Change Act, a multi-sensor RS approach is required.
+
+### **A. Identifying At-Risk Communities (Optical Change Detection)**
+
+To "spatially map" vulnerable communities as required by the Act, we must first identify them. Informal settlements in South Africa are often missed by traditional land-use maps.
+
+-   **Sensor:** Sentinel-2 (MSI) or high-resolution PlanetScope.
+
+-   **Index:** **Normalized Difference Built-up Index (NDBI)**.
+
+    \$\$NDBI = \\frac{SWIR - NIR}{SWIR + NIR}\$\$
+
+-   **Application:** By applying NDBI to a time-series of images, we can detect the "unmanaged expansion" mentioned in the White Paper. A "pixel-shifting" algorithm can flag when new structures appear in "unsuitable areas" (river buffers).
+
+### **B. Flood Vulnerability Mapping (SAR & DEM)**
+
+The White Paper highlights "severe storms and floods" as a critical risk. However, optical satellites cannot see through the cloud cover of a storm.
+
+-   **Sensor:** **Sentinel-1 (Synthetic Aperture Radar - SAR)**.
+
+-   **Method:** SAR backscatter analysis. Water surfaces act as specular reflectors, appearing as "dark" pixels. By comparing a pre-flood "baseline" with an "active-flood" image, the exact footprint of vulnerability is revealed.
+
+-   **Terrain Analysis:** Using a **Digital Elevation Model (DEM)** like the **Copernicus 30m**, we can calculate the **Topographic Wetness Index (TWI)** to predict where water will naturally pool, regardless of whether a storm is currently occurring.
+
+------------------------------------------------------------------------
+
+## **3. Discussion: From Data to Policy Implementation**
+
+The integration of RS data transforms these policies from static documents into dynamic "Response Strategies."
+
+### **Addressing the "Mono-functional and Sprawling" Structure**
+
+The White Paper critially notes that sprawling settlements are "unsustainable." RS allows the government to perform **Urban Density Analysis**. By identifying areas of "relatively low density" through satellite-derived building footprints, planners can target "in-fill" development, reducing the need for citizens to settle in high-risk riverine areas.
+
+### **Fulfilling the "Just Transition"**
+
+The Act mentions a "just transition to a low carbon and climate resilient society." For informal residents, "just" means **proactive relocation** before a disaster strikes.
+
+-   **The RS Intervention:** Instead of reacting to a flood (Disaster Management), the RS system creates a **"Relocation Trigger Map."** If a settlement is detected in a zone where the TWI indicates a 1-in-10-year flood risk, the White Paper’s "innovative systems" mandate triggers a social intervention and a planned move to safer ground.
+
+Climate Change Act
+
+identifyandspatiallymap,withinthesphereofoperationsof theprovince, districtormetropolitanmunicipality,asthecasemaybe,risks,vulnerabilities, areas,ecosystemsandcommunitiesthatwillarise,orthatarevulnerabletothe impactsofclimatechange;
+
+White Paper for Human Settlements
+
+4.5 Climate change, climate resilience and innovative systems
+
+Problem statement: The impact of human settlements on the natural environment including climate change and climate resilience increases with population growth, unmanaged or poorly managed expansion of both urban and rural settlements, economic development, and the associated increased consumption. Cities, towns, and rural settlements occupy large tracks of land. However, the relatively low density, mono-functional and sprawling settlement structure is unsustainable from an environmental perspective. Climate change has become one of the most critical developmental risks to South Africa with potential devastating economic, social, and ecological dimensions. Large parts of South Africa are already experiencing occurrences of unprecedented extreme weather events, ranging from severe storms, floods, fire, and drought. This is expected to accelerate over time. It affects both urban and rural settlements. Settlements characterised by massive poverty, service backlogs, underdevelopment and often located in areas that are not suitable for human habitation (such as informal and some rural settlements) are typically the most vulnerable. Increasingly, natural disasters, such as flooding, fires and drought are having a devastating effect on communities and there is an urgent need to address this and integrate climate-resilient and sustainable development approaches in human settlements.
+
+Policy statements: Government will endeavour to integrate climate resilience and sustainable development approaches into the planning, design, construction, and operation of human settlements in an effort to avoid the devasting impacts of climate change. Integration will also ensure that valuable social, economic and environmental benefits from new technologies and approaches can be harnessed to support sustainable development. Government will commit to the development of a Human Settlements Climate Change Response Strategy and implementation plan to ensure that human Page 66 of 81 settlements policies, regulatory framework, and practice respond to the prevailing consequences arising from climate change. The strategy will contain both adaptation and mitigation measures and enable a process toward a just transition to a low carbon and climate resilient society currently underway in South Africa.

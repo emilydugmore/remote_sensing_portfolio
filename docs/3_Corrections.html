@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Norah Jones">
-<meta name="dcterms.date" content="2026-01-20">
 
-<title>rs_portfolio_proj</title>
+<title>1&nbsp; 3_Corrections – rs_portfolio_proj</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./1_RS_intro.html" rel="next">
+<link href="./4_policy.html" rel="next">
+<link href="./1_RS_intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -71,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_Corrections.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">3_Corrections</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
@@ -122,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_Corrections.html" class="sidebar-item-text sidebar-link">
+  <a href="./3_Corrections.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">3_Corrections</span></span></a>
   </div>
 </li>
@@ -142,7 +170,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#remote-sensing-data" id="toc-remote-sensing-data" class="nav-link active" data-scroll-target="#remote-sensing-data"><span class="header-section-number">2</span> Remote Sensing Data</a>
+  <ul class="collapse">
+  <li><a href="#cape-town" id="toc-cape-town" class="nav-link" data-scroll-target="#cape-town"><span class="header-section-number">2.1</span> Cape Town</a></li>
+  <li><a href="#corrections" id="toc-corrections" class="nav-link" data-scroll-target="#corrections"><span class="header-section-number">2.2</span> Corrections</a></li>
+  <li><a href="#joining-data-sets" id="toc-joining-data-sets" class="nav-link" data-scroll-target="#joining-data-sets"><span class="header-section-number">2.3</span> Joining Data Sets</a></li>
+  <li><a href="#enhancements" id="toc-enhancements" class="nav-link" data-scroll-target="#enhancements"><span class="header-section-number">2.4</span> Enhancements</a>
+  <ul class="collapse">
+  <li><a href="#ndvi" id="toc-ndvi" class="nav-link" data-scroll-target="#ndvi"><span class="header-section-number">2.4.1</span> NDVI</a></li>
+  <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture"><span class="header-section-number">2.4.2</span> Texture</a></li>
+  <li><a href="#principle-component-analysis" id="toc-principle-component-analysis" class="nav-link" data-scroll-target="#principle-component-analysis"><span class="header-section-number">2.4.3</span> Principle Component Analysis</a></li>
+  <li><a href="#leaf-level-vs.-canopy-level-reflectance" id="toc-leaf-level-vs.-canopy-level-reflectance" class="nav-link" data-scroll-target="#leaf-level-vs.-canopy-level-reflectance"><span class="header-section-number">2.4.4</span> . Leaf-Level vs.&nbsp;Canopy-Level Reflectance</a></li>
+  <li><a href="#spectral-overlap-and-confusion" id="toc-spectral-overlap-and-confusion" class="nav-link" data-scroll-target="#spectral-overlap-and-confusion"><span class="header-section-number">2.4.5</span> 2. Spectral Overlap and “Confusion”</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -151,26 +192,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">rs_portfolio_proj</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">3_Corrections</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Norah Jones </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -180,11 +209,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level1 unnumbered">
-<h1 class="unnumbered">About</h1>
-<p>Introduction to myself blah blah blah</p>
+<section id="remote-sensing-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Remote Sensing Data</h1>
+<section id="cape-town" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="cape-town"><span class="header-section-number">2.1</span> Cape Town</h2>
+<p>Cape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: table mountain. The city is located within the bounds of the ocean, and is surrounded around a 57km^2 mountain, which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.</p>
+<p>The city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-458231652.png" class="img-fluid figure-img"></p>
+<figcaption>Map of Cape Town by Land Use</figcaption>
+</figure>
+</div>
+</section>
+<section id="corrections" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="corrections"><span class="header-section-number">2.2</span> Corrections</h2>
+<p>Corrections are critical steps in remote sensing pre-processing. Although most of the remotely sensed imagery that we would download has already ‘corrected’, it is important to understand what processes have been taken place to achieve this Analysis Ready Data (ARD).</p>
+<p><strong>Geometric corrections</strong> align images with ground coordinates using Ground Control Points to ensure spatial accuracy.</p>
+<p><strong>Atmospheric corrections</strong> address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations.</p>
+</section>
+<section id="joining-data-sets" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="joining-data-sets"><span class="header-section-number">2.3</span> Joining Data Sets</h2>
+<p>Satellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scene (a unique combination of path and row) images are separate from one another, and require merging or mosaicking to join them to create a continous image.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.researchgate.net/profile/Justin-Huntington-2/publication/323838161/figure/fig2/AS:614403611320320@1523496644037/Landsat-World-Reference-System-2-WRS-2-path-and-row-overlay-for-Texas-in-relation-to.png" class="img-fluid figure-img"></p>
+<figcaption>Diagram showing scenes from Landsat 8, divided into paths and rows.</figcaption>
+</figure>
+</div>
+<p>Merging is the basic joining of adjacent datasets, and can lead to a final image with sharp edges between the different scenes (especially if the scenes were collected on different days).</p>
+<p>Mosaicking is a more complex process that deals with overlapping areas a bit better by blending the overlapping areas together to create a seamless image.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3582130300.png" class="img-fluid figure-img"></p>
+<figcaption>Left: A simple merge of two scenes. Right: A more complex mosaic.</figcaption>
+</figure>
+</div>
+<p>It is important to consider temporal mismatches between the chosen scenes, as different atmospheric conditions might be present.</p>
+</section>
+<section id="enhancements" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="enhancements"><span class="header-section-number">2.4</span> Enhancements</h2>
+<p>We can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image making certain features more easy to see (like buildings, moisture or vegetation). For ratio enhancements, the ratio largely depends on the spectral signature of the object or feature that you want to detect.</p>
+<section id="ndvi" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="ndvi"><span class="header-section-number">2.4.1</span> NDVI</h3>
+<p>The Normalised Difference Vegetation Index is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.</p>
+<p><span class="math display">\[
+NDVI = \frac{NIR - Red}{NIR + Red}
+\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value Range</th>
+<th>Surface / Land Cover Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-1 to 0</td>
+<td>Water bodies, snow, clouds, non-vegetated surfaces (e.g., buildings)</td>
+</tr>
+<tr class="even">
+<td>0 to 0.1</td>
+<td>Barren areas, rocks, sand, or snow</td>
+</tr>
+<tr class="odd">
+<td>0.2 to 0.5</td>
+<td>Sparse vegetation, shrubs, grasslands</td>
+</tr>
+<tr class="even">
+<td>0.6 to 1.0</td>
+<td>Dense, healthy vegetation</td>
+</tr>
+</tbody>
+</table>
+<p>Surprisingly,</p>
+</section>
+<section id="texture" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="texture"><span class="header-section-number">2.4.2</span> Texture</h3>
+<p>Texture is an enhancement which measures the spatial variation of grey values between each pixel and the pixels that surround it.</p>
+</section>
+<section id="principle-component-analysis" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="principle-component-analysis"><span class="header-section-number">2.4.3</span> Principle Component Analysis</h3>
+<p>PCA is a statistical method which reduces the huge amounts of imagery data (which is typical for multi-band satellite imagery with lots of spectral bands) into an uncorrelated, smaller dataset. The resulting first component (PC1) will capture most of the variance within the dataset, while retaining majority of the original information.</p>
+</section>
+<section id="leaf-level-vs.-canopy-level-reflectance" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="leaf-level-vs.-canopy-level-reflectance"><span class="header-section-number">2.4.4</span> . Leaf-Level vs.&nbsp;Canopy-Level Reflectance</h3>
+<p>The study emphasizes that different species have unique “spectral signatures” based on their leaf structure.</p>
+<ul>
+<li><strong>The “Fynbos” Connection:</strong> Just as the Amazonian species in the paper show varying reflectance based on leaf thickness and water content, Table Mountain’s <strong>Fynbos</strong> has small, leathery (sclerophyllous) leaves. These do not reflect Near-Infrared (NIR) light as strongly as the broad, lush leaves of the tropical species studied in the paper, naturally leading to a lower NDVI calculation.</li>
+</ul>
+</section>
+<section id="spectral-overlap-and-confusion" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="spectral-overlap-and-confusion"><span class="header-section-number">2.4.5</span> 2. Spectral Overlap and “Confusion”</h3>
+<p>The paper discusses how similar spectral signatures between different plants (or plants and their backgrounds) can make it hard to distinguish them.</p>
+<ul>
+<li><strong>The Table Mountain Issue:</strong> On Table Mountain, the “signal” from the sparse Fynbos often mixes with the “signal” from the dark grey sandstone and shadows of the cliffs. The paper explores how <strong>dimensionality reduction</strong> (simplifying complex data) is needed to find the true signal. Without this, your NDVI is likely “diluted” by the rocky background.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p><strong>Fire History</strong>: Fire is a major factor in the fynbos. The paper specifically shows a “sudden drop of NDVI followed by a gradual vegetation recovery” in areas where fires occurred. If your satellite scene was taken shortly after a fire, the NDVI would be significantly lower than the mountain’s “known” status as a biodiversity hotspot.</p>
+<p><strong>Vegetation Age</strong>: The paper uses <strong>vegetation age</strong> (calculated from fire scars) as a key environmental variable. Younger vegetation that is still recovering from a burn will have a much lower NDVI than mature fynbos.</p></li>
+</ul>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -589,10 +722,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./1_RS_intro.html" class="pagination-link" aria-label="Introduction to Remote Sensing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Remote Sensing</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./1_RS_intro.html" class="pagination-link" aria-label="Introduction to Remote Sensing">
-        <span class="nav-page-text">Introduction to Remote Sensing</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./4_policy.html" class="pagination-link" aria-label="4_policy">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">4_policy</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

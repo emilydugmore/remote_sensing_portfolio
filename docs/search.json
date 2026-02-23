@@ -1,0 +1,162 @@
+[
+  {
+    "objectID": "4_policy.html",
+    "href": "4_policy.html",
+    "title": "2  4_policy",
+    "section": "",
+    "text": "3 Applying RS to a Climate Policy in South Africa\nFollowing the practical and subsequent discussion write up your case study city\nThe case study will be marked in the same manner set out in mark scheme for the learning diary. Specifically:\nShould you struggle to find current approaches within your city explore other cities discussed within the practical.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>4_policy</span>"
+    ]
+  },
+  {
+    "objectID": "4_policy.html#the-climate-change-act-and",
+    "href": "4_policy.html#the-climate-change-act-and",
+    "title": "2  4_policy",
+    "section": "3.1 The Climate Change Act and",
+    "text": "3.1 The Climate Change Act and\nSouth Africa’s informal settlement landscape is extremely complex, and is largely a byproduct of historical spatial inclusion, rapid urbanization and severe shortage of affordable formal housing. Land on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country’s metro cities (like Durban and Johannesburg), these areas which are ‘unsuitable’ for formal development often end up being occupied by poorer communities as a means of accessing the nearby urban economies. In addition, complete lack of municipal infrastructure in informal settlements can drive people closer to rivers for sanitation and domestic use (washing clothes and cleaning).\n\n\n\nJukskei River flood in Alexandra Township (one of the largest townships in SA).\n\n\nThe Climate Change Act (2024) is a national act specifically mandating that provinces and municipalities “must identify and spatially map, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, risks, vulnerabilities, areas, ecosystems and communities that will arise, or that are vulnerable to the impacts of climate change”.\nThe phrasing of this mandate is pretty typical of South African governance, which is notoriously vague with how acts should be implemented and who is going to implement them, ultimately allowing different levels of government to pass the responsibility to someone else.\nThe White Paper for Human Settlements (2025) policy document also\nstates that “government will endeavour to integrate climate resilience and sustainable development approaches into the planning, design, construction, and operation of human settlements in an effort to avoid the devastating impacts of climate change”, specifically mentioning the integration of “innovative systems” and “new technologies”.\n\n3.1.0.1 1. The “Marginal Land” Logic\nIn the competitive urban land market, the only “free” or unoccupied land is often land that is deemed unsuitable for formal development. Since formal developers cannot build on floodplains or steep riverbanks due to insurance and safety regulations, these “buffer zones” remain vacant. For a person arriving in a city with no capital, this “unwanted” land is the only accessible space where they can erect a structure without immediate eviction.\nSouth Africa’s informal settlement landscape is extremely complex, and is largely a byproduct of historical spatial inclusion, rapid urbanization and severe shortage of affordable formal housing. Land like that on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country’s metro cities (like Durban and Johannesburg), these areas which are ‘unsuitable’ for formal development often end up being occupied by poorer communities as a means of accessing the nearby urban economies.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>4_policy</span>"
+    ]
+  },
+  {
+    "objectID": "4_policy.html#introduction-and-policy-context",
+    "href": "4_policy.html#introduction-and-policy-context",
+    "title": "2  4_policy",
+    "section": "3.2 1. Introduction and Policy Context",
+    "text": "3.2 1. Introduction and Policy Context\nSouth Africa faces a dual crisis: a legacy of “sprawling, mono-functional” urban design and an accelerating climate emergency. As informal settlements expand—often into “environmentally precarious” land near riverbanks—the risk to human life from extreme weather events has transitioned from a theoretical threat to a frequent reality. This assignment discusses how Remote Sensing (RS) can serve as the primary implementation tool for two landmark policies: the Climate Change Act (No. 22 of 2024) and the White Paper for Human Settlements (2025).\n\n3.2.1 The Policy Mandates\n\nThe Climate Change Act (2024): Specifically mandates that provincial and metropolitan municipalities must “identify and spatially map… risks, vulnerabilities, areas, ecosystems and communities” vulnerable to climate impacts.\nThe White Paper for Human Settlements (2025): Recognizes that settlements characterized by poverty and “underdevelopment” are the most vulnerable. It calls for the integration of “innovative systems” and “new technologies” to transition toward climate-resilient society.\n\nThe “implementation gap” exists because while the law mandates mapping, traditional ground-based survey methods are too slow to keep pace with informal urban growth. RS provides the only viable path to fulfill these legal requirements in real-time.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>4_policy</span>"
+    ]
+  },
+  {
+    "objectID": "4_policy.html#proposed-remote-sensing-methodology",
+    "href": "4_policy.html#proposed-remote-sensing-methodology",
+    "title": "2  4_policy",
+    "section": "3.3 2. Proposed Remote Sensing Methodology",
+    "text": "3.3 2. Proposed Remote Sensing Methodology\nTo satisfy the requirements of Section 4.5 of the White Paper and the mapping mandate of the Climate Change Act, a multi-sensor RS approach is required.\n\n3.3.1 A. Identifying At-Risk Communities (Optical Change Detection)\nTo “spatially map” vulnerable communities as required by the Act, we must first identify them. Informal settlements in South Africa are often missed by traditional land-use maps.\n\nSensor: Sentinel-2 (MSI) or high-resolution PlanetScope.\nIndex: Normalized Difference Built-up Index (NDBI).\n$$NDBI = \\frac{SWIR - NIR}{SWIR + NIR}$$\nApplication: By applying NDBI to a time-series of images, we can detect the “unmanaged expansion” mentioned in the White Paper. A “pixel-shifting” algorithm can flag when new structures appear in “unsuitable areas” (river buffers).\n\n\n\n3.3.2 B. Flood Vulnerability Mapping (SAR & DEM)\nThe White Paper highlights “severe storms and floods” as a critical risk. However, optical satellites cannot see through the cloud cover of a storm.\n\nSensor: Sentinel-1 (Synthetic Aperture Radar - SAR).\nMethod: SAR backscatter analysis. Water surfaces act as specular reflectors, appearing as “dark” pixels. By comparing a pre-flood “baseline” with an “active-flood” image, the exact footprint of vulnerability is revealed.\nTerrain Analysis: Using a Digital Elevation Model (DEM) like the Copernicus 30m, we can calculate the Topographic Wetness Index (TWI) to predict where water will naturally pool, regardless of whether a storm is currently occurring.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>4_policy</span>"
+    ]
+  },
+  {
+    "objectID": "4_policy.html#discussion-from-data-to-policy-implementation",
+    "href": "4_policy.html#discussion-from-data-to-policy-implementation",
+    "title": "2  4_policy",
+    "section": "3.4 3. Discussion: From Data to Policy Implementation",
+    "text": "3.4 3. Discussion: From Data to Policy Implementation\nThe integration of RS data transforms these policies from static documents into dynamic “Response Strategies.”\n\n3.4.1 Addressing the “Mono-functional and Sprawling” Structure\nThe White Paper critially notes that sprawling settlements are “unsustainable.” RS allows the government to perform Urban Density Analysis. By identifying areas of “relatively low density” through satellite-derived building footprints, planners can target “in-fill” development, reducing the need for citizens to settle in high-risk riverine areas.\n\n\n3.4.2 Fulfilling the “Just Transition”\nThe Act mentions a “just transition to a low carbon and climate resilient society.” For informal residents, “just” means proactive relocation before a disaster strikes.\n\nThe RS Intervention: Instead of reacting to a flood (Disaster Management), the RS system creates a “Relocation Trigger Map.” If a settlement is detected in a zone where the TWI indicates a 1-in-10-year flood risk, the White Paper’s “innovative systems” mandate triggers a social intervention and a planned move to safer ground.\n\nClimate Change Act\nidentifyandspatiallymap,withinthesphereofoperationsof theprovince, districtormetropolitanmunicipality,asthecasemaybe,risks,vulnerabilities, areas,ecosystemsandcommunitiesthatwillarise,orthatarevulnerabletothe impactsofclimatechange;\nWhite Paper for Human Settlements\n4.5 Climate change, climate resilience and innovative systems\nProblem statement: The impact of human settlements on the natural environment including climate change and climate resilience increases with population growth, unmanaged or poorly managed expansion of both urban and rural settlements, economic development, and the associated increased consumption. Cities, towns, and rural settlements occupy large tracks of land. However, the relatively low density, mono-functional and sprawling settlement structure is unsustainable from an environmental perspective. Climate change has become one of the most critical developmental risks to South Africa with potential devastating economic, social, and ecological dimensions. Large parts of South Africa are already experiencing occurrences of unprecedented extreme weather events, ranging from severe storms, floods, fire, and drought. This is expected to accelerate over time. It affects both urban and rural settlements. Settlements characterised by massive poverty, service backlogs, underdevelopment and often located in areas that are not suitable for human habitation (such as informal and some rural settlements) are typically the most vulnerable. Increasingly, natural disasters, such as flooding, fires and drought are having a devastating effect on communities and there is an urgent need to address this and integrate climate-resilient and sustainable development approaches in human settlements.\nPolicy statements: Government will endeavour to integrate climate resilience and sustainable development approaches into the planning, design, construction, and operation of human settlements in an effort to avoid the devasting impacts of climate change. Integration will also ensure that valuable social, economic and environmental benefits from new technologies and approaches can be harnessed to support sustainable development. Government will commit to the development of a Human Settlements Climate Change Response Strategy and implementation plan to ensure that human Page 66 of 81 settlements policies, regulatory framework, and practice respond to the prevailing consequences arising from climate change. The strategy will contain both adaptation and mitigation measures and enable a process toward a just transition to a low carbon and climate resilient society currently underway in South Africa.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>4_policy</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "rs_portfolio_proj",
+    "section": "",
+    "text": "About\nIntroduction to myself blah blah blah",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html",
+    "href": "1_RS_intro.html",
+    "title": "Introduction to Remote Sensing",
+    "section": "",
+    "text": "What is remote sensing?\nPut simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).",
+    "crumbs": [
+      "Introduction to Remote Sensing"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#what-is-remote-sensing",
+    "href": "1_RS_intro.html#what-is-remote-sensing",
+    "title": "Introduction to Remote Sensing",
+    "section": "",
+    "text": "Active vs passive sensors\nPassive sensors rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.\nActive sensors emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to ‘pass through’ atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).\n\n\nSpectral Signatures\nSpectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.\n\nAn important feature in the spectral signature is the red edge - a sharp increase in reflectance around 700 nm in vegetation’s spectral signature, which indicates chlorophyll content and plant health.\n\n\nResolutions\nThe characteristics of remote sensors will determine the level of accuracy and detail of the information about the Earth’s surface.\n\nSpectral Resolution\nSpectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.\nSometimes there are large gaps of wavelength ranges in the EMS in which no information is collected, and this is because the atmosphere does not allow certain wavelengths to pass. Thus, bands are often limited to atmospheric windows where wavelengths can penetrate.\n\n\n\nSpectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.\n\n\n\nWhat happens next?\nLooking more closely at the Landsat 1 (MSS) satellite…\nThe information captured by each of the four spectral bands are stored as a greyscale image, which shows the reflection intensity of the Earth’s surface within each band. By combining the refletance information from each band, and then comparing this with spectral signatures, we can distinguish features of the Earth’s surface.\n\n\n\n\nOther Resolutions\nSpatial = The size of the raster grid per pixel, from 10cm to several kilometers.\nTemporal = The time between revisits of information collection for a given location.\nRadiometric = The ability of a sensor to identify and show small differences in energy.\n*** Something about balancing / trade offs ***\n\n\n\nColour composites\nColour composites are images created by assigning different spectral bands to the red, green, and blue (RGB) display bands, and are used to highlight specific features that are often not visible to the human eye.\n\n\n\nComparison of the spectral resolutions of Landsat 7 & 8 with Sentinel-2\n\n\nTrue colour composites (B4, B3, B2 for Sentinel-2) display the Earth as we would see it with our eyes.\nFalse colour composites use non-visible bands in the near-infrared range alongside red and green (B8, B4, B3 for Sentinel-2) to provide information particularly useful for vegetation analysis. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (see spectral signatures for a reminder of this).\nExpanding on this a bit more, we can make scatterplots (called a spectral feature space) of two bands against one another to see how much of our study area is covered by different features (in this case, dense vs sparse vegetation and dry vs wet soil).\n\n\n\nSource: Remote Sensing 4113\n\n\nAtmospheric penetration composites (B12, B11, B8A for Sentinel-2) have no visible bands so that the image penetrate atmospheric particles and reduces the effect of atmospheric scattering. The resulting image from this composite shows vegetation as blue and urban areas as white/grey or cyan/purple.\n\n\nTasseled Cap function\nAlthough this isn’t a true colour composite, and rather acts more as a spectral index, it’s interpretation is somewhat similar.\nThe tasseled cap function is a spectral transformation that combines multiple spectral bands into three new composite layers - brightness, greenness, and wetness (which are assigned to the red, green and blue bands, respectively). The resulting image is a representation of different land cover types (red = urban structures, green = vegetation, blue = water/moisture).",
+    "crumbs": [
+      "Introduction to Remote Sensing"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#landsat-sentinel-applications",
+    "href": "1_RS_intro.html#landsat-sentinel-applications",
+    "title": "Introduction to Remote Sensing",
+    "section": "LandSat & Sentinel Applications",
+    "text": "LandSat & Sentinel Applications\nCASA’s very own Ollie Ballinger used satellite images (with the help of complex AI software) from Copernicus’ Sentinel Hub to identify and track US Navy vessels operating with disabled transponders in the Caribbean. His findings appeared in a New York Times article, revealing a larger, more consistent presence of US Navy ships in the region than officials had admitted. The research ultimately pre-empted Operation Absolute Resolve in January 2026 - the large-scale US military strike that led to the capture of Venezuelan President Nicolás Maduro.\n\nA bit more up my area of expertise (coming from background of ecology and conservation biology), is a study (https://www.mdpi.com/2072-4292/16/5/798) which usedsatellite imagery from Landsat 5 TM and Landsat 8 OLI to map and monitor the spread of the invasive plant Dichrostachys cinerea (marabú) in central Cuba over nearly three decades.\nSomething I thought was particularly interesting about this study is that it went beyond simply mapping the extent of invasive spread, by also quantifying the impact that its presence had on specific land covers. This is an important aspect of invasive species studies (and I think one which is often skipped), and shows that remote sensing can be used to inform management strategies and detect areas of priority.\n\n\nSentinel-2 vs LandSat 8\n\n\n\n\n\n\n\n\nFeature\nLandsat 8\nSentinel-2\n\n\n\n\nSatellite Constellation\nSingle satellite\n2 satellites (2A & 2B)\n\n\nSpatial Resolution\n30 m\n10 m, 20 m, 60 m depending on band\n\n\nPanchromatic Band\n15 m\nNone\n\n\nThermal Band\nYes, 100 m (resampled to 30 m)\nNo\n\n\nRed Edge Bands\nNo\n3 bands (705, 740, 783 nm)*\n\n\nNumber of Bands\n11\n13\n\n\nRevisit Time\n16 days\n5 days\n\n\nKey Applications\nLand use/land cover mapping, thermal monitoring, water temperature, urban heat studies\nAgriculture, forestry, water quality, vegetation health, disaster monitoring\n\n\n\n* More bands within the red edge is useful for vegetation application due to the red edge!\nThis is a sentence with a hover note.",
+    "crumbs": [
+      "Introduction to Remote Sensing"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#reflection",
+    "href": "1_RS_intro.html#reflection",
+    "title": "Introduction to Remote Sensing",
+    "section": "Reflection",
+    "text": "Reflection\nAcademically, my use of remotely sensed imagery has been limited to using true colour composites as a means of contextualizing a study area and setting the scene in the form of basemaps. Personally, I use Google Earth extensively to look for different hiking routes and places that look interesting when I am travelling.\nThis is the first time that I am going deeper than that. Even just from the first week it feels like I have learned to much about how remote sensors collect information, downloading the data and manipulating it to suite the needs of different applications.\nSomething that stood out for me was colour composites and spectral indexes. In my previous degree, Normalised Difference Vegetation Index (NDVI) was spoken about a lot as a proxy for vegetation health. Finally understanding how this is calculated using remote sensors (and distinct properties of the spectral signatures of vegetation) is really satisfying!",
+    "crumbs": [
+      "Introduction to Remote Sensing"
+    ]
+  },
+  {
+    "objectID": "1_RS_intro.html#references",
+    "href": "1_RS_intro.html#references",
+    "title": "Introduction to Remote Sensing",
+    "section": "References",
+    "text": "References\nhttps://www.nv5geospatialsoftware.com/What-is-Remote-Sensing\nspectral signature image = https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407\nhttps://www.instagram.com/p/DTRSx-6kbXO/\nchrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://geofaculty.uwyo.edu/rhowell/classes/remote_sensing/labs/lab_11_2018_alternate_vegetation.pdf\nhttps://ltb.itc.utwente.nl/498/concept/81525",
+    "crumbs": [
+      "Introduction to Remote Sensing"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html",
+    "href": "3_Corrections.html",
+    "title": "1  3_Corrections",
+    "section": "",
+    "text": "2 Remote Sensing Data",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>3_Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#cape-town",
+    "href": "3_Corrections.html#cape-town",
+    "title": "1  3_Corrections",
+    "section": "2.1 Cape Town",
+    "text": "2.1 Cape Town\nCape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: table mountain. The city is located within the bounds of the ocean, and is surrounded around a 57km^2 mountain, which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.\nThe city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.\n\n\n\nMap of Cape Town by Land Use",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>3_Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#corrections",
+    "href": "3_Corrections.html#corrections",
+    "title": "1  3_Corrections",
+    "section": "2.2 Corrections",
+    "text": "2.2 Corrections\nCorrections are critical steps in remote sensing pre-processing. Although most of the remotely sensed imagery that we would download has already ‘corrected’, it is important to understand what processes have been taken place to achieve this Analysis Ready Data (ARD).\nGeometric corrections align images with ground coordinates using Ground Control Points to ensure spatial accuracy.\nAtmospheric corrections address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>3_Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#joining-data-sets",
+    "href": "3_Corrections.html#joining-data-sets",
+    "title": "1  3_Corrections",
+    "section": "2.3 Joining Data Sets",
+    "text": "2.3 Joining Data Sets\nSatellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scene (a unique combination of path and row) images are separate from one another, and require merging or mosaicking to join them to create a continous image.\n\n\n\nDiagram showing scenes from Landsat 8, divided into paths and rows.\n\n\nMerging is the basic joining of adjacent datasets, and can lead to a final image with sharp edges between the different scenes (especially if the scenes were collected on different days).\nMosaicking is a more complex process that deals with overlapping areas a bit better by blending the overlapping areas together to create a seamless image.\n\n\n\nLeft: A simple merge of two scenes. Right: A more complex mosaic.\n\n\nIt is important to consider temporal mismatches between the chosen scenes, as different atmospheric conditions might be present.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>3_Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#enhancements",
+    "href": "3_Corrections.html#enhancements",
+    "title": "1  3_Corrections",
+    "section": "2.4 Enhancements",
+    "text": "2.4 Enhancements\nWe can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image making certain features more easy to see (like buildings, moisture or vegetation). For ratio enhancements, the ratio largely depends on the spectral signature of the object or feature that you want to detect.\n\n2.4.1 NDVI\nThe Normalised Difference Vegetation Index is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.\n\\[\nNDVI = \\frac{NIR - Red}{NIR + Red}\n\\]\n\n\n\n\n\n\n\nValue Range\nSurface / Land Cover Description\n\n\n\n\n-1 to 0\nWater bodies, snow, clouds, non-vegetated surfaces (e.g., buildings)\n\n\n0 to 0.1\nBarren areas, rocks, sand, or snow\n\n\n0.2 to 0.5\nSparse vegetation, shrubs, grasslands\n\n\n0.6 to 1.0\nDense, healthy vegetation\n\n\n\nSurprisingly,\n\n\n2.4.2 Texture\nTexture is an enhancement which measures the spatial variation of grey values between each pixel and the pixels that surround it.\n\n\n2.4.3 Principle Component Analysis\nPCA is a statistical method which reduces the huge amounts of imagery data (which is typical for multi-band satellite imagery with lots of spectral bands) into an uncorrelated, smaller dataset. The resulting first component (PC1) will capture most of the variance within the dataset, while retaining majority of the original information.\n\n\n2.4.4 . Leaf-Level vs. Canopy-Level Reflectance\nThe study emphasizes that different species have unique “spectral signatures” based on their leaf structure.\n\nThe “Fynbos” Connection: Just as the Amazonian species in the paper show varying reflectance based on leaf thickness and water content, Table Mountain’s Fynbos has small, leathery (sclerophyllous) leaves. These do not reflect Near-Infrared (NIR) light as strongly as the broad, lush leaves of the tropical species studied in the paper, naturally leading to a lower NDVI calculation.\n\n\n\n2.4.5 2. Spectral Overlap and “Confusion”\nThe paper discusses how similar spectral signatures between different plants (or plants and their backgrounds) can make it hard to distinguish them.\n\nThe Table Mountain Issue: On Table Mountain, the “signal” from the sparse Fynbos often mixes with the “signal” from the dark grey sandstone and shadows of the cliffs. The paper explores how dimensionality reduction (simplifying complex data) is needed to find the true signal. Without this, your NDVI is likely “diluted” by the rocky background.\n\n\n\nFire History: Fire is a major factor in the fynbos. The paper specifically shows a “sudden drop of NDVI followed by a gradual vegetation recovery” in areas where fires occurred. If your satellite scene was taken shortly after a fire, the NDVI would be significantly lower than the mountain’s “known” status as a biodiversity hotspot.\nVegetation Age: The paper uses vegetation age (calculated from fire scars) as a key environmental variable. Younger vegetation that is still recovering from a burn will have a much lower NDVI than mature fynbos.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>3_Corrections</span>"
+    ]
+  }
+]
