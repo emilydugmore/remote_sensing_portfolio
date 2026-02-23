@@ -8,8 +8,6 @@ title: "3_Corrections"
 
 Cape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it's main feature: table mountain. The city is located within the bounds of the ocean, and is surrounded around a 57km\^2 mountain, which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.
 
-![](https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/10/2e/1e/cape-town.jpg?w=1200&h=-1&s=1){alt=""}
-
 The city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.
 
 ![Map of Cape Town by Land Use](images/clipboard-458231652.png)

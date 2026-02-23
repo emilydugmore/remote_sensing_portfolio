@@ -9,6 +9,8 @@ book:
   chapters:
     - index.qmd
     - 1_RS_intro.qmd
+    - 3_Corrections.qmd
+    - 4_policy.qmd
 bibliography: references.bib
 
 format:

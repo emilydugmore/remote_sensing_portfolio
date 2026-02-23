@@ -1,4 +1,3 @@
 # About {.unnumbered}
 
-Introduction to myself
-blah blah blah
+Introduction to myself blah blah blah
