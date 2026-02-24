@@ -89,7 +89,7 @@ Something I thought was particularly interesting about this study is that it wen
 ### Sentinel-2 vs LandSat 8
 
 | Feature | Landsat 8 | Sentinel-2 |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Satellite Constellation** | Single satellite | 2 satellites (2A & 2B) |
 | **Spatial Resolution** | 30 m | 10 m, 20 m, 60 m depending on band |
 | **Panchromatic Band** | 15 m | None |

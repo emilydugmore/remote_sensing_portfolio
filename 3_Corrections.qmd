@@ -1,8 +1,4 @@
----
-title: "3_Corrections"
----
-
-# Remote Sensing Data
+# Corrections {.unnumbered}
 
 ## Cape Town
 
@@ -47,7 +43,7 @@ NDVI = \frac{NIR - Red}{NIR + Red}
 $$
 
 | Value Range | Surface / Land Cover Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | -1 to 0 | Water bodies, snow, clouds, non-vegetated surfaces (e.g., buildings) |
 | 0 to 0.1 | Barren areas, rocks, sand, or snow |
 | 0.2 to 0.5 | Sparse vegetation, shrubs, grasslands |
