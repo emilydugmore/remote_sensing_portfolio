@@ -12,42 +12,60 @@ South Africa's informal settlement landscape is extremely complex, and is largel
 
 South African Legislation has recently shifted toward a more proactive, data-driven, planning approach to managing climate risks like flooding. I am going to discuss two policy documents and the potential role of remote sensing in implementing them.
 
-#### Climate Change Act (2024)
+#### 1. Climate Change Act (2024)
 
 The Climate Change Act is a national act specifically mandating that provinces and municipalities "must identify and **spatially map**, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, **risks**, **vulnerabilities**, areas, ecosystems and **communities that will arise**, or that are **vulnerable to the impacts of climate change**".
 
-The phrasing of this mandate is pretty typical of South African governance, which is notoriously vague with how acts should be implemented and who is going to implement them, ultimately allowing different levels of government to pass the responsibility to someone else.
+The phrasing of this mandate is pretty typical of South African governance, which is notoriously vague about how acts should be implemented and who is going to implement them. This ultimately leads to each level of government passing the responsibility to another, with the result being little to no action from anyone.
 
-#### White Paper for Human Settlements (2025)
+#### 2. White Paper for Human Settlements (2025)
 
 The White Paper for Human Settlements policy document states that "government will endeavour to integrate **climate resilience** and sustainable development approaches into the **planning, design, construction, and operation of human settlements** in an effort to avoid the devastating impacts of climate change".
 
-Interestingly, this policy specifically mentions the integration of "innovative systems" and "new technologies" when
+Interestingly, this policy specifically mentions the integration of "innovative systems" and "new technologies" to achieve its goals, but at no point specifies what is meant by this.
 
 ## Using Remote Sensing
 
-The use of remote sensing could be used across the country to address the implementation gap that the vague phrasing of the Climate Change Act is bound to create. This would involve:
+Remote sensing could be used across the country to achieve the goals that these policies set out. This would involve:
 
 -   **Mapping "Vulnerable Communities" (Optical Data):**
 
-    I would use **Sentinel-2 (10m)** imagery to calculate the **Normalized Difference Built-up Index (NDBI)**. By comparing imagery from 2016 to 2026, we can detect "unmanaged expansion" into river buffers. This provides a digital, objective record of exactly which shacks have encroached into high-risk zones, removing the administrative guesswork mentioned earlier.
+    I would use **Sentinel-2 (10m)** imagery to calculate the **Normalized Difference Built-up Index (NDBI)** along major rivers that run through informal settlements. By comparing imagery from different time periods, we can detect areas of "unmanaged expansion" which are edging towards river buffers.
 
--   **Visualizing "Risks and Vulnerabilities" (Radar Data):**
+    ![](images/clipboard-4273932886.png)
 
-    Because floods often occur under heavy cloud cover, I would use Sentinel-1 (Synthetic Aperture Radar). SAR data penetrates clouds to map the reflection of water. By overlaying a SAR-derived flood footprints onto current building footprints, we can identify which households are at the highest risk.
+-   **"Risks and Vulnerabilities" (Radar Data):**
 
--   **Integrating "Innovative Systems" (Terrain Analysis):**
+    Because floods often occur under heavy cloud cover, I would use Sentinel-1 (Synthetic Aperture Radar which penetrates clouds to map the reflection of water). By overlaying a SAR-derived flood footprints onto current building footprints, we can identify which households are at the highest risk.
 
-    To support the White Paper’s goal of "climate-resilient planning," a Digital Elevation Model (DEM) can be used to calculate the Topographic Wetness Index (TWI). This allows the City of Johannesburg to predict where water will pool during a storm, enabling them to move from reactive disaster relief to proactive relocation of the most at-risk residents.
+    [![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*MkPrnPLuZeDuDF5IuPEVAw.jpeg)](https://medium.com/@kemuntonyamweya_13159/flood-inundation-mapping-with-sentinel-1-satellite-data-in-google-earth-engine-ec5652e04f1c)
 
 -   **Daily Change Detection (PlanetScope):**
 
-    PlanetScope provides daily 3-meter resolution imagery, with which we can apply automated Machine Learning (ML) classifier to automatically "flag" new shack footprints as they appear in high risk zones.
+    PlanetScope provides daily 3-meter resolution imagery, with which we can apply automated Machine Learning (ML) classifier to automatically "flag" new shack footprints as they appear in high flood-risk zones.
 
 ### **Reflections**
 
-Through this case study, I have learned that while South African policies like the Climate Change Act (2024) are legally progressive, they often lack the technical "how-to" for municipal officials. This leads to a cycle of "passing the buck" between different spheres of government.
+While municipalities do undergo enumeration and profiling to manage informal settlements, these manual interventions are completed nowhere near as often as they should be. On-top of that, the sheer number of vulnerabilities faced by people living in informal settlements (eg lack of sanitation and drinking water, heat stress, flood risk etc) makes it impossible for local governments to capture the real-time complexities faced by these areas with just ground surveys.
 
-I now realize that Remote Sensing is not just a scientific tool, but a policy implementation tool. It provides a "standardized language" that bypasses bureaucratic ambiguity. For example, while a policy might vaguely call for "mapping," a Sentinel-1 radar image provides indisputable, legal proof of where the water goes.
+This is where remote sensing comes in by allowing for mapping of vulnerable communities at scale. It allows for automated, regular monitoring of informal settlement expansion into high-risk zones - this could be every couple of days for rapidly growing informal settlements.
 
-Furthermore, I have reflected on the fact that technology alone isn't enough; it must be integrated into systems like the NDHSMS (National Digital Human Settlements Management System) to ensure that the data actually leads to better infrastructure for people in places like Alexandra. This exercise has shown me that the "innovative systems" mentioned in the 2025 White Paper are only effective if they are used to bridge the gap between hard law and the daily reality of those living on the river’s edge.
+This would provide municipalities with valuable and indisputable information to guide intervention efforts - such as how many homes are vulnerable to floods and exactly where these communities are located. However, the kinds of "interventions" that might take place could be potentially problematic.
+
+On the one hand, this would provide an evidence-base which encourages government, municipal and private funding and infrastructure development in informal settlements. Basically achieving the goal of the White Paper for Human Settlements to plan and construct human settlement in a manner which will "avoid the devastating impacts of climate change".
+
+On the other hand, it is likely that mapping these vulnerable communities will lead to near-immediate forced relocation. While this might sound like a good thing (who wants to live next to a river at high risk of flooding, right?), the reality is a lot more nuanced. Relocations might resolve flood vulnerabilities but increase socio-economic vulnerabilities (for example, people might not be able to access their jobs anymore).
+
+This is a really challenging trade-off. At the beginning of this task, I thought this would be a great way to integrate remote sensing into policy. But the more I think about it more deeply the more I realize that my approach was pretty flawed. When I started, the 'end result' in my mind was the **data** - *a map of vulnerable communities in informal settlements*. In reality, the 'end result' should have been **action** - *what interventions will take place using the information from the map*? Even though the resulting data is objective, the implications of it are highly political.
+
+This was a big lesson for me. If I had to do this task again, I would definitely think about some things
+
+something might seem like a good idea at first, but you really have to think about the implications of the data and keep redesigning the process to achieve an actionable result, and one which achieves your goals.
+
+Other reflections:
+
+-   Within the vulnerabilities map, you could map the "undevelopable" areas (1:50 year flood zone?) vs "developable" areas –\> this will show where municipalities can do insitu upgrades (with no need for relocation) and areas where immediate action is required.
+
+-   How do we stop people from moving here again in the future?
+
+-   Shift it from perspective of mapping already vulnerable communities (relocations), to which high risk areas are likely to be expanded into, and how can this be prevented.
