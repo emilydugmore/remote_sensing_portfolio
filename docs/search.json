@@ -248,5 +248,95 @@
     "crumbs": [
       "Google Earth Engine"
     ]
+  },
+  {
+    "objectID": "7_classification_1.html",
+    "href": "7_classification_1.html",
+    "title": "Classification I",
+    "section": "",
+    "text": "Step 1: Get Training Data\nThere’s a lot of code chunks in between text. I decided to include this to show just how easy and intuitive all of this is.\nThe first step of classification (irrespective of what type of model you are going to use) is to get some training data. We do this using the GEE draw polygon tool, creating a different layer for each land cover type.",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#step-1-get-training-data",
+    "href": "7_classification_1.html#step-1-get-training-data",
+    "title": "Classification I",
+    "section": "",
+    "text": "Training data polygons: mountain (purple), sand (red), water (blue), urban (yellow) and agricultural (green)",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#step-2-split-pixels-training-or-validation",
+    "href": "7_classification_1.html#step-2-split-pixels-training-or-validation",
+    "title": "Classification I",
+    "section": "Step 2: Split pixels (training or validation)",
+    "text": "Step 2: Split pixels (training or validation)\nWe want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because…xyz\nTo do this we:\n\nSelect a number of pixels from each class\n\nvar pixel_number= 1000;\n\nvar water_points=ee.FeatureCollection.randomPoints(water, pixel_number).map(function(i){\n  return i.set({'class': 1})})\n  \n// repeat for each class\n\nAssign random numbers to the pixels\n\nvar point_sample=ee.FeatureCollection([mountain,\n                                  urban,\n                                  agricultural,\n                                  water,\n                                  sand])\n                                  .flatten()\n                                  .randomColumn();\n\nSplit the pixels into two groups: training (70%) or validation (30%)\n\nvar split=0.7\nvar training_sample = point_sample.filter(ee.Filter.lt('random', split));\nvar validation_sample = point_sample.filter(ee.Filter.gte('random', split));\nThis means that 70% of the data will be seen by the model and used to train it, and once the model is trained we will test how accurately it performs on the remaining 30% of the data (which it has never seen before).\n\nExtract the values of the pixels for each group.\n\nvar training = waytwo_clip.select(bands).sampleRegions({  \n  collection: training_sample,  \n  properties: ['class'],  \n  scale: 10,\n});\n\nvar validation = waytwo_clip.select(bands).sampleRegions({  \n  collection: validation_sample,  \n  properties: ['class'],  \n  scale: 10\n});\nScale here is the resolution that is used to extract values. Here, it is 10m (the resolution of Sentinel 2 Imagery). If we were worried about memory we could increase the scale, and each 10m x 10m pixel would be re-sampled to a larger resolution.",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#step-3-train-the-model",
+    "href": "7_classification_1.html#step-3-train-the-model",
+    "title": "Classification I",
+    "section": "Step 3: Train the model",
+    "text": "Step 3: Train the model\nThis step is achieved in just ONE line of code! We chose to use the random forest model here.\nvar rf1_pixel = ee.Classifier.smileRandomForest(100)\n    .train(training, 'class');",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#step-4-conduct-classification",
+    "href": "7_classification_1.html#step-4-conduct-classification",
+    "title": "Classification I",
+    "section": "Step 4: Conduct classification",
+    "text": "Step 4: Conduct classification\nHere, we apply our trained model from the previous step to our study area image, and add this as a layer on the map.\nvar rf2_pixel = waytwo_clip.classify(rf1_pixel);\n\nMap.addLayer(rf2_pixel, {min: 1, max: 5, \n  palette: [\n  '466b9f', // water\n  '999999', // residential\n  'a07905', // agricultural\n  '38761d', // mountain\n  'ffe02a', // sand\n  ]},\n  \"RF_pixel\");",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#step-5-validating-assessing-accuracy",
+    "href": "7_classification_1.html#step-5-validating-assessing-accuracy",
+    "title": "Classification I",
+    "section": "Step 5: Validating & assessing accuracy",
+    "text": "Step 5: Validating & assessing accuracy\nTo assess the training model’s accuracy pre-validation:\nvar trainAccuracy = rf1_pixel.confusionMatrix();\nTo validate the model and assess its accuracy:\nvar validated = validation.classify(rf1_pixel);\n\nvar testAccuracy = validated.errorMatrix('class', 'classification');\nvar consumers=testAccuracy.consumersAccuracy()",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#different-models",
+    "href": "7_classification_1.html#different-models",
+    "title": "Classification I",
+    "section": "Different models",
+    "text": "Different models\nThere are a number of different classification models that you can choose to use in GEE, but we are only going to focus on two.\n\nCART\n\nThe Classification and Regression Trees (CART) model constructs a binary decision tree, which can deal with both categorical and continuous outcome variables. It does this by recursively splitting the dataset into smaller subsets which best minimize the sum of squared residuals (continuous data) and the Gini Impurity (discrete data). It continues to make these splits until the optimal decision tree is made, which roughly balances over-fitting (where the model has too many branches and struggles to classify data that it hasn’t seen before) and under-fitting (the model incorrectly classifies).\n\n\nRandom Forests\n\nRandom Forests are similar to CARTs, but instead of coming up with just one decision tree, the result is a ‘random forest’ of loads of decision trees. It does this by taking a bunch of bootstrap samples of the training data. Within each bootstrap sample, about two thirds are kept ‘in the bag’ and one third is ‘out of the bag’ (OOB). The data kept in the bag is used to train the model, and create a decision tree. During this process, every time a node is reached, the tree can only choose from a random selection of independent variables (in our case, this is our spectral bands). Once the decision tree is made, we then use the OOB data (which the model has never seen) to see how that individual decision tree performs…and this gives us the OOB error.\nWhen we use the resulting random forest model to classify a pixel, all of the decision trees in the forest “vote” simultaneously to give the best prediction. The performance of this model is validated against the 30% of the training data that was held back from the whole random forest model to begin with. This is a bit of a confusing detail…but basically, the OOB error is an ‘internal’ check that happens for each bootstrap sample, and validation is the ‘external’ check that is applied to the model that we get at the end.",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#how-do-we-deal-with-clouds",
+    "href": "7_classification_1.html#how-do-we-deal-with-clouds",
+    "title": "Classification I",
+    "section": "How do we deal with clouds?",
+    "text": "How do we deal with clouds?\n\nOption 1: Cloudy pixel percentage\nMost of the satellite imagery data comes with a bunch of metadata about the imagery. One of these pieces of information is the CLOUDY_PIXEL_PERCENTAGE, which represents the cloud cover for the entire tile. In this method, we would filter the entire collection of images based on a given cloud coverage (in our case 1%):\nvar way_one = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\n                  .filterDate('2022-01-01', '2022-10-31')\n                  .filterBounds(capetown)\n                  // Only include images where clouds \n                  // cover less than 1% of the tile\n                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',1));\n\n\nOption 2: Quality Assurance\nIn this method, we filter the entire collection of images with a much higher cloud percentage per tile (20%), but now look into another band of the imagery called Quality Assurance (QA60). This is basically a special bitmask layer where the satellite’s algorithms have flagged specific pixels as “Cloud” or “Cirrus”. We use the QA60 band to create a function, maskS2clouds:\nfunction maskS2clouds(image) {\n  var qa = image.select('QA60');\n\n  // Bits 10 and 11 are clouds and cirrus, respectively.\n  var cloudBitMask = 1 &lt;&lt; 10;\n  var cirrusBitMask = 1 &lt;&lt; 11;\n\n  // Both flags should be set to zero, indicating clear conditions.\n  var mask = qa.bitwiseAnd(cloudBitMask).eq(0)\n      .and(qa.bitwiseAnd(cirrusBitMask).eq(0));\n\n  return image.updateMask(mask).divide(10000);\n}\nBasically, this function takes each image and looks for any pixels flagged as clouds or cirrus, and makes them transparent. We then map this function across the image collection:\nvar way_2two = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\n                  .filterDate('2022-01-01', '2022-10-31')\n                  .filterBounds(capetown)\n                  // More lenient with cloudy cover\n                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20))\n                  // Map function across image collection\n                  .map(maskS2clouds);\nThe result should be an image collection with clouds/cirrus removed from each image. To this, we then apply a median reducer to create a single image and filter out any clouds that were not asked out with the maskS2clouds function.\n\n\nComparison of the 2 methods\nOption 1 is very fast and computationally “cheap”, while option 2 involves more complex code and more processing power. One of the main disadvantages of option 1 is that it is very restrictive with image selection. Here’s a very basic figure to help visualize a situation where this would be a problem:\n\nIn the above figure, tile 2 probably has around 40% and tile 3 around 5%. If we set our limit of cloudy pixel percentage to 1%, both of these images wouldn’t have been included in the image collection even though none over the clouds were covering our study area. This is where option 2 would be much more beneficial, as this isn’t as strict about filtering out cloudy images and deals with clouds by masking them out.\nOkay, let’s move away from the cloud tangent and get back to classification.",
+    "crumbs": [
+      "Classification I"
+    ]
+  },
+  {
+    "objectID": "7_classification_1.html#cart-1",
+    "href": "7_classification_1.html#cart-1",
+    "title": "Classification I",
+    "section": "CART",
+    "text": "CART\nClassification And Regression Trees. This model is a single decision tree which looks at our\nTalk about:\n\nimport stuff and how this can save time and code space\nOther cool vector layers (coral)\nCode “chunks” with dropdowns\n\nadd /* and */ between chunks that you want commented out\nmulti line comments\n/**\n * Function to mask clouds using the Sentinel-2 QA band\n * @param {ee.Image} image Sentinel-2 image\n * @return {ee.Image} cloud masked Sentinel-2 image\n\n2 different options when dealing with clouds\nmaybe speak about the print and map functions, inspector and console and tasks",
+    "crumbs": [
+      "Classification I"
+    ]
   }
 ]
