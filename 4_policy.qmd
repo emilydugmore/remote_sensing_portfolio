@@ -58,14 +58,10 @@ On the other hand, it is likely that mapping these vulnerable communities will l
 
 This is a really challenging trade-off. At the beginning of this task, I thought this would be a great way to integrate remote sensing into policy. But the more I think about it more deeply the more I realize that my approach was pretty flawed. When I started, the 'end result' in my mind was the **data** - *a map of vulnerable communities in informal settlements*. In reality, the 'end result' should have been **action** - *what interventions will take place using the information from the map*? Even though the resulting data is objective, the implications of it are highly political.
 
-This was a big lesson for me. If I had to do this task again, I would definitely think about some things
-
-something might seem like a good idea at first, but you really have to think about the implications of the data and keep redesigning the process to achieve an actionable result, and one which achieves your goals.
-
 Other reflections:
 
--   Within the vulnerabilities map, you could map the "undevelopable" areas (1:50 year flood zone?) vs "developable" areas –\> this will show where municipalities can do insitu upgrades (with no need for relocation) and areas where immediate action is required.
+-   Within the vulnerabilities map, you could map the "undevelopable" areas (1:50 year flood zone?) vs "developable" areas –\> this will show where municipalities can do in-situ upgrades (with no need for relocation) and areas where immediate action is required.
 
 -   How do we stop people from moving here again in the future?
 
--   Shift it from perspective of mapping already vulnerable communities (relocations), to which high risk areas are likely to be expanded into, and how can this be prevented.
+-   Shift it from perspective from mapping already vulnerable communities (who would be forced to relocation), to mapping which high risk areas are most likely expanded into "danger zones", and how can this be intervened before it becomes problematic.

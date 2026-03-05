@@ -69,7 +69,7 @@ Scale here is the resolution that is used to extract values. Here, it is 10m (th
 
 This step is achieved in just ONE line of code! We chose to use the random forest model here.
 
-``` JavaScript
+``` javascript
 var rf1_pixel = ee.Classifier.smileRandomForest(100)
     .train(training, 'class');
 ```
@@ -78,7 +78,7 @@ var rf1_pixel = ee.Classifier.smileRandomForest(100)
 
 Here, we apply our trained model from the previous step to our study area image, and add this as a layer on the map.
 
-``` JavaScript
+``` javascript
 var rf2_pixel = waytwo_clip.classify(rf1_pixel);
 
 Map.addLayer(rf2_pixel, {min: 1, max: 5, 
@@ -96,13 +96,13 @@ Map.addLayer(rf2_pixel, {min: 1, max: 5,
 
 To assess the training model's accuracy pre-validation:
 
-``` JavaScript
+``` javascript
 var trainAccuracy = rf1_pixel.confusionMatrix();
 ```
 
 To validate the model and assess its accuracy:
 
-``` JavaScript
+``` javascript
 var validated = validation.classify(rf1_pixel);
 
 var testAccuracy = validated.errorMatrix('class', 'classification');
