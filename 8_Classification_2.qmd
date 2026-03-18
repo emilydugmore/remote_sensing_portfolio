@@ -1,0 +1,61 @@
+# Classification (part 2) {.unnumbered}
+
+This week, we dig a bit deeper into classification algorithms and explore sub and super pixel analysis.
+
+## Sub-pixel analysis
+
+### Multiple land covers within a pixel
+
+What happens when multiple land covers appear within a single pixel? Take this image below of one of the dams on Table Mountain. The inner area of the dam can be considered "spectrally pure", since entire pixels are comprised of water. However, the outer edges of the dam represent a mixture of water and sand.
+
+![](images/clipboard-4104567614.png)
+
+To deal with this, we draw points or polygons of spectrally pure pixels for each of the "end members" (basically just the land types we want to be classified). I chose 5 different end members:
+
+1.  Urban
+2.  Agricultural
+3.  Water
+4.  Forest
+5.  Mountainous
+
+### Spectral unmixing
+
+We then conduct spectral unmixing, whereby the reflectance value of every pixel is compared to the spectrally pure end member values. The algorithm then infers what the proportion of each land cover type is within each pixel. Let's go back to the dam example to see what these fractions actually look like...
+
+![](images/clipboard-3409467201.png)
+
+| End member   | Pixel 1   | Pixel 2 | Pixel 3 |
+|--------------|-----------|---------|---------|
+| Urban        | 0         | **22**  | 7       |
+| Agricultural | 0         | 6       | **93**  |
+| Water        | **99.99** | **70**  | 0       |
+| Forest       | 0         | 0       | 0       |
+| Mountain     | 0         | 2       | 0       |
+
+So we can see a gradient being established from 'spectrally pure' water to 'spectrally pure' sand (or agricultural land, since I didn't make sand its own end member), with the inbetween value being a bit 'fuzzy'.
+
+### Reclassification
+
+We then use the values of these fractions to reclassify the image (into only the 5 categories of land cover, rather than the proportions of each). We do this by 'hardening' the sub-pixel image and classify each pixel that is above a given threshold of land cover. We used a threshold of 50% and 70% (i.e., a pixel is classified into a given land type when it's proportion exceeds 50% or 70%).
+
+The algorithm appears to have performed relatively well, and we specifically assign pixels which had no dominant pixel proportion a black colour so that we can see in which areas there was high spectral mixing.
+
+![](images/clipboard-2276546459.png)
+
+An area in which the algorithm didn't perform well was with mountain shadows, which returned high proportions of the water end member and were thus classified as such. This could have been avoided by including an NDVI or NDWI index within the image collection.
+
+### ![](images/clipboard-3736772450.png)
+
+### Accuracy assessment??
+
+Something from a paper here??
+
+## Super-pixel analysis
+
+Instead of breaking pixels into smaller parts, super-pixel analysis, or object-based image analysis groups similar pixels together. Below is the output of the clusters formed using the simple non-iterative clustering (SNIC) method.
+
+![](images/clipboard-4259562036.png)
+
+It seems as though the heterogeanous nature of the landscape means that the output is rather noisy, and I am not quite sure what information can be extracted from an output like this.
+
+<https://www.researchgate.net/figure/Results-of-applying-the-Simple-Non-Iterative-Clustering-SNIC-algorithm-and-the_fig5_345082789>

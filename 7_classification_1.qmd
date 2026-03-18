@@ -1,4 +1,4 @@
-# Classification I {.unnumbered}
+# Classification (part 1) {.unnumbered}
 
 There's a lot of code chunks in between text. I decided to include this to show just how easy and intuitive all of this is.
 

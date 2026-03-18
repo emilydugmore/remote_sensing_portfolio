@@ -76,3 +76,6 @@ The paper discusses how similar spectral signatures between different plants (or
 -   **Fire History**: Fire is a major factor in the fynbos. The paper specifically shows a "sudden drop of NDVI followed by a gradual vegetation recovery" in areas where fires occurred. If your satellite scene was taken shortly after a fire, the NDVI would be significantly lower than the mountain's "known" status as a biodiversity hotspot.
 
     **Vegetation Age**: The paper uses **vegetation age** (calculated from fire scars) as a key environmental variable. Younger vegetation that is still recovering from a burn will have a much lower NDVI than mature fynbos.
+    
+    
+  ** WHILE median is taken for most studies, reference the study that took percentiles (good for studies where seasonality is important)
