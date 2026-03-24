@@ -6,17 +6,17 @@ Put simply, remote sensing is a method of acquiring information from a distance 
 
 ### Active vs passive sensors
 
-**Passive sensors** rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.
+**Passive sensors** do not emit energy themselves and rely on naturally available energy, primarily solar electromagnetic radiation (EMR) reflected off the earth's surface. Consequently, they are ineffective in low-light conditions and are unable to penetrate atmospheric obstacles (clouds, smoke, dense vegetation).
 
-**Active sensors** emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to 'pass through' atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).
+**Active sensors** emit their own EMR and wait to receive the reflected energy. The emitted energy is able to 'pass through' atmospheric obstacles (depending on the wavelength of the emitted energy) which have smaller particle sizes instead than being scattered, absorbed or reflected.
 
 ### Spectral Signatures
 
-Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.
+Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum (EMS). Each feature on Earth has a unique spectral signature that is determined its by physical and chemical properties.
 
-![](images/spectral_sig.png)
+![Spectral signatures of five different surfaces ([Zhuge et. al. 2017](https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407))](images/spectral_sig.png)
 
-An important feature in the spectral signature is the **red edge** - a sharp increase in reflectance around 700 nm in vegetation’s spectral signature, which indicates chlorophyll content and plant health.
+An important feature in the spectral signature of vegetation is the **red edge** - a sharp increase in reflectance around 700 nm which indicates chlorophyll content and plant health.
 
 ### Resolutions
 
@@ -24,84 +24,47 @@ The characteristics of remote sensors will determine the level of accuracy and d
 
 #### Spectral Resolution
 
-Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.
+Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Higher spectral resolutions are achieved with wider and more spectral bands.
 
 Sometimes there are large gaps of wavelength ranges in the EMS in which no information is collected, and this is because the atmosphere does not allow certain wavelengths to pass. Thus, bands are often limited to atmospheric windows where wavelengths can penetrate.
 
-![Spectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.](images/spectral_resolution.png)
+![Spectral Resolutions of Landsat 1 (MSS) and Landsat 8. **Note**: Landsat 8 only has 11 channels/bands, not 15 as the image shows ([ESERO Germany](https://www.youtube.com/watch?v=onMzjMi5Md0))](images/spectral_resolution.png)
 
-##### What happens next? {.unnumbered}
+It's pretty crazy to think how much satellite technology has improved in such a short space of time. Landsat 1, launched in 1972, had just 4 spectral channels, all of which were in the near IR and visible EMS range. Landsat 8, launched in 2013 has an impressive 11 channels, expanding the EMS range to allow for land surface temperature data and improved moisture detection.
+
+#### What happens next?
 
 Looking more closely at the Landsat 1 (MSS) satellite...
 
-The information captured by each of the four spectral bands are stored as a greyscale image, which shows the reflection intensity of the Earth's surface within each band. By combining the refletance information from each band, and then comparing this with spectral signatures, we can distinguish features of the Earth's surface.
+The information captured by each of the four spectral bands are stored as a greyscale images representing reflectance, which, combined with spectral signatures can give us information about the Earth's surface.
 
-![](images/clipboard-3618918105.png)
+![Reflectance of four bands from Landsat 1 (MSS) ([ESERO Germany](https://www.youtube.com/watch?v=onMzjMi5Md0))](images/clipboard-3618918105.png)
 
 #### Other Resolutions
 
-**Spatial** = The size of the raster grid per pixel, from 10cm to several kilometers.
+**Spatial**: The size of the raster grid per pixel, from 10cm to several kilometers.
 
-**Temporal** = The time between revisits of information collection for a given location.
+**Temporal**: The time between revisits of information collection for a given location.
 
-**Radiometric** = The ability of a sensor to identify and show small differences in energy.
+**Radiometric**: The ability of a sensor to identify and show small differences in energy.
 
-\*\*\* Something about balancing / trade offs \*\*\*
+## Applications
 
-### Colour composites
+### Making sense of black and white images
 
-Colour composites are images created by assigning different spectral bands to the red, green, and blue (RGB) display bands, and are used to highlight specific features that are often not visible to the human eye.
+Colour composites are images created by assigning of the spectral bands to the red, green and blue (RGB) display channels. The choice of spectral bands can be used to highlight specific features that are often not visible to the human eye.
 
-![Comparison of the spectral resolutions of Landsat 7 & 8 with Sentinel-2](https://vtesniere.github.io/CASA0023_book/Week_1/Sentinel_Images/Comparison-of-spectral-bands-between-Sentinel-2-and-Landsat-8-overlapping-response-with.pbm)
+[![True, false and pseudo-natural colour composites using Landsat-5 imagery (\[Klaus et. al., 2009\](https://www.researchgate.net/publication/233793398_Principles_of_remote_sensing_an_introductory_textbook))](https://ltb.itc.utwente.nl/uploads/studyarea/498/Pics_2015_jpg/Fig5_6.jpg)](https://www.researchgate.net/publication/233793398_Principles_of_remote_sensing_an_introductory_textbook)
 
-**True colour composites** (B4, B3, B2 for Sentinel-2) display the Earth as we would see it with our eyes.
+True colour composites (TCC) display the Earth as we would see it with our eyes. False colour composites (FCC) use non-visible bands in the near-infrared range alongside red and green to make vegetation bright red. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (remember **spectral signatures**).
 
-**False colour composites** use non-visible bands in the near-infrared range alongside red and green (B8, B4, B3 for Sentinel-2) to provide information particularly useful for vegetation analysis. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (see **spectral signatures** for a reminder of this).
+There is often debate about which colour composite is best for identifying certain features. @haack1995 addressed this by testing the accuracy of agricultural crop identification using different colour composites. Identification accuracy results varyied from 62% for standard FCC to 84% for a colour composite determined through transformed divergence (a statistical test to decide which colour composite was best given the context). The study demonstrated the efficacy of using Short-Wave Infrared (SWIR) bands for crop identification, and highlighted the inaccuracy of the standard FCC (which relied solely on visible and near-IR bands).
 
-Expanding on this a bit more, we can make scatterplots (called a spectral feature space) of two bands against one another to see how much of our study area is covered by different features (in this case, dense vs sparse vegetation and dry vs wet soil).
+### Invasive species mapping
 
-![Source: Remote Sensing 4113](images/clipboard-913266028.png)
+The value of SWIR bands for vegetation and crop identification is now widely recognized in the remote sensing community. A bit more up my area of expertise (coming from background of ecology and conservation biology), is a study which used Landsat 5 TM and Landsat 8 OLI (B, G, R, NIR and SWIR bands) to map and monitor the spread of the invasive plant *Dichrostachys cinerea* (marabú) in central Cuba over nearly three decades [@valero2024]. The study tailored its choice of bands based on a combination which best contrasted invasive marabú and native tree species,
 
-**Atmospheric penetration composites** (B12, B11, B8A for Sentinel-2) have no visible bands so that the image penetrate atmospheric particles and reduces the effect of atmospheric scattering. The resulting image from this composite shows vegetation as blue and urban areas as white/grey or cyan/purple.
-
-![](https://ltb.itc.utwente.nl/uploads/studyarea/498/Pics_2015_jpg/Fig5_6.jpg)
-
-#### Tasseled Cap function
-
-Although this isn't a true colour composite, and rather acts more as a spectral index, it's interpretation is somewhat similar.
-
-The tasseled cap function is a spectral transformation that combines multiple spectral bands into three new composite layers - brightness, greenness, and wetness (which are assigned to the red, green and blue bands, respectively). The resulting image is a representation of different land cover types (red = urban structures, green = vegetation, blue = water/moisture).
-
-![](images/clipboard-409740593.png)
-
-## LandSat & Sentinel Applications
-
-CASA's very own Ollie Ballinger used satellite images (with the help of complex AI software) from *Copernicus' Sentinel Hub* to identify and track US Navy vessels operating with disabled transponders in the Caribbean. His findings appeared in a *New York Times* article, revealing a larger, more consistent presence of US Navy ships in the region than officials had admitted. The research ultimately pre-empted Operation Absolute Resolve in January 2026 - the large-scale US military strike that led to the capture of Venezuelan President Nicolás Maduro.
-
-![](images/clipboard-1079227062.png)
-
-A bit more up my area of expertise (coming from background of ecology and conservation biology), is a study (<https://www.mdpi.com/2072-4292/16/5/798>) which usedsatellite imagery from Landsat 5 TM and Landsat 8 OLI to map and monitor the spread of the invasive plant *Dichrostachys cinerea* (marabú) in central Cuba over nearly three decades.
-
-Something I thought was particularly interesting about this study is that it went beyond simply mapping the extent of invasive spread, by also quantifying the impact that its presence had on specific land covers. This is an important aspect of invasive species studies (and I think one which is often skipped), and shows that remote sensing can be used to inform management strategies and detect areas of priority.
-
-![](images/clipboard-2590207954.png)
-
-### Sentinel-2 vs LandSat 8
-
-| Feature | Landsat 8 | Sentinel-2 |
-|----|----|----|
-| **Satellite Constellation** | Single satellite | 2 satellites (2A & 2B) |
-| **Spatial Resolution** | 30 m | 10 m, 20 m, 60 m depending on band |
-| **Panchromatic Band** | 15 m | None |
-| **Thermal Band** | Yes, 100 m (resampled to 30 m) | No |
-| **Red Edge Bands** | No | 3 bands (705, 740, 783 nm)\* |
-| **Number of Bands** | 11 | 13 |
-| **Revisit Time** | 16 days | 5 days |
-| **Key Applications** | Land use/land cover mapping, thermal monitoring, water temperature, urban heat studies | Agriculture, forestry, water quality, vegetation health, disaster monitoring |
-
-\* More bands within the red edge is useful for vegetation application due to the red edge!
-
-This is a sentence with a [hover note]{title="This is the hover note!"}.
+![Workflow for mapping spatial distribution of invasive marabú in Central Cuba (Valero-Jorge et. al. 2024)](images/clipboard-2590207954.png)
 
 ## Reflection
 
@@ -109,16 +72,4 @@ Academically, my use of remotely sensed imagery has been limited to using true c
 
 This is the first time that I am going deeper than that. Even just from the first week it feels like I have learned to much about how remote sensors collect information, downloading the data and manipulating it to suite the needs of different applications.
 
-Something that stood out for me was colour composites and spectral indexes. In my previous degree, Normalised Difference Vegetation Index (NDVI) was spoken about a lot as a proxy for vegetation health. Finally understanding how this is calculated using remote sensors (and distinct properties of the spectral signatures of vegetation) is really satisfying!
-
-## References
-
-<https://www.nv5geospatialsoftware.com/What-is-Remote-Sensing>
-
-spectral signature image = <https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407>
-
-<https://www.instagram.com/p/DTRSx-6kbXO/>
-
-chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://geofaculty.uwyo.edu/rhowell/classes/remote_sensing/labs/lab_11_2018_alternate_vegetation.pdf
-
-<https://ltb.itc.utwente.nl/498/concept/81525>
+Although the study by @haack1995 is quite outdated, it was a stark reminder to remain critical of "gold-standard" visualization methods. There is no "best" way to display or identify a given feature, and its always important tailor the methods to the project's local context and goals, like @valero2024 did to identify a single invasive plant species. Remote sensing technological capabilities are advaning rapidly and the field is becoming more and more widespread, which means it is up to us to keep up to date with new methodologies and be critical of "gold-standard" techniques.

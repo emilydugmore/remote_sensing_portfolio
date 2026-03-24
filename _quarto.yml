@@ -13,6 +13,8 @@ book:
     - 4_policy.qmd
     - 6_GEE.qmd
     - 7_classification_1.qmd
+    - references.qmd
+
 bibliography: references.bib
 
 format:

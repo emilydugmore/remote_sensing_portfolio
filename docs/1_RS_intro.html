@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -137,6 +157,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Google Earth Engine</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_classification_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification (part 1)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -152,14 +184,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#active-vs-passive-sensors" id="toc-active-vs-passive-sensors" class="nav-link" data-scroll-target="#active-vs-passive-sensors">Active vs passive sensors</a></li>
   <li><a href="#spectral-signatures" id="toc-spectral-signatures" class="nav-link" data-scroll-target="#spectral-signatures">Spectral Signatures</a></li>
   <li><a href="#resolutions" id="toc-resolutions" class="nav-link" data-scroll-target="#resolutions">Resolutions</a></li>
-  <li><a href="#colour-composites" id="toc-colour-composites" class="nav-link" data-scroll-target="#colour-composites">Colour composites</a></li>
   </ul></li>
-  <li><a href="#landsat-sentinel-applications" id="toc-landsat-sentinel-applications" class="nav-link" data-scroll-target="#landsat-sentinel-applications">LandSat &amp; Sentinel Applications</a>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
   <ul class="collapse">
-  <li><a href="#sentinel-2-vs-landsat-8" id="toc-sentinel-2-vs-landsat-8" class="nav-link" data-scroll-target="#sentinel-2-vs-landsat-8">Sentinel-2 vs LandSat 8</a></li>
+  <li><a href="#making-sense-of-black-and-white-images" id="toc-making-sense-of-black-and-white-images" class="nav-link" data-scroll-target="#making-sense-of-black-and-white-images">Making sense of black and white images</a></li>
+  <li><a href="#invasive-species-mapping" id="toc-invasive-species-mapping" class="nav-link" data-scroll-target="#invasive-species-mapping">Invasive species mapping</a></li>
   </ul></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -190,155 +221,94 @@ ul.task-list li input[type="checkbox"] {
 <p>Put simply, remote sensing is a method of acquiring information from a distance through sensors mounted on a platform (e.g., satellites, planes, drones).</p>
 <section id="active-vs-passive-sensors" class="level3">
 <h3 class="anchored" data-anchor-id="active-vs-passive-sensors">Active vs passive sensors</h3>
-<p><strong>Passive sensors</strong> rely on naturally available energy, primarily sunlight, and do not emit energy themselves. As solar electromagnetic radiation (EMR) travels through the atmosphere and reflects off the Earth’s surface, it undergoes several interactions, including absorption, transmission, and scattering. These interactions can significantly reduce the amount of energy that reaches the sensor. Consequently, passive sensors are ineffective in low-light conditions and are unable to penetrate obstacles such as clouds, smoke, or dense vegetation, as these features scatter or absorb the reflected radiation.</p>
-<p><strong>Active sensors</strong> emit their own EMR and wait to receive the reflected energy. The emitted energy is often in the form of long wavelengths that are able to ‘pass through’ atmospheric obstacles which have smaller particle sizes (rather than being scattered, absorbed or reflected).</p>
+<p><strong>Passive sensors</strong> do not emit energy themselves and rely on naturally available energy, primarily solar electromagnetic radiation (EMR) reflected off the earth’s surface. Consequently, they are ineffective in low-light conditions and are unable to penetrate atmospheric obstacles (clouds, smoke, dense vegetation).</p>
+<p><strong>Active sensors</strong> emit their own EMR and wait to receive the reflected energy. The emitted energy is able to ‘pass through’ atmospheric obstacles (depending on the wavelength of the emitted energy) which have smaller particle sizes instead than being scattered, absorbed or reflected.</p>
 </section>
 <section id="spectral-signatures" class="level3">
 <h3 class="anchored" data-anchor-id="spectral-signatures">Spectral Signatures</h3>
-<p>Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum. Each feature on Earth has a unique spectral signature that is determined by physical and chemical properties and how it interacts with electromagnetic radiation.</p>
-<p><img src="images/spectral_sig.png" class="img-fluid"></p>
-<p>An important feature in the spectral signature is the <strong>red edge</strong> - a sharp increase in reflectance around 700 nm in vegetation’s spectral signature, which indicates chlorophyll content and plant health.</p>
+<p>Spectral signatures show how different materials reflect or absorb electromagnetic energy across a spectrum of wavelengths on the electromagnetic spectrum (EMS). Each feature on Earth has a unique spectral signature that is determined its by physical and chemical properties.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/spectral_sig.png" class="img-fluid figure-img"></p>
+<figcaption>Spectral signatures of five different surfaces (<a href="https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407">Zhuge et. al.&nbsp;2017</a>)</figcaption>
+</figure>
+</div>
+<p>An important feature in the spectral signature of vegetation is the <strong>red edge</strong> - a sharp increase in reflectance around 700 nm which indicates chlorophyll content and plant health.</p>
 </section>
 <section id="resolutions" class="level3">
 <h3 class="anchored" data-anchor-id="resolutions">Resolutions</h3>
 <p>The characteristics of remote sensors will determine the level of accuracy and detail of the information about the Earth’s surface.</p>
 <section id="spectral-resolution" class="level4">
 <h4 class="anchored" data-anchor-id="spectral-resolution">Spectral Resolution</h4>
-<p>Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Wider spectral bands reflect a lower spectral resolution. A higher number of bands reflects a higher spectral resolution.</p>
+<p>Spectral resolution refers to a sensor’s ability to distinguish between different wavelengths of electromagnetic radiation from the received signal. Each spectral band corresponds to a specific wavelength range, and averages its information across this range. Higher spectral resolutions are achieved with wider and more spectral bands.</p>
 <p>Sometimes there are large gaps of wavelength ranges in the EMS in which no information is collected, and this is because the atmosphere does not allow certain wavelengths to pass. Thus, bands are often limited to atmospheric windows where wavelengths can penetrate.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/spectral_resolution.png" class="img-fluid figure-img"></p>
-<figcaption>Spectral Resolutions of two satellites. Landsat 1 (MSS) has four spectral bands within the visible and near IR spectra, while Landsat 8 has 15 bands spread across the whole electromagnetic spectrum.</figcaption>
+<figcaption>Spectral Resolutions of Landsat 1 (MSS) and Landsat 8. <strong>Note</strong>: Landsat 8 only has 11 channels/bands, not 15 as the image shows (<a href="https://www.youtube.com/watch?v=onMzjMi5Md0">ESERO Germany</a>)</figcaption>
 </figure>
 </div>
-<section id="what-happens-next" class="level5 unnumbered">
-<h5 class="unnumbered anchored" data-anchor-id="what-happens-next">What happens next?</h5>
-<p>Looking more closely at the Landsat 1 (MSS) satellite…</p>
-<p>The information captured by each of the four spectral bands are stored as a greyscale image, which shows the reflection intensity of the Earth’s surface within each band. By combining the refletance information from each band, and then comparing this with spectral signatures, we can distinguish features of the Earth’s surface.</p>
-<p><img src="images/clipboard-3618918105.png" class="img-fluid"></p>
+<p>It’s pretty crazy to think how much satellite technology has improved in such a short space of time. Landsat 1, launched in 1972, had just 4 spectral channels, all of which were in the near IR and visible EMS range. Landsat 8, launched in 2013 has an impressive 11 channels, expanding the EMS range to allow for land surface temperature data and improved moisture detection.</p>
 </section>
+<section id="what-happens-next" class="level4">
+<h4 class="anchored" data-anchor-id="what-happens-next">What happens next?</h4>
+<p>Looking more closely at the Landsat 1 (MSS) satellite…</p>
+<p>The information captured by each of the four spectral bands are stored as a greyscale images representing reflectance, which, combined with spectral signatures can give us information about the Earth’s surface.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3618918105.png" class="img-fluid figure-img"></p>
+<figcaption>Reflectance of four bands from Landsat 1 (MSS) (<a href="https://www.youtube.com/watch?v=onMzjMi5Md0">ESERO Germany</a>)</figcaption>
+</figure>
+</div>
 </section>
 <section id="other-resolutions" class="level4">
 <h4 class="anchored" data-anchor-id="other-resolutions">Other Resolutions</h4>
-<p><strong>Spatial</strong> = The size of the raster grid per pixel, from 10cm to several kilometers.</p>
-<p><strong>Temporal</strong> = The time between revisits of information collection for a given location.</p>
-<p><strong>Radiometric</strong> = The ability of a sensor to identify and show small differences in energy.</p>
-<p>*** Something about balancing / trade offs ***</p>
+<p><strong>Spatial</strong>: The size of the raster grid per pixel, from 10cm to several kilometers.</p>
+<p><strong>Temporal</strong>: The time between revisits of information collection for a given location.</p>
+<p><strong>Radiometric</strong>: The ability of a sensor to identify and show small differences in energy.</p>
 </section>
 </section>
-<section id="colour-composites" class="level3">
-<h3 class="anchored" data-anchor-id="colour-composites">Colour composites</h3>
-<p>Colour composites are images created by assigning different spectral bands to the red, green, and blue (RGB) display bands, and are used to highlight specific features that are often not visible to the human eye.</p>
+</section>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<section id="making-sense-of-black-and-white-images" class="level3">
+<h3 class="anchored" data-anchor-id="making-sense-of-black-and-white-images">Making sense of black and white images</h3>
+<p>Colour composites are images created by assigning of the spectral bands to the red, green and blue (RGB) display channels. The choice of spectral bands can be used to highlight specific features that are often not visible to the human eye.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vtesniere.github.io/CASA0023_book/Week_1/Sentinel_Images/Comparison-of-spectral-bands-between-Sentinel-2-and-Landsat-8-overlapping-response-with.pbm" class="img-fluid figure-img"></p>
-<figcaption>Comparison of the spectral resolutions of Landsat 7 &amp; 8 with Sentinel-2</figcaption>
+<p><a href="https://www.researchgate.net/publication/233793398_Principles_of_remote_sensing_an_introductory_textbook"><img src="https://ltb.itc.utwente.nl/uploads/studyarea/498/Pics_2015_jpg/Fig5_6.jpg" class="img-fluid figure-img"></a></p>
+<figcaption>True, false and pseudo-natural colour composites using Landsat-5 imagery ([Klaus et. al., 2009](https://www.researchgate.net/publication/233793398_Principles_of_remote_sensing_an_introductory_textbook))</figcaption>
 </figure>
 </div>
-<p><strong>True colour composites</strong> (B4, B3, B2 for Sentinel-2) display the Earth as we would see it with our eyes.</p>
-<p><strong>False colour composites</strong> use non-visible bands in the near-infrared range alongside red and green (B8, B4, B3 for Sentinel-2) to provide information particularly useful for vegetation analysis. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (see <strong>spectral signatures</strong> for a reminder of this).</p>
-<p>Expanding on this a bit more, we can make scatterplots (called a spectral feature space) of two bands against one another to see how much of our study area is covered by different features (in this case, dense vs sparse vegetation and dry vs wet soil).</p>
+<p>True colour composites (TCC) display the Earth as we would see it with our eyes. False colour composites (FCC) use non-visible bands in the near-infrared range alongside red and green to make vegetation bright red. The choice of these three bands has to do with plants reflecting near-infrared and green light while absorbing red light (remember <strong>spectral signatures</strong>).</p>
+<p>There is often debate about which colour composite is best for identifying certain features. <span class="citation" data-cites="haack1995">Haack and Jampoler (<a href="references.html#ref-haack1995" role="doc-biblioref">1995</a>)</span> addressed this by testing the accuracy of agricultural crop identification using different colour composites. Identification accuracy results varyied from 62% for standard FCC to 84% for a colour composite determined through transformed divergence (a statistical test to decide which colour composite was best given the context). The study demonstrated the efficacy of using Short-Wave Infrared (SWIR) bands for crop identification, and highlighted the inaccuracy of the standard FCC (which relied solely on visible and near-IR bands).</p>
+</section>
+<section id="invasive-species-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="invasive-species-mapping">Invasive species mapping</h3>
+<p>The value of SWIR bands for vegetation and crop identification is now widely recognized in the remote sensing community. A bit more up my area of expertise (coming from background of ecology and conservation biology), is a study which used Landsat 5 TM and Landsat 8 OLI (B, G, R, NIR and SWIR bands) to map and monitor the spread of the invasive plant <em>Dichrostachys cinerea</em> (marabú) in central Cuba over nearly three decades <span class="citation" data-cites="valero2024">(<a href="references.html#ref-valero2024" role="doc-biblioref">Valero-Jorge et al. 2024</a>)</span>. The study tailored its choice of bands based on a combination which best contrasted invasive marabú and native tree species,</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-913266028.png" class="img-fluid figure-img"></p>
-<figcaption>Source: Remote Sensing 4113</figcaption>
+<p><img src="images/clipboard-2590207954.png" class="img-fluid figure-img"></p>
+<figcaption>Workflow for mapping spatial distribution of invasive marabú in Central Cuba (Valero-Jorge et. al.&nbsp;2024)</figcaption>
 </figure>
 </div>
-<p><strong>Atmospheric penetration composites</strong> (B12, B11, B8A for Sentinel-2) have no visible bands so that the image penetrate atmospheric particles and reduces the effect of atmospheric scattering. The resulting image from this composite shows vegetation as blue and urban areas as white/grey or cyan/purple.</p>
-<p><img src="https://ltb.itc.utwente.nl/uploads/studyarea/498/Pics_2015_jpg/Fig5_6.jpg" class="img-fluid"></p>
-<section id="tasseled-cap-function" class="level4">
-<h4 class="anchored" data-anchor-id="tasseled-cap-function">Tasseled Cap function</h4>
-<p>Although this isn’t a true colour composite, and rather acts more as a spectral index, it’s interpretation is somewhat similar.</p>
-<p>The tasseled cap function is a spectral transformation that combines multiple spectral bands into three new composite layers - brightness, greenness, and wetness (which are assigned to the red, green and blue bands, respectively). The resulting image is a representation of different land cover types (red = urban structures, green = vegetation, blue = water/moisture).</p>
-<p><img src="images/clipboard-409740593.png" class="img-fluid"></p>
-</section>
-</section>
-</section>
-<section id="landsat-sentinel-applications" class="level2">
-<h2 class="anchored" data-anchor-id="landsat-sentinel-applications">LandSat &amp; Sentinel Applications</h2>
-<p>CASA’s very own Ollie Ballinger used satellite images (with the help of complex AI software) from <em>Copernicus’ Sentinel Hub</em> to identify and track US Navy vessels operating with disabled transponders in the Caribbean. His findings appeared in a <em>New York Times</em> article, revealing a larger, more consistent presence of US Navy ships in the region than officials had admitted. The research ultimately pre-empted Operation Absolute Resolve in January 2026 - the large-scale US military strike that led to the capture of Venezuelan President Nicolás Maduro.</p>
-<p><img src="images/clipboard-1079227062.png" class="img-fluid"></p>
-<p>A bit more up my area of expertise (coming from background of ecology and conservation biology), is a study (<a href="https://www.mdpi.com/2072-4292/16/5/798" class="uri">https://www.mdpi.com/2072-4292/16/5/798</a>) which usedsatellite imagery from Landsat 5 TM and Landsat 8 OLI to map and monitor the spread of the invasive plant <em>Dichrostachys cinerea</em> (marabú) in central Cuba over nearly three decades.</p>
-<p>Something I thought was particularly interesting about this study is that it went beyond simply mapping the extent of invasive spread, by also quantifying the impact that its presence had on specific land covers. This is an important aspect of invasive species studies (and I think one which is often skipped), and shows that remote sensing can be used to inform management strategies and detect areas of priority.</p>
-<p><img src="images/clipboard-2590207954.png" class="img-fluid"></p>
-<section id="sentinel-2-vs-landsat-8" class="level3">
-<h3 class="anchored" data-anchor-id="sentinel-2-vs-landsat-8">Sentinel-2 vs LandSat 8</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Landsat 8</th>
-<th>Sentinel-2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Satellite Constellation</strong></td>
-<td>Single satellite</td>
-<td>2 satellites (2A &amp; 2B)</td>
-</tr>
-<tr class="even">
-<td><strong>Spatial Resolution</strong></td>
-<td>30 m</td>
-<td>10 m, 20 m, 60 m depending on band</td>
-</tr>
-<tr class="odd">
-<td><strong>Panchromatic Band</strong></td>
-<td>15 m</td>
-<td>None</td>
-</tr>
-<tr class="even">
-<td><strong>Thermal Band</strong></td>
-<td>Yes, 100 m (resampled to 30 m)</td>
-<td>No</td>
-</tr>
-<tr class="odd">
-<td><strong>Red Edge Bands</strong></td>
-<td>No</td>
-<td>3 bands (705, 740, 783 nm)*</td>
-</tr>
-<tr class="even">
-<td><strong>Number of Bands</strong></td>
-<td>11</td>
-<td>13</td>
-</tr>
-<tr class="odd">
-<td><strong>Revisit Time</strong></td>
-<td>16 days</td>
-<td>5 days</td>
-</tr>
-<tr class="even">
-<td><strong>Key Applications</strong></td>
-<td>Land use/land cover mapping, thermal monitoring, water temperature, urban heat studies</td>
-<td>Agriculture, forestry, water quality, vegetation health, disaster monitoring</td>
-</tr>
-</tbody>
-</table>
-<p>* More bands within the red edge is useful for vegetation application due to the red edge!</p>
-<p>This is a sentence with a <span title="This is the hover note!">hover note</span>.</p>
 </section>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
 <p>Academically, my use of remotely sensed imagery has been limited to using true colour composites as a means of contextualizing a study area and setting the scene in the form of basemaps. Personally, I use Google Earth extensively to look for different hiking routes and places that look interesting when I am travelling.</p>
 <p>This is the first time that I am going deeper than that. Even just from the first week it feels like I have learned to much about how remote sensors collect information, downloading the data and manipulating it to suite the needs of different applications.</p>
-<p>Something that stood out for me was colour composites and spectral indexes. In my previous degree, Normalised Difference Vegetation Index (NDVI) was spoken about a lot as a proxy for vegetation health. Finally understanding how this is calculated using remote sensors (and distinct properties of the spectral signatures of vegetation) is really satisfying!</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><a href="https://www.nv5geospatialsoftware.com/What-is-Remote-Sensing" class="uri">https://www.nv5geospatialsoftware.com/What-is-Remote-Sensing</a></p>
-<p>spectral signature image = <a href="https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407" class="uri">https://www.researchgate.net/figure/Spectral-signatures-as-functions-of-wavelength-for-five-typical-surfaces-The-central_fig4_318843407</a></p>
-<p><a href="https://www.instagram.com/p/DTRSx-6kbXO/" class="uri">https://www.instagram.com/p/DTRSx-6kbXO/</a></p>
-<p>chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://geofaculty.uwyo.edu/rhowell/classes/remote_sensing/labs/lab_11_2018_alternate_vegetation.pdf</p>
-<p><a href="https://ltb.itc.utwente.nl/498/concept/81525" class="uri">https://ltb.itc.utwente.nl/498/concept/81525</a></p>
+<p>Although the study by <span class="citation" data-cites="haack1995">Haack and Jampoler (<a href="references.html#ref-haack1995" role="doc-biblioref">1995</a>)</span> is quite outdated, it was a stark reminder to remain critical of “gold-standard” visualization methods. There is no “best” way to display or identify a given feature, and its always important tailor the methods to the project’s local context and goals, like <span class="citation" data-cites="valero2024">Valero-Jorge et al. (<a href="references.html#ref-valero2024" role="doc-biblioref">2024</a>)</span> did to identify a single invasive plant species. Remote sensing technological capabilities are advaning rapidly and the field is becoming more and more widespread, which means it is up to us to keep up to date with new methodologies and be critical of “gold-standard” techniques.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-haack1995" class="csl-entry" role="listitem">
+Haack, B., and S. Jampoler. 1995. <span>“Colour Composite Comparisons for Agricultural Assessments.”</span> <em>International Journal of Remote Sensing</em> 16 (9): 1589–98.
+</div>
+<div id="ref-valero2024" class="csl-entry" role="listitem">
+Valero-Jorge, A., R. González-De Zayas, F. Matos-Pupo, A. L. Becerra-González, and F. Álvarez-Taboada. 2024. <span>“Mapping and Monitoring of the Invasive Species Dichrostachys Cinerea (Marabú) in Central Cuba Using Landsat Imagery and Machine Learning (1994–2022).”</span> <em>Remote Sensing</em> 16 (5): 798.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

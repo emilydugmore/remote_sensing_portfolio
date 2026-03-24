@@ -1,3 +1,27 @@
----
-title: "9_temperature"
----
+# Temperature {.unnumbered}
+
+<https://www.mdpi.com/2072-4292/17/21/3545>
+
+Temperature is becoming an increasingly hot topic (pun intended) in the face of a rapidly changing climate. This is true for urban areas, with more and more cities recognizing the Urban Heat Island (UHI) effect. Even the UN's New Urban Agenda (NUA), which acts as a framework through which cities can achieve SDGs, states: "we commit ourselves to ... reducing the ... urban heat island effects". In rural contexts, temperature plays an extremely important role in agriculture, droughts and wildfires. While in the ocean, Sea Surface Temperature is critical for understanding ocean currents and upwelling zones.
+
+Remote sensors can provide incredibly valuable information about temperature, both temporally and spatially. Here, we explore openly-available Landsat 8 and MODIS data.
+
++---------------------------------+----------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+|                                 | Landsat                                            | MODIS                                                                                                    |
++=================================+====================================================+==========================================================================================================+
+| **Resolution**                  | 30 m (re-sampled from the native 100 m resolution) | 1 km                                                                                                     |
++---------------------------------+----------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+| **Re-sampling period**          | Every 16 days                                      | Every 1-2 days                                                                                           |
++---------------------------------+----------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+| **Number of images per sample** | 1                                                  | 2                                                                                                        |
+|                                 |                                                    |                                                                                                          |
+|                                 |                                                    | -   **terra** - Captures imagery at around 10:30am local time. Usually used for land studies             |
+|                                 |                                                    |                                                                                                          |
+|                                 |                                                    | -   **aqua** - Captures imagery at around 1:30pm local time. Usually used for ocean & atmosphere studies |
++---------------------------------+----------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+
+![](images/clipboard-114805493.png)
+
+![](images/clipboard-3390413648.png)
+
+Using temperature as one of our inputs for classification??? –\> reference?
