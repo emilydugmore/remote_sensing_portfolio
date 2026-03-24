@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Corrections – Remote Sensing Portfolio</title>
+<title>Enancements – Remote Sensing Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -111,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_Corrections.html">Corrections</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_Corrections.html">Enancements</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,7 +171,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_Corrections.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Corrections</span></a>
+ <span class="menu-text">Enancements</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -162,14 +182,26 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6_GEE.html" class="sidebar-item-text sidebar-link">
+  <a href="./5_GEE.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Earth Engine</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_classification_1.html" class="sidebar-item-text sidebar-link">
+  <a href="./6_classification_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classification (part 1)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_Classification_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification (part 2)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_Temperature.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temperature</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -188,7 +220,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#cape-town" id="toc-cape-town" class="nav-link active" data-scroll-target="#cape-town">Cape Town</a></li>
+  <li><a href="#setting-the-scene-cape-town" id="toc-setting-the-scene-cape-town" class="nav-link active" data-scroll-target="#setting-the-scene-cape-town">Setting the scene … Cape Town</a></li>
   <li><a href="#corrections" id="toc-corrections" class="nav-link" data-scroll-target="#corrections">Corrections</a></li>
   <li><a href="#joining-data-sets" id="toc-joining-data-sets" class="nav-link" data-scroll-target="#joining-data-sets">Joining Data Sets</a></li>
   <li><a href="#enhancements" id="toc-enhancements" class="nav-link" data-scroll-target="#enhancements">Enhancements</a>
@@ -196,9 +228,12 @@ window.Quarto = {
   <li><a href="#ndvi" id="toc-ndvi" class="nav-link" data-scroll-target="#ndvi">NDVI</a></li>
   <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture">Texture</a></li>
   <li><a href="#principle-component-analysis" id="toc-principle-component-analysis" class="nav-link" data-scroll-target="#principle-component-analysis">Principle Component Analysis</a></li>
-  <li><a href="#leaf-level-vs.-canopy-level-reflectance" id="toc-leaf-level-vs.-canopy-level-reflectance" class="nav-link" data-scroll-target="#leaf-level-vs.-canopy-level-reflectance">. Leaf-Level vs.&nbsp;Canopy-Level Reflectance</a></li>
-  <li><a href="#spectral-overlap-and-confusion" id="toc-spectral-overlap-and-confusion" class="nav-link" data-scroll-target="#spectral-overlap-and-confusion">2. Spectral Overlap and “Confusion”</a></li>
   </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
+  <ul class="collapse">
+  <li><a href="#the-built-up-area-debate" id="toc-the-built-up-area-debate" class="nav-link" data-scroll-target="#the-built-up-area-debate">The built-up area debate</a></li>
+  </ul></li>
+  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a></li>
   </ul>
 </nav>
     </div>
@@ -207,7 +242,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Corrections</h1>
+<h1 class="title">Enancements</h1>
 </div>
 
 
@@ -224,48 +259,60 @@ window.Quarto = {
 </header>
 
 
-<section id="cape-town" class="level2">
-<h2 class="anchored" data-anchor-id="cape-town">Cape Town</h2>
-<p>Cape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: table mountain. The city is located within the bounds of the ocean, and is surrounded around a 57km^2 mountain, which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.</p>
+<section id="setting-the-scene-cape-town" class="level2">
+<h2 class="anchored" data-anchor-id="setting-the-scene-cape-town">Setting the scene … Cape Town</h2>
+<p>Cape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: Table Mountain. The city is located within the bounds of the ocean, and is surrounded around a mountain (57 km squared in size), which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.</p>
 <p>The city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-458231652.png" class="img-fluid figure-img"></p>
-<figcaption>Map of Cape Town by Land Use</figcaption>
+<figcaption>Map of Cape Town by Land Use (<a href="https://www.researchgate.net/figure/City-of-Cape-Town-location-map_fig2_348505449">Garcia Álvarez and Camacho Almedo, 2021</a>)</figcaption>
 </figure>
 </div>
 </section>
 <section id="corrections" class="level2">
 <h2 class="anchored" data-anchor-id="corrections">Corrections</h2>
 <p>Corrections are critical steps in remote sensing pre-processing. Although most of the remotely sensed imagery that we would download has already ‘corrected’, it is important to understand what processes have been taken place to achieve this Analysis Ready Data (ARD).</p>
-<p><strong>Geometric corrections</strong> align images with ground coordinates using Ground Control Points to ensure spatial accuracy.</p>
-<p><strong>Atmospheric corrections</strong> address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations.</p>
+<ul>
+<li><p><strong>Geometric corrections:</strong> align images with ground coordinates using Ground Control Points to ensure spatial accuracy</p></li>
+<li><p><strong>Atmospheric corrections</strong> address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations</p></li>
+</ul>
 </section>
 <section id="joining-data-sets" class="level2">
 <h2 class="anchored" data-anchor-id="joining-data-sets">Joining Data Sets</h2>
-<p>Satellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scene (a unique combination of path and row) images are separate from one another, and require merging or mosaicking to join them to create a continous image.</p>
+<p>Satellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scenes (images from a unique combination of path and row) are separate from one another, and require merging or mosaicking to join them and create a continous image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.researchgate.net/profile/Justin-Huntington-2/publication/323838161/figure/fig2/AS:614403611320320@1523496644037/Landsat-World-Reference-System-2-WRS-2-path-and-row-overlay-for-Texas-in-relation-to.png" class="img-fluid figure-img"></p>
-<figcaption>Diagram showing scenes from Landsat 8, divided into paths and rows.</figcaption>
+<p><img src="images/clipboard-3614561003.png" class="img-fluid figure-img"></p>
+<figcaption>Diagram showing four scenes over Cape Town from Landsat 8 imagery, divided into paths and rows</figcaption>
 </figure>
 </div>
-<p>Merging is the basic joining of adjacent datasets, and can lead to a final image with sharp edges between the different scenes (especially if the scenes were collected on different days).</p>
+<p>The first option is to do a basic joining of adjacent datasets, which often leads to an image collection with sharp edges between the different images (especially if the images were collected on different days). Furthermore, this technique will only include one image per scene in the final image collection.</p>
 <p>Mosaicking is a more complex process that deals with overlapping areas a bit better by blending the overlapping areas together to create a seamless image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-3582130300.png" class="img-fluid figure-img"></p>
-<figcaption>Left: A simple merge of two scenes. Right: A more complex mosaic.</figcaption>
+<p><img src="images/clipboard-2660477946.png" class="img-fluid figure-img"></p>
+<figcaption>Difference between a simple join and mosaicking (using feathering technique) for four images</figcaption>
 </figure>
 </div>
-<p>It is important to consider temporal mismatches between the chosen scenes, as different atmospheric conditions might be present.</p>
+<section id="clipping" class="level4">
+<h4 class="anchored" data-anchor-id="clipping">Clipping</h4>
+<p>We then clip our final image to the Cape Town municipal boundary.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-559100773.png" class="img-fluid figure-img"></p>
+<figcaption>True Colour Composite of Cape Town, South Africa</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="enhancements" class="level2">
 <h2 class="anchored" data-anchor-id="enhancements">Enhancements</h2>
-<p>We can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image making certain features more easy to see (like buildings, moisture or vegetation). For ratio enhancements, the ratio largely depends on the spectral signature of the object or feature that you want to detect.</p>
+<p>We can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image to make certain features more easy to see (like buildings, moisture or vegetation).</p>
+<p>For <strong>ratio enhancements</strong>, the ratio largely depends on the spectral signature of the object or feature that you want to detect.</p>
 <section id="ndvi" class="level3">
 <h3 class="anchored" data-anchor-id="ndvi">NDVI</h3>
-<p>The Normalised Difference Vegetation Index is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.</p>
+<p>The <strong>Normalised Difference Vegetation Index</strong> is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.</p>
 <p><span class="math display">\[
 NDVI = \frac{NIR - Red}{NIR + Red}
 \]</span></p>
@@ -299,38 +346,103 @@ NDVI = \frac{NIR - Red}{NIR + Red}
 </tr>
 </tbody>
 </table>
-<p>Surprisingly,</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2333187872.png" class="img-fluid figure-img"></p>
+<figcaption>NDVI values greater than 0.15 in Cape Town, South Africa</figcaption>
+</figure>
+</div>
+<p>From the image above, we can clearly see the high NDVI values on Table Mountain, and the vegetated areas to the north of the municipality.</p>
 </section>
 <section id="texture" class="level3">
 <h3 class="anchored" data-anchor-id="texture">Texture</h3>
-<p>Texture is an enhancement which measures the spatial variation of grey values between each pixel and the pixels that surround it.</p>
+<p>Texture is an enhancement which gets a sense of the roughness or smoothness of an image by measuring the spatial variation of grey values between each pixel and the pixels that surround it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1464936709.png" class="img-fluid figure-img"></p>
+<figcaption>Grey Level Co-occurence Matrix (GLCM) texture for Cape Town, South Africa. The dotted line highlights the roughness of urban informal and township settlements</figcaption>
+</figure>
+</div>
+<p>The urban informal and urban township areas of the municipality (circled in the figure) are associated with lower texture values, reflective of its more heterogeneous or ‘rough’ urban form.</p>
 </section>
 <section id="principle-component-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="principle-component-analysis">Principle Component Analysis</h3>
 <p>PCA is a statistical method which reduces the huge amounts of imagery data (which is typical for multi-band satellite imagery with lots of spectral bands) into an uncorrelated, smaller dataset. The resulting first component (PC1) will capture most of the variance within the dataset, while retaining majority of the original information.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Component</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Standard Deviation</td>
+<td>2,49</td>
+<td>0,99</td>
+<td>0,83</td>
+<td>0,81</td>
+<td>0,53</td>
+<td>0,31</td>
+</tr>
+<tr class="odd">
+<td>Proportion of Variance</td>
+<td>0,69</td>
+<td>0,11</td>
+<td>0,08</td>
+<td>0,07</td>
+<td>0,03</td>
+<td>0,01</td>
+</tr>
+<tr class="even">
+<td>Cumulative Proportion</td>
+<td>0,69</td>
+<td>0,80</td>
+<td>0,88</td>
+<td>0,95</td>
+<td>0,98</td>
+<td>0,99</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="leaf-level-vs.-canopy-level-reflectance" class="level3">
-<h3 class="anchored" data-anchor-id="leaf-level-vs.-canopy-level-reflectance">. Leaf-Level vs.&nbsp;Canopy-Level Reflectance</h3>
-<p>The study emphasizes that different species have unique “spectral signatures” based on their leaf structure.</p>
-<ul>
-<li><strong>The “Fynbos” Connection:</strong> Just as the Amazonian species in the paper show varying reflectance based on leaf thickness and water content, Table Mountain’s <strong>Fynbos</strong> has small, leathery (sclerophyllous) leaves. These do not reflect Near-Infrared (NIR) light as strongly as the broad, lush leaves of the tropical species studied in the paper, naturally leading to a lower NDVI calculation.</li>
-</ul>
 </section>
-<section id="spectral-overlap-and-confusion" class="level3">
-<h3 class="anchored" data-anchor-id="spectral-overlap-and-confusion">2. Spectral Overlap and “Confusion”</h3>
-<p>The paper discusses how similar spectral signatures between different plants (or plants and their backgrounds) can make it hard to distinguish them.</p>
-<ul>
-<li><strong>The Table Mountain Issue:</strong> On Table Mountain, the “signal” from the sparse Fynbos often mixes with the “signal” from the dark grey sandstone and shadows of the cliffs. The paper explores how <strong>dimensionality reduction</strong> (simplifying complex data) is needed to find the true signal. Without this, your NDVI is likely “diluted” by the rocky background.</li>
-</ul>
-<!-- -->
-<ul>
-<li><p><strong>Fire History</strong>: Fire is a major factor in the fynbos. The paper specifically shows a “sudden drop of NDVI followed by a gradual vegetation recovery” in areas where fires occurred. If your satellite scene was taken shortly after a fire, the NDVI would be significantly lower than the mountain’s “known” status as a biodiversity hotspot.</p>
-<p><strong>Vegetation Age</strong>: The paper uses <strong>vegetation age</strong> (calculated from fire scars) as a key environmental variable. Younger vegetation that is still recovering from a burn will have a much lower NDVI than mature fynbos.</p></li>
-</ul>
-<p>** WHILE median is taken for most studies, reference the study that took percentiles (good for studies where seasonality is important)</p>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p>The application of enhancements is unbelievably diverse, and there’s pretty much an enhancement or index for most things you can think of - there’s a whopping 519 on the spectral <a href="https://www.indexdatabase.de/db/i.php?offset=1">Index Data Base</a>! From Soil Adjusted Vegetation Index (SAVI), Burn Area Index (BAI) and Normalized Difference Built-up Index (NDBI) to Normalized Difference Snow Index (NDSI).</p>
+<section id="the-built-up-area-debate" class="level3">
+<h3 class="anchored" data-anchor-id="the-built-up-area-debate">The built-up area debate</h3>
+<p>NDBI is a widely used remote sensing method for detecting built up areas <span class="citation" data-cites="Isgenderzade2026">(<a href="references.html#ref-Isgenderzade2026" role="doc-biblioref">Isgenderzade et al. 2026</a>)</span>. However, its effectiveness in distinguishing between built-up land and open land in dry, rural regions, such as Bayat Sub-district in Central Java, is limited <span class="citation" data-cites="oknisia2025">(<a href="references.html#ref-oknisia2025" role="doc-biblioref">Oknisia and Nugraini 2025</a>)</span>. More novel approaches are continuously being developed. For example, <span class="citation" data-cites="Zheng2021">Zheng, Tang, and Wang (<a href="references.html#ref-Zheng2021" role="doc-biblioref">2021</a>)</span> combined NDVI, NDWI, NDBI and Nighttime light (NTL) from the Suomi National Polar-orbiting Partnership Visible Infrared Imaging Radiometer Suite (NPP-VIIRS) to monitor urban built-up areas in the Greater Bay Area. Textural analysis is becoming increasingly used for mapping informal settlements, especially GLCMs <span class="citation" data-cites="Matarira2022">(<a href="references.html#ref-Matarira2022" role="doc-biblioref">Matarira, Mutanga, and Naidu 2022</a>)</span>. Some consider this method advantageous because of its ability to extract detail like structural information (like irregular density), which spectral indices often miss due building materials having similar spectral signatures <span class="citation" data-cites="Matarira2022">(<a href="references.html#ref-Matarira2022" role="doc-biblioref">Matarira, Mutanga, and Naidu 2022</a>)</span>.</p>
+<p>But wait….there’s more!</p>
+<p><span class="citation" data-cites="Mudau2021">Mudau and Mhangara (<a href="references.html#ref-Mudau2021" role="doc-biblioref">2021</a>)</span> found that GLCM textural measures and NDVI performed poorly in separating informal and formal settlements compared to the iron index, built-up area index and coastal blue index.</p>
+</section>
+</section>
+<section id="reflections" class="level2">
+<h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
+<p>Given remote sensing’s capabilities in providing us with seemingly endless information about the earth’s surface,it’s easy to forget that it’s still a relatively new and rapidly evolving science. A lot is still being discovered, and the more I dug into the ‘built-up area debate’, the more I felt like I was in an endless loop with no chance of discovering what the correct answer was. This reinforces my takeaway from last week: the ‘best’ method doesn’t exist in isolation. The most effective approach requires a constant, critical evaluation of which methodology actually speaks to the local geographic context. If no methodology exists to achieve a particular goal, maybe it’s a good idea to come up with your own or combine others together, like <span class="citation" data-cites="Zheng2021">Zheng, Tang, and Wang (<a href="references.html#ref-Zheng2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>It’s also really cool to have read two papers from South Africa - <span class="citation" data-cites="Mudau2021">Mudau and Mhangara (<a href="references.html#ref-Mudau2021" role="doc-biblioref">2021</a>)</span> from the University of Wits in Johannesburg and <span class="citation" data-cites="Matarira2022">Matarira, Mutanga, and Naidu (<a href="references.html#ref-Matarira2022" role="doc-biblioref">2022</a>)</span> from University of KZN. It doesn’t surprise me that these academics are critical about techniques which are often not transferable to contexts in the Global South (like informal settlements). These data gaps really fascinate me. Even though remote sensing is an incredible opportunity to make data-deficient parts of the world more ‘visible’, these places often have added layers of social and political complexity, and more critical thinking is required to translate satellite imagery into on-the-ground-contexts.</p>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Isgenderzade2026" class="csl-entry" role="listitem">
+Isgenderzade, E, R Ragimov, R Nematzade, E Aleskerov, and F Samedov. 2026. <span>“Application of Multispectral Satellite Images for Monitoring Geotechnical Objects Based on Various Normalized Indices,”</span> 199–202. <a href="https://doi.org/10.1007/978-3-032-07678-6_35">https://doi.org/10.1007/978-3-032-07678-6_35</a>.
+</div>
+<div id="ref-Matarira2022" class="csl-entry" role="listitem">
+Matarira, D., O. Mutanga, and M. Naidu. 2022. <span>“Texture Analysis Approaches in Modelling Informal Settlements: A Review.”</span> <em>Geocarto International</em> 37 (26): 13451–78. <a href="https://doi.org/10.1080/10106049.2022.2082541">https://doi.org/10.1080/10106049.2022.2082541</a>.
+</div>
+<div id="ref-Mudau2021" class="csl-entry" role="listitem">
+Mudau, Naledzani, and Paidamwoyo Mhangara. 2021. <span>“Investigation of Informal Settlement Indicators in a Densely Populated Area Using Very High Spatial Resolution Satellite Imagery.”</span> <em>Sustainability</em> 13 (9). <a href="https://doi.org/10.3390/su13094735">https://doi.org/10.3390/su13094735</a>.
+</div>
+<div id="ref-oknisia2025" class="csl-entry" role="listitem">
+Oknisia, Elisabet, and Lysa Nugraini. 2025. <span>“Effectiveness of Normalized Difference Built-up Index in Mapping Built-up Features Across Arid Rural Regions.”</span> <em>Jurnal Penginderaan Jauh Dan Pengolahan Data Citra Digital</em> 19 (June): 1–8. <a href="https://doi.org/10.12962/inderaja.v19i1.5084">https://doi.org/10.12962/inderaja.v19i1.5084</a>.
+</div>
+<div id="ref-Zheng2021" class="csl-entry" role="listitem">
+Zheng, Yuanmao, Lina Tang, and Haowei Wang. 2021. <span>“An Improved Approach for Monitoring Urban Built-up Areas by Combining NPP-VIIRS Nighttime Light, NDVI, NDWI, and NDBI.”</span> <em>Journal of Cleaner Production</em> 328: 129488. <a href="https://doi.org/10.1016/j.jclepro.2021.129488">https://doi.org/10.1016/j.jclepro.2021.129488</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

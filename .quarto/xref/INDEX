@@ -25,5 +25,17 @@
   },
   "references.qmd": {
     "references.html": "5b8ff059"
+  },
+  "5_GEE.qmd": {
+    "5_GEE.html": "8522d2db"
+  },
+  "6_classification_1.qmd": {
+    "6_classification_1.html": "776095db"
+  },
+  "7_Classification_2.qmd": {
+    "7_Classification_2.html": "812b0aff"
+  },
+  "8_Temperature.qmd": {
+    "8_Temperature.html": "7004a89e"
   }
 }

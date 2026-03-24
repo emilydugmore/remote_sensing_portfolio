@@ -11,8 +11,10 @@ book:
     - 1_RS_intro.qmd
     - 3_Corrections.qmd
     - 4_policy.qmd
-    - 6_GEE.qmd
-    - 7_classification_1.qmd
+    - 5_GEE.qmd
+    - 6_classification_1.qmd
+    - 7_Classification_2.qmd
+    - 8_Temperature.qmd
     - references.qmd
 
 bibliography: references.bib

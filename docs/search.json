@@ -112,11 +112,11 @@
   {
     "objectID": "3_Corrections.html",
     "href": "3_Corrections.html",
-    "title": "Corrections",
+    "title": "Enancements",
     "section": "",
-    "text": "Cape Town\nCape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: table mountain. The city is located within the bounds of the ocean, and is surrounded around a 57km^2 mountain, which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.\nThe city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.",
+    "text": "Setting the scene … Cape Town\nCape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: Table Mountain. The city is located within the bounds of the ocean, and is surrounded around a mountain (57 km squared in size), which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.\nThe city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.",
     "crumbs": [
-      "Corrections"
+      "Enancements"
     ]
   },
   {
@@ -132,31 +132,31 @@
   {
     "objectID": "3_Corrections.html#corrections",
     "href": "3_Corrections.html#corrections",
-    "title": "Corrections",
+    "title": "Enancements",
     "section": "Corrections",
-    "text": "Corrections\nCorrections are critical steps in remote sensing pre-processing. Although most of the remotely sensed imagery that we would download has already ‘corrected’, it is important to understand what processes have been taken place to achieve this Analysis Ready Data (ARD).\nGeometric corrections align images with ground coordinates using Ground Control Points to ensure spatial accuracy.\nAtmospheric corrections address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations.",
+    "text": "Corrections\nCorrections are critical steps in remote sensing pre-processing. Although most of the remotely sensed imagery that we would download has already ‘corrected’, it is important to understand what processes have been taken place to achieve this Analysis Ready Data (ARD).\n\nGeometric corrections: align images with ground coordinates using Ground Control Points to ensure spatial accuracy\nAtmospheric corrections address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations",
     "crumbs": [
-      "Corrections"
+      "Enancements"
     ]
   },
   {
     "objectID": "3_Corrections.html#joining-data-sets",
     "href": "3_Corrections.html#joining-data-sets",
-    "title": "Corrections",
+    "title": "Enancements",
     "section": "Joining Data Sets",
-    "text": "Joining Data Sets\nSatellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scene (a unique combination of path and row) images are separate from one another, and require merging or mosaicking to join them to create a continous image.\n\n\n\nDiagram showing scenes from Landsat 8, divided into paths and rows.\n\n\nMerging is the basic joining of adjacent datasets, and can lead to a final image with sharp edges between the different scenes (especially if the scenes were collected on different days).\nMosaicking is a more complex process that deals with overlapping areas a bit better by blending the overlapping areas together to create a seamless image.\n\n\n\nLeft: A simple merge of two scenes. Right: A more complex mosaic.\n\n\nIt is important to consider temporal mismatches between the chosen scenes, as different atmospheric conditions might be present.",
+    "text": "Joining Data Sets\nSatellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scenes (images from a unique combination of path and row) are separate from one another, and require merging or mosaicking to join them and create a continous image.\n\n\n\nDiagram showing four scenes over Cape Town from Landsat 8 imagery, divided into paths and rows\n\n\nThe first option is to do a basic joining of adjacent datasets, which often leads to an image collection with sharp edges between the different images (especially if the images were collected on different days). Furthermore, this technique will only include one image per scene in the final image collection.\nMosaicking is a more complex process that deals with overlapping areas a bit better by blending the overlapping areas together to create a seamless image.\n\n\n\nDifference between a simple join and mosaicking (using feathering technique) for four images\n\n\n\nClipping\nWe then clip our final image to the Cape Town municipal boundary.\n\n\n\nTrue Colour Composite of Cape Town, South Africa",
     "crumbs": [
-      "Corrections"
+      "Enancements"
     ]
   },
   {
     "objectID": "3_Corrections.html#enhancements",
     "href": "3_Corrections.html#enhancements",
-    "title": "Corrections",
+    "title": "Enancements",
     "section": "Enhancements",
-    "text": "Enhancements\nWe can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image making certain features more easy to see (like buildings, moisture or vegetation). For ratio enhancements, the ratio largely depends on the spectral signature of the object or feature that you want to detect.\n\nNDVI\nThe Normalised Difference Vegetation Index is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.\n\\[\nNDVI = \\frac{NIR - Red}{NIR + Red}\n\\]\n\n\n\n\n\n\n\nValue Range\nSurface / Land Cover Description\n\n\n\n\n-1 to 0\nWater bodies, snow, clouds, non-vegetated surfaces (e.g., buildings)\n\n\n0 to 0.1\nBarren areas, rocks, sand, or snow\n\n\n0.2 to 0.5\nSparse vegetation, shrubs, grasslands\n\n\n0.6 to 1.0\nDense, healthy vegetation\n\n\n\nSurprisingly,\n\n\nTexture\nTexture is an enhancement which measures the spatial variation of grey values between each pixel and the pixels that surround it.\n\n\nPrinciple Component Analysis\nPCA is a statistical method which reduces the huge amounts of imagery data (which is typical for multi-band satellite imagery with lots of spectral bands) into an uncorrelated, smaller dataset. The resulting first component (PC1) will capture most of the variance within the dataset, while retaining majority of the original information.\n\n\n. Leaf-Level vs. Canopy-Level Reflectance\nThe study emphasizes that different species have unique “spectral signatures” based on their leaf structure.\n\nThe “Fynbos” Connection: Just as the Amazonian species in the paper show varying reflectance based on leaf thickness and water content, Table Mountain’s Fynbos has small, leathery (sclerophyllous) leaves. These do not reflect Near-Infrared (NIR) light as strongly as the broad, lush leaves of the tropical species studied in the paper, naturally leading to a lower NDVI calculation.\n\n\n\n2. Spectral Overlap and “Confusion”\nThe paper discusses how similar spectral signatures between different plants (or plants and their backgrounds) can make it hard to distinguish them.\n\nThe Table Mountain Issue: On Table Mountain, the “signal” from the sparse Fynbos often mixes with the “signal” from the dark grey sandstone and shadows of the cliffs. The paper explores how dimensionality reduction (simplifying complex data) is needed to find the true signal. Without this, your NDVI is likely “diluted” by the rocky background.\n\n\n\nFire History: Fire is a major factor in the fynbos. The paper specifically shows a “sudden drop of NDVI followed by a gradual vegetation recovery” in areas where fires occurred. If your satellite scene was taken shortly after a fire, the NDVI would be significantly lower than the mountain’s “known” status as a biodiversity hotspot.\nVegetation Age: The paper uses vegetation age (calculated from fire scars) as a key environmental variable. Younger vegetation that is still recovering from a burn will have a much lower NDVI than mature fynbos.\n\n** WHILE median is taken for most studies, reference the study that took percentiles (good for studies where seasonality is important)",
+    "text": "Enhancements\nWe can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image to make certain features more easy to see (like buildings, moisture or vegetation).\nFor ratio enhancements, the ratio largely depends on the spectral signature of the object or feature that you want to detect.\n\nNDVI\nThe Normalised Difference Vegetation Index is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.\n\\[\nNDVI = \\frac{NIR - Red}{NIR + Red}\n\\]\n\n\n\n\n\n\n\nValue Range\nSurface / Land Cover Description\n\n\n\n\n-1 to 0\nWater bodies, snow, clouds, non-vegetated surfaces (e.g., buildings)\n\n\n0 to 0.1\nBarren areas, rocks, sand, or snow\n\n\n0.2 to 0.5\nSparse vegetation, shrubs, grasslands\n\n\n0.6 to 1.0\nDense, healthy vegetation\n\n\n\n\n\n\nNDVI values greater than 0.15 in Cape Town, South Africa\n\n\nFrom the image above, we can clearly see the high NDVI values on Table Mountain, and the vegetated areas to the north of the municipality.\n\n\nTexture\nTexture is an enhancement which gets a sense of the roughness or smoothness of an image by measuring the spatial variation of grey values between each pixel and the pixels that surround it.\n\n\n\nGrey Level Co-occurence Matrix (GLCM) texture for Cape Town, South Africa. The dotted line highlights the roughness of urban informal and township settlements\n\n\nThe urban informal and urban township areas of the municipality (circled in the figure) are associated with lower texture values, reflective of its more heterogeneous or ‘rough’ urban form.\n\n\nPrinciple Component Analysis\nPCA is a statistical method which reduces the huge amounts of imagery data (which is typical for multi-band satellite imagery with lots of spectral bands) into an uncorrelated, smaller dataset. The resulting first component (PC1) will capture most of the variance within the dataset, while retaining majority of the original information.\n\n\n\nComponent\n1\n2\n3\n4\n5\n6\n\n\nStandard Deviation\n2,49\n0,99\n0,83\n0,81\n0,53\n0,31\n\n\nProportion of Variance\n0,69\n0,11\n0,08\n0,07\n0,03\n0,01\n\n\nCumulative Proportion\n0,69\n0,80\n0,88\n0,95\n0,98\n0,99",
     "crumbs": [
-      "Corrections"
+      "Enancements"
     ]
   },
   {
@@ -354,9 +354,209 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Haack, B., and S. Jampoler. 1995. “Colour Composite Comparisons\nfor Agricultural Assessments.” International Journal of\nRemote Sensing 16 (9): 1589–98.",
+    "text": "Haack, B., and S. Jampoler. 1995. “Colour Composite Comparisons\nfor Agricultural Assessments.” International Journal of\nRemote Sensing 16 (9): 1589–98.\n\n\nIsgenderzade, E, R Ragimov, R Nematzade, E Aleskerov, and F Samedov.\n2026. “Application of Multispectral Satellite Images for\nMonitoring Geotechnical Objects Based on Various Normalized\nIndices,” 199–202. https://doi.org/10.1007/978-3-032-07678-6_35.\n\n\nMatarira, D., O. Mutanga, and M. Naidu. 2022. “Texture Analysis\nApproaches in Modelling Informal Settlements: A Review.”\nGeocarto International 37 (26): 13451–78. https://doi.org/10.1080/10106049.2022.2082541.\n\n\nMudau, Naledzani, and Paidamwoyo Mhangara. 2021. “Investigation of\nInformal Settlement Indicators in a Densely Populated Area Using Very\nHigh Spatial Resolution Satellite Imagery.”\nSustainability 13 (9). https://doi.org/10.3390/su13094735.\n\n\nOknisia, Elisabet, and Lysa Nugraini. 2025. “Effectiveness of\nNormalized Difference Built-up Index in Mapping Built-up Features Across\nArid Rural Regions.” Jurnal Penginderaan Jauh Dan Pengolahan\nData Citra Digital 19 (June): 1–8. https://doi.org/10.12962/inderaja.v19i1.5084.\n\n\nValero-Jorge, A., R. González-De Zayas, F. Matos-Pupo, A. L.\nBecerra-González, and F. Álvarez-Taboada. 2024. “Mapping and\nMonitoring of the Invasive Species Dichrostachys Cinerea (Marabú) in\nCentral Cuba Using Landsat Imagery and Machine Learning\n(1994–2022).” Remote Sensing 16 (5): 798.\n\n\nZheng, Yuanmao, Lina Tang, and Haowei Wang. 2021. “An Improved\nApproach for Monitoring Urban Built-up Areas by Combining NPP-VIIRS\nNighttime Light, NDVI, NDWI, and NDBI.” Journal of Cleaner\nProduction 328: 129488. https://doi.org/10.1016/j.jclepro.2021.129488.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#setting-the-scene-cape-town",
+    "href": "3_Corrections.html#setting-the-scene-cape-town",
+    "title": "Enancements",
+    "section": "",
+    "text": "Map of Cape Town by Land Use (Garcia Álvarez and Camacho Almedo, 2021)",
+    "crumbs": [
+      "Enancements"
+    ]
+  },
+  {
+    "objectID": "5_GEE.html",
+    "href": "5_GEE.html",
+    "title": "Google Earth Engine",
+    "section": "",
+    "text": "What is GEE?\nGEE is a cloud-based geospatial service that allows for the analysis of massive datasets at planetary scale, all completed incredibly quickly. GEE stores an unbelievable amount of Earth Observation data (much of which is already pre-processed) on its servers, and users are able to run complex tasks (controlled via JavaScript code) without needing to download data to their local machines. This has revolutionized how scientists can use this data, shifting from a download and pre-processing intensive workflow to allowing people to focus on large-scale research in countless fields.\nIn this page, I will explore the introductory basics of the GEE platform, focusing on my home city - Cape Town in South Africa.",
+    "crumbs": [
+      "Google Earth Engine"
+    ]
+  },
+  {
+    "objectID": "5_GEE.html#accessing-data",
+    "href": "5_GEE.html#accessing-data",
+    "title": "Google Earth Engine",
+    "section": "Accessing Data",
+    "text": "Accessing Data\nJavaScript (JS) is used to access data hosted on the GEE API. GEE provides a really nice Data Catalog, which groups the datasets into general themes (like climate & weather, imagery and geophysical) which you can easily and intuitively explore. Each dataset has its own page with additional information, and importantly, a JS code chunk example for how to access the data.\nThis is the code chunk that GEE provides for the Global Satellite Mapping of Precipitation dataset:\nvar dataset = ee.ImageCollection('JAXA/GPM_L3/GSMaP/v6/operational')                   \n                  .filter(ee.Filter.date('2018-08-06', '2018-08-07')); \n\nvar precipitation = dataset.select('hourlyPrecipRate'); \nvar precipitationVis = {\n  min: 0.0,\n  max: 30.0,\n  palette:\n    ['1621a2', 'ffffff', '03ffff', '13ff03', 'efff00', 'ffb103', 'ff2300'],\n  }; \nMap.setCenter(-90.7, 26.12, 2);\nMap.addLayer(precipitation, precipitationVis, 'Precipitation');\nGEE also standardizes the architecture of all of its datasets, making swapping between datasets or combining different datasets (eg LandSat and Sentinel) a lot easier than it would be on other platforms as there is no need for reformatting.",
+    "crumbs": [
+      "Google Earth Engine"
+    ]
+  },
+  {
+    "objectID": "5_GEE.html#applying-gee-to-cape-town",
+    "href": "5_GEE.html#applying-gee-to-cape-town",
+    "title": "Google Earth Engine",
+    "section": "Applying GEE to Cape Town",
+    "text": "Applying GEE to Cape Town\nOne of the nice parts of GEE is that it deals with raster data really well, but it also does for vector data. We loaded a shapefile of municipal boundaries for South Africa (from GADM) and use this to ‘bound’ our search for satellite data and only include data which is overlapping this region.\n\nScaling\nWhen we first load the data, it comes up dark and we can’t see much of what’s going on. This is because raw satellite data (like Landsat Level-2 Data of Surface Reflectance) is stored in a compressed format to save space. The compressed format uses a specific scale factor (in our case 0.0000275) and an additive offset (-0.2) which must be applied to revert each pixel back to their true physical values. Different Landsat collections of data have different scale factors and offsets, which can be found here. Once we’ve transformed this, the image looks a lot more like what we would expect:\n\n\n\nImage cloud to a single image\n\nReducing\nWhen we first loaded the Landsat data for the region (using filters of date, cloud cover etc), it gave us an image cloud containing 5 different images (from multiple dates). To turn the whole collection of images into a single ‘best’ image, we use a reducer which takes the median value for each pixel across the whole image collection. Applying the median reducer is very effective at removing clouds and shadows, because these are usually ‘extreme’ values that are excluded in the resulting reduced image.\n\n\nMosaic\nApplying a mosaic to the image collection creates a single image by layering tiles on top of each other based on their order in the collection.\n\n\nMean\nWe can also take the average value of the overlapping pixels for the whole image collection.",
+    "crumbs": [
+      "Google Earth Engine"
+    ]
+  },
+  {
+    "objectID": "5_GEE.html#feature-enhancements",
+    "href": "5_GEE.html#feature-enhancements",
+    "title": "Google Earth Engine",
+    "section": "Feature Enhancements",
+    "text": "Feature Enhancements\nOne of the best features in GEE is that we can quickly and easily implement feature enhancements to get a summary of some of the features in an area … what land types is covering it, how much water is there, how healthy is the vegetation, how much of the area is built up? More detailed information about enhancements was discussed here, but for now let’s have a look at what’s happening in Cape Town!\n\nTexture\nLet’s look side-by-side at a residential area and an agricultural area at the same zoom level to explore what the colours in the texture map mean.\n\nOn the left hand side, we have a residential area (mainly comprised of informal settlements) with lots of bright pink. This is telling us that the pixels in this area of the map are characterized by high contrast with their surrounding pixels, and there are irregular changes in reflectance.\nOn the left, we have an agricultural area which is much darker. We can see from the satellite image that the fields/vegeatation in this area is, for the most part, quite uniform with not a lot of changes in colour or reflectance (other than the odd road or clump of buildings).\n\n\nNDVI (vegetation)\n\nHere is a map of NDVI for Cape Town…basically, a map which shows where there is vegetation.\nWe can immediately see that Cape Town has a lot of vegetation. It is also pretty easy to spot Table Mountain (west section of the city) and the Hottentots Holland Mountains (to the east side), which is a lot darker green than the rest of the city.\n\n\nNDMI (moisture)\nSimilar to the NDVI calculation, we can calculate the Normalized Difference Moisture Index as a way to see where there are high levels of moisture.\n\nFor the most part, I think the NDMI captured the moisture landscape of Cape Town Pretty well! The more densely vegetated areas of the mountain are dark blue, while the drier, more sandy soils of the southern peninsula is more pink/red showing less moisture. Something I did find slightly interesting was this discrepancy between two of the vleis (small wetlands) located in the heart of the city, pictured below:\n\nThe red colour is outlining Sandvlei and the purple outlines Zeekoevlei. Both are filled with water in the satellite image, but according to the NBMI, only Zeekoevlei has a high moisture value. I haven’t been able to get to the bottom of this, but it might have something to do with sandvlei being shallower and having more clear water than zeekoevlei (which is deeper and has more algae/micro organism content).",
+    "crumbs": [
+      "Google Earth Engine"
+    ]
+  },
+  {
+    "objectID": "5_GEE.html#reflections",
+    "href": "5_GEE.html#reflections",
+    "title": "Google Earth Engine",
+    "section": "Reflections",
+    "text": "Reflections\n\nThe pros\nThe speed at which different functions and processes run in comparison to R or SNAP (if I can even mention this because it was so clunky I couldn’t even get it to work!) is amazing. Probably the most notable improvement for me was the ease at which you can interact with the data. Being able to toggle between different layers makes it so much easier to investigate different aspects of the landscape and notice interesting patterns or features … which is exactly how I found discrepancies like the one in figure x. Another major advantage of GEE over other platforms is eliminating the need to download large, confusingly-named satellite images onto local drives.\n\n\nThe cons\nHaving to run the entire script every time you want to add or change something instead of line-by-line or by chunk does seem like a major flaw, and one which I feel could be avoided quite easily. For the analysis I did, this didn’t slow down the process too much since I was working with quite a small geographic area, but I am skeptical about how this would impact the efficiency of larger-scale analysis. Although you can make some comments in the code (after //), this is definitely not as nice as something like a quarto or markdown document in R.\nOverall, I really enjoyed using GEE, and although there are elements of the GEE interface that are annoying… the pros without a doubt outweigh the cons.",
+    "crumbs": [
+      "Google Earth Engine"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html",
+    "href": "6_classification_1.html",
+    "title": "Classification (part 1)",
+    "section": "",
+    "text": "Step 1: Get Training Data\nThere’s a lot of code chunks in between text. I decided to include this to show just how easy and intuitive all of this is.\nThe first step of classification (irrespective of what type of model you are going to use) is to get some training data. We do this using the GEE draw polygon tool, creating a different layer for each land cover type.",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#step-1-get-training-data",
+    "href": "6_classification_1.html#step-1-get-training-data",
+    "title": "Classification (part 1)",
+    "section": "",
+    "text": "Training data polygons: mountain (purple), sand (red), water (blue), urban (yellow) and agricultural (green)",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#step-2-split-pixels-training-or-validation",
+    "href": "6_classification_1.html#step-2-split-pixels-training-or-validation",
+    "title": "Classification (part 1)",
+    "section": "Step 2: Split pixels (training or validation)",
+    "text": "Step 2: Split pixels (training or validation)\nWe want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because…xyz\nTo do this we:\n\nSelect a number of pixels from each class\n\nvar pixel_number= 1000;\n\nvar water_points=ee.FeatureCollection.randomPoints(water, pixel_number).map(function(i){\n  return i.set({'class': 1})})\n  \n// repeat for each class\n\nAssign random numbers to the pixels\n\nvar point_sample=ee.FeatureCollection([mountain,\n                                  urban,\n                                  agricultural,\n                                  water,\n                                  sand])\n                                  .flatten()\n                                  .randomColumn();\n\nSplit the pixels into two groups: training (70%) or validation (30%)\n\nvar split=0.7\nvar training_sample = point_sample.filter(ee.Filter.lt('random', split));\nvar validation_sample = point_sample.filter(ee.Filter.gte('random', split));\nThis means that 70% of the data will be seen by the model and used to train it, and once the model is trained we will test how accurately it performs on the remaining 30% of the data (which it has never seen before).\n\nExtract the values of the pixels for each group.\n\nvar training = waytwo_clip.select(bands).sampleRegions({  \n  collection: training_sample,  \n  properties: ['class'],  \n  scale: 10,\n});\n\nvar validation = waytwo_clip.select(bands).sampleRegions({  \n  collection: validation_sample,  \n  properties: ['class'],  \n  scale: 10\n});\nScale here is the resolution that is used to extract values. Here, it is 10m (the resolution of Sentinel 2 Imagery). If we were worried about memory we could increase the scale, and each 10m x 10m pixel would be re-sampled to a larger resolution.",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#step-3-train-the-model",
+    "href": "6_classification_1.html#step-3-train-the-model",
+    "title": "Classification (part 1)",
+    "section": "Step 3: Train the model",
+    "text": "Step 3: Train the model\nThis step is achieved in just ONE line of code! We chose to use the random forest model here.\nvar rf1_pixel = ee.Classifier.smileRandomForest(100)\n    .train(training, 'class');",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#step-4-conduct-classification",
+    "href": "6_classification_1.html#step-4-conduct-classification",
+    "title": "Classification (part 1)",
+    "section": "Step 4: Conduct classification",
+    "text": "Step 4: Conduct classification\nHere, we apply our trained model from the previous step to our study area image, and add this as a layer on the map.\nvar rf2_pixel = waytwo_clip.classify(rf1_pixel);\n\nMap.addLayer(rf2_pixel, {min: 1, max: 5, \n  palette: [\n  '466b9f', // water\n  '999999', // residential\n  'a07905', // agricultural\n  '38761d', // mountain\n  'ffe02a', // sand\n  ]},\n  \"RF_pixel\");",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#step-5-validating-assessing-accuracy",
+    "href": "6_classification_1.html#step-5-validating-assessing-accuracy",
+    "title": "Classification (part 1)",
+    "section": "Step 5: Validating & assessing accuracy",
+    "text": "Step 5: Validating & assessing accuracy\nTo assess the training model’s accuracy pre-validation:\nvar trainAccuracy = rf1_pixel.confusionMatrix();\nTo validate the model and assess its accuracy:\nvar validated = validation.classify(rf1_pixel);\n\nvar testAccuracy = validated.errorMatrix('class', 'classification');\nvar consumers=testAccuracy.consumersAccuracy()",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#different-models",
+    "href": "6_classification_1.html#different-models",
+    "title": "Classification (part 1)",
+    "section": "Different models",
+    "text": "Different models\nThere are a number of different classification models that you can choose to use in GEE, but we are only going to focus on two.\n\nCART\n\nThe Classification and Regression Trees (CART) model constructs a binary decision tree, which can deal with both categorical and continuous outcome variables. It does this by recursively splitting the dataset into smaller subsets which best minimize the sum of squared residuals (continuous data) and the Gini Impurity (discrete data). It continues to make these splits until the optimal decision tree is made, which roughly balances over-fitting (where the model has too many branches and struggles to classify data that it hasn’t seen before) and under-fitting (the model incorrectly classifies).\n\n\nRandom Forests\n\nRandom Forests are similar to CARTs, but instead of coming up with just one decision tree, the result is a ‘random forest’ of loads of decision trees. It does this by taking a bunch of bootstrap samples of the training data. Within each bootstrap sample, about two thirds are kept ‘in the bag’ and one third is ‘out of the bag’ (OOB). The data kept in the bag is used to train the model, and create a decision tree. During this process, every time a node is reached, the tree can only choose from a random selection of independent variables (in our case, this is our spectral bands). Once the decision tree is made, we then use the OOB data (which the model has never seen) to see how that individual decision tree performs…and this gives us the OOB error.\nWhen we use the resulting random forest model to classify a pixel, all of the decision trees in the forest “vote” simultaneously to give the best prediction. The performance of this model is validated against the 30% of the training data that was held back from the whole random forest model to begin with. This is a bit of a confusing detail…but basically, the OOB error is an ‘internal’ check that happens for each bootstrap sample, and validation is the ‘external’ check that is applied to the model that we get at the end.",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#how-do-we-deal-with-clouds",
+    "href": "6_classification_1.html#how-do-we-deal-with-clouds",
+    "title": "Classification (part 1)",
+    "section": "How do we deal with clouds?",
+    "text": "How do we deal with clouds?\n\nOption 1: Cloudy pixel percentage\nMost of the satellite imagery data comes with a bunch of metadata about the imagery. One of these pieces of information is the CLOUDY_PIXEL_PERCENTAGE, which represents the cloud cover for the entire tile. In this method, we would filter the entire collection of images based on a given cloud coverage (in our case 1%):\nvar way_one = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\n                  .filterDate('2022-01-01', '2022-10-31')\n                  .filterBounds(capetown)\n                  // Only include images where clouds \n                  // cover less than 1% of the tile\n                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',1));\n\n\nOption 2: Quality Assurance\nIn this method, we filter the entire collection of images with a much higher cloud percentage per tile (20%), but now look into another band of the imagery called Quality Assurance (QA60). This is basically a special bitmask layer where the satellite’s algorithms have flagged specific pixels as “Cloud” or “Cirrus”. We use the QA60 band to create a function, maskS2clouds:\nfunction maskS2clouds(image) {\n  var qa = image.select('QA60');\n\n  // Bits 10 and 11 are clouds and cirrus, respectively.\n  var cloudBitMask = 1 &lt;&lt; 10;\n  var cirrusBitMask = 1 &lt;&lt; 11;\n\n  // Both flags should be set to zero, indicating clear conditions.\n  var mask = qa.bitwiseAnd(cloudBitMask).eq(0)\n      .and(qa.bitwiseAnd(cirrusBitMask).eq(0));\n\n  return image.updateMask(mask).divide(10000);\n}\nBasically, this function takes each image and looks for any pixels flagged as clouds or cirrus, and makes them transparent. We then map this function across the image collection:\nvar way_2two = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\n                  .filterDate('2022-01-01', '2022-10-31')\n                  .filterBounds(capetown)\n                  // More lenient with cloudy cover\n                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20))\n                  // Map function across image collection\n                  .map(maskS2clouds);\nThe result should be an image collection with clouds/cirrus removed from each image. To this, we then apply a median reducer to create a single image and filter out any clouds that were not asked out with the maskS2clouds function.\n\n\nComparison of the 2 methods\nOption 1 is very fast and computationally “cheap”, while option 2 involves more complex code and more processing power. One of the main disadvantages of option 1 is that it is very restrictive with image selection. Here’s a very basic figure to help visualize a situation where this would be a problem:\n\nIn the above figure, tile 2 probably has around 40% and tile 3 around 5%. If we set our limit of cloudy pixel percentage to 1%, both of these images wouldn’t have been included in the image collection even though none over the clouds were covering our study area. This is where option 2 would be much more beneficial, as this isn’t as strict about filtering out cloudy images and deals with clouds by masking them out.\nOkay, let’s move away from the cloud tangent and get back to classification.",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "6_classification_1.html#cart-1",
+    "href": "6_classification_1.html#cart-1",
+    "title": "Classification (part 1)",
+    "section": "CART",
+    "text": "CART\nClassification And Regression Trees. This model is a single decision tree which looks at our\nTalk about:\n\nimport stuff and how this can save time and code space\nOther cool vector layers (coral)\nCode “chunks” with dropdowns\n\nadd /* and */ between chunks that you want commented out\nmulti line comments\n/**\n * Function to mask clouds using the Sentinel-2 QA band\n * @param {ee.Image} image Sentinel-2 image\n * @return {ee.Image} cloud masked Sentinel-2 image\n\n2 different options when dealing with clouds\nmaybe speak about the print and map functions, inspector and console and tasks",
+    "crumbs": [
+      "Classification (part 1)"
+    ]
+  },
+  {
+    "objectID": "7_Classification_2.html",
+    "href": "7_Classification_2.html",
+    "title": "Classification (part 2)",
+    "section": "",
+    "text": "Multiple land covers within a pixel\nThis week, we dig a bit deeper into classification algorithms and explore sub and super pixel analysis. ## Sub-pixel analysis\nWhat happens when multiple land covers appear within a single pixel? Take this image below of one of the dams on Table Mountain. The inner area of the dam can be considered “spectrally pure”, since entire pixels are comprised of water. However, the outer edges of the dam represent a mixture of water and sand.\nTo deal with this, we draw points or polygons of spectrally pure pixels for each of the “end members” (basically just the land types we want to be classified). I chose 5 different end members:",
+    "crumbs": [
+      "Classification (part 2)"
+    ]
+  },
+  {
+    "objectID": "7_Classification_2.html#super-pixel-analysis",
+    "href": "7_Classification_2.html#super-pixel-analysis",
+    "title": "Classification (part 2)",
+    "section": "Super-pixel analysis",
+    "text": "Super-pixel analysis\nInstead of breaking pixels into smaller parts, super-pixel analysis, or object-based image analysis groups similar pixels together. Below is the output of the clusters formed using the simple non-iterative clustering (SNIC) method.\n\nIt seems as though the heterogeanous nature of the landscape means that the output is rather noisy, and I am not quite sure what information can be extracted from an output like this.\nhttps://www.researchgate.net/figure/Results-of-applying-the-Simple-Non-Iterative-Clustering-SNIC-algorithm-and-the_fig5_345082789",
+    "crumbs": [
+      "Classification (part 2)"
+    ]
+  },
+  {
+    "objectID": "8_Temperature.html",
+    "href": "8_Temperature.html",
+    "title": "Temperature",
+    "section": "",
+    "text": "https://www.mdpi.com/2072-4292/17/21/3545\nTemperature is becoming an increasingly hot topic (pun intended) in the face of a rapidly changing climate. This is true for urban areas, with more and more cities recognizing the Urban Heat Island (UHI) effect. Even the UN’s New Urban Agenda (NUA), which acts as a framework through which cities can achieve SDGs, states: “we commit ourselves to … reducing the … urban heat island effects”. In rural contexts, temperature plays an extremely important role in agriculture, droughts and wildfires. While in the ocean, Sea Surface Temperature is critical for understanding ocean currents and upwelling zones.\nRemote sensors can provide incredibly valuable information about temperature, both temporally and spatially. Here, we explore openly-available Landsat 8 and MODIS data.\n\n\n\n\n\n\n\n\n\nLandsat\nMODIS\n\n\n\n\nResolution\n30 m (re-sampled from the native 100 m resolution)\n1 km\n\n\nRe-sampling period\nEvery 16 days\nEvery 1-2 days\n\n\nNumber of images per sample\n1\n2\n\nterra - Captures imagery at around 10:30am local time. Usually used for land studies\naqua - Captures imagery at around 1:30pm local time. Usually used for ocean & atmosphere studies\n\n\n\n\n\n\nUsing temperature as one of our inputs for classification??? –&gt; reference?",
+    "crumbs": [
+      "Temperature"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#applications",
+    "href": "3_Corrections.html#applications",
+    "title": "Enancements",
+    "section": "Applications",
+    "text": "Applications\nThe application of enhancements is unbelievably diverse, and there’s pretty much an enhancement or index for most things you can think of - there’s a whopping 519 on the spectral Index Data Base! From Soil Adjusted Vegetation Index (SAVI), Burn Area Index (BAI) and Normalized Difference Built-up Index (NDBI) to Normalized Difference Snow Index (NDSI).\n\nThe built-up area debate\nNDBI is a widely used remote sensing method for detecting built up areas (Isgenderzade et al. 2026). However, its effectiveness in distinguishing between built-up land and open land in dry, rural regions, such as Bayat Sub-district in Central Java, is limited (Oknisia and Nugraini 2025). More novel approaches are continuously being developed. For example, Zheng, Tang, and Wang (2021) combined NDVI, NDWI, NDBI and Nighttime light (NTL) from the Suomi National Polar-orbiting Partnership Visible Infrared Imaging Radiometer Suite (NPP-VIIRS) to monitor urban built-up areas in the Greater Bay Area. Textural analysis is becoming increasingly used for mapping informal settlements, especially GLCMs (Matarira, Mutanga, and Naidu 2022). Some consider this method advantageous because of its ability to extract detail like structural information (like irregular density), which spectral indices often miss due building materials having similar spectral signatures (Matarira, Mutanga, and Naidu 2022).\nBut wait….there’s more!\nMudau and Mhangara (2021) found that GLCM textural measures and NDVI performed poorly in separating informal and formal settlements compared to the iron index, built-up area index and coastal blue index.",
+    "crumbs": [
+      "Enancements"
+    ]
+  },
+  {
+    "objectID": "3_Corrections.html#reflections",
+    "href": "3_Corrections.html#reflections",
+    "title": "Enancements",
+    "section": "Reflections",
+    "text": "Reflections\nGiven remote sensing’s capabilities in providing us with seemingly endless information about the earth’s surface,it’s easy to forget that it’s still a relatively new and rapidly evolving science. A lot is still being discovered, and the more I dug into the ‘built-up area debate’, the more I felt like I was in an endless loop with no chance of discovering what the correct answer was. This reinforces my takeaway from last week: the ‘best’ method doesn’t exist in isolation. The most effective approach requires a constant, critical evaluation of which methodology actually speaks to the local geographic context. If no methodology exists to achieve a particular goal, maybe it’s a good idea to come up with your own or combine others together, like Zheng, Tang, and Wang (2021).\nIt’s also really cool to have read two papers from South Africa - Mudau and Mhangara (2021) from the University of Wits in Johannesburg and Matarira, Mutanga, and Naidu (2022) from University of KZN. It doesn’t surprise me that these academics are critical about techniques which are often not transferable to contexts in the Global South (like informal settlements). These data gaps really fascinate me. Even though remote sensing is an incredible opportunity to make data-deficient parts of the world more ‘visible’, these places often have added layers of social and political complexity, and more critical thinking is required to translate satellite imagery into on-the-ground-contexts.\n\n\n\n\nIsgenderzade, E, R Ragimov, R Nematzade, E Aleskerov, and F Samedov. 2026. “Application of Multispectral Satellite Images for Monitoring Geotechnical Objects Based on Various Normalized Indices,” 199–202. https://doi.org/10.1007/978-3-032-07678-6_35.\n\n\nMatarira, D., O. Mutanga, and M. Naidu. 2022. “Texture Analysis Approaches in Modelling Informal Settlements: A Review.” Geocarto International 37 (26): 13451–78. https://doi.org/10.1080/10106049.2022.2082541.\n\n\nMudau, Naledzani, and Paidamwoyo Mhangara. 2021. “Investigation of Informal Settlement Indicators in a Densely Populated Area Using Very High Spatial Resolution Satellite Imagery.” Sustainability 13 (9). https://doi.org/10.3390/su13094735.\n\n\nOknisia, Elisabet, and Lysa Nugraini. 2025. “Effectiveness of Normalized Difference Built-up Index in Mapping Built-up Features Across Arid Rural Regions.” Jurnal Penginderaan Jauh Dan Pengolahan Data Citra Digital 19 (June): 1–8. https://doi.org/10.12962/inderaja.v19i1.5084.\n\n\nZheng, Yuanmao, Lina Tang, and Haowei Wang. 2021. “An Improved Approach for Monitoring Urban Built-up Areas by Combining NPP-VIIRS Nighttime Light, NDVI, NDWI, and NDBI.” Journal of Cleaner Production 328: 129488. https://doi.org/10.1016/j.jclepro.2021.129488.",
+    "crumbs": [
+      "Enancements"
     ]
   }
 ]
