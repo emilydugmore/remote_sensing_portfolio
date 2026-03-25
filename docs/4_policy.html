@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./6_GEE.html" rel="next">
-<link href="./3_Corrections.html" rel="prev">
+<link href="./5_GEE.html" rel="next">
+<link href="./3_Enhancements.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -121,8 +121,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_Corrections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Corrections</span></a>
+  <a href="./3_Enhancements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Enancements</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -133,14 +133,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6_GEE.html" class="sidebar-item-text sidebar-link">
+  <a href="./5_GEE.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Earth Engine</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_classification_1.html" class="sidebar-item-text sidebar-link">
+  <a href="./6_classification_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classification (part 1)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_Classification_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification (part 2)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_Temperature.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temperature</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
@@ -154,11 +172,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#flooding-in-informal-settlements" id="toc-flooding-in-informal-settlements" class="nav-link active" data-scroll-target="#flooding-in-informal-settlements">Flooding in Informal Settlements</a></li>
-  <li><a href="#relevant-policies" id="toc-relevant-policies" class="nav-link" data-scroll-target="#relevant-policies">Relevant Policies</a></li>
-  <li><a href="#using-remote-sensing" id="toc-using-remote-sensing" class="nav-link" data-scroll-target="#using-remote-sensing">Using Remote Sensing</a>
+  <li><a href="#relevant-policies" id="toc-relevant-policies" class="nav-link" data-scroll-target="#relevant-policies">Relevant Policies</a>
   <ul class="collapse">
-  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections"><strong>Reflections</strong></a></li>
+  <li><a href="#global-level" id="toc-global-level" class="nav-link" data-scroll-target="#global-level">Global-level</a></li>
+  <li><a href="#national-level" id="toc-national-level" class="nav-link" data-scroll-target="#national-level">National-level</a></li>
+  <li><a href="#local-level" id="toc-local-level" class="nav-link" data-scroll-target="#local-level">Local-level</a></li>
   </ul></li>
+  <li><a href="#using-remote-sensing" id="toc-using-remote-sensing" class="nav-link" data-scroll-target="#using-remote-sensing">Using Remote Sensing</a></li>
+  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections"><strong>Reflections</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -186,59 +207,94 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="flooding-in-informal-settlements" class="level2">
 <h2 class="anchored" data-anchor-id="flooding-in-informal-settlements">Flooding in Informal Settlements</h2>
-<p>South Africa’s informal settlement landscape is extremely complex, and is largely a byproduct of historical spatial inclusion, rapid urbanization and severe shortage of affordable formal housing. Land on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country’s metro cities (like Durban and Johannesburg), these areas which are ‘unsuitable’ for formal development often end up being occupied by poorer communities as a means of accessing the nearby urban economies. In addition, complete lack of municipal infrastructure in informal settlements can drive people closer to rivers for sanitation and domestic use (washing clothes and cleaning). These communities are among the most vulnerable groups in the country in terms of flooding risk and climate-driven disasters.</p>
+<p>South Africa’s informal settlement landscape, in which over 5 million people live, is extremely complex, and largely a byproduct of historical spatial inclusion, rapid urbanization, severe shortage of affordable formal housing, and high levels of corruption in government (<a href="https://www.amnesty.org/en/latest/news/2025/11/south-africa-government-is-failing-millions-of-people-trapped-in-informal-settlements-and-impacted-by-the-climate-crisis-new-report/">Amnesty International</a>, 2025). Land on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country’s metro cities (like Durban, Cape Town and Johannesburg), these areas which are ‘unsuitable’ for formal development often end up being occupied by poorer communities because of a lack of affordable and accessible housing, and sometimes as a means of accessing the nearby urban economies. In addition, complete lack of municipal infrastructure in informal settlements can drive people closer to rivers for sanitation and domestic use (washing clothes and cleaning). These communities are among the most vulnerable groups in the country in terms of flooding risk and climate-driven disasters.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://groundup.org.za/article/floods-bring-hardship-and-loss-johannesburg-immigrant-community/"><img src="https://groundup.org.za/media/uploads/images/photographers/Ihsaan%20Haffejee/JHBFlood-20161110/FLOODING%20DAMAGE%20ALEX%20IH%204.jpg" class="img-fluid figure-img"></a></p>
-<figcaption>Jukskei River flood in Alexandra Township (one of the largest townships in SA) in 2016.</figcaption>
+<p><img src="images/clipboard-3017866083.png" class="img-fluid figure-img"></p>
+<figcaption>Jukskei River flood in Alexandra Township (one of the largest townships in SA) in 2016 (<a href="https://groundup.org.za/article/floods-bring-hardship-and-loss-johannesburg-immigrant-community/">Daily Maverick</a>)</figcaption>
 </figure>
 </div>
-<p><a href="https://www.amnesty.org/en/latest/news/2025/11/south-africa-government-is-failing-millions-of-people-trapped-in-informal-settlements-and-impacted-by-the-climate-crisis-new-report/"><img src="https://www.amnesty.org/en/wp-content/uploads/2025/11/311952-1468x710.jpg" class="img-fluid"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1600423010.png" class="img-fluid figure-img"></p>
+<figcaption>A flooded informal settlement in Bloekombos, Cape Town, South Africa (<a href="https://www.amnesty.org/en/latest/news/2025/11/south-africa-government-is-failing-millions-of-people-trapped-in-informal-settlements-and-impacted-by-the-climate-crisis-new-report/">Amnesty International</a>)</figcaption>
+</figure>
+</div>
 </section>
 <section id="relevant-policies" class="level2">
 <h2 class="anchored" data-anchor-id="relevant-policies">Relevant Policies</h2>
 <p>South African Legislation has recently shifted toward a more proactive, data-driven, planning approach to managing climate risks like flooding. I am going to discuss two policy documents and the potential role of remote sensing in implementing them.</p>
+<section id="global-level" class="level3">
+<h3 class="anchored" data-anchor-id="global-level">Global-level</h3>
+<section id="un-sustainable-development-goals" class="level4">
+<h4 class="anchored" data-anchor-id="un-sustainable-development-goals">1. UN Sustainable Development Goals</h4>
+<p>The most relevant UN SDGs here are:</p>
+<ol type="1">
+<li><p>No poverty</p>
+<p>Target 1.5: By 2030, build the resilience of the poor and those in vulnerable situations and reduce their exposure and vulnerability to climate-related extreme events and other economic, social and environmental shocks and disasters</p></li>
+<li><p>Clean water and sanitation</p>
+<p>Target 6.1: By 2030, achieve universal and equitable access to safe and affordable drinking water for all</p>
+<p>Target 6.2: By 2030, achieve access to adequate and equitable sanitation and hygiene for all and end open defecation, paying special attention to the needs of women and girls and those in vulnerable situations</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.sweco.co.uk/wp-content/uploads/sites/19/2021/07/sdg-poster.jpg" class="img-fluid figure-img"></p>
+<figcaption>The <a href="https://sdgs.un.org/goals">UNSDG</a> Goals</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="national-level" class="level3">
+<h3 class="anchored" data-anchor-id="national-level">National-level</h3>
 <section id="climate-change-act-2024" class="level4">
-<h4 class="anchored" data-anchor-id="climate-change-act-2024">1. Climate Change Act (2024)</h4>
-<p>The Climate Change Act is a national act specifically mandating that provinces and municipalities “must identify and <strong>spatially map</strong>, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, <strong>risks</strong>, <strong>vulnerabilities</strong>, areas, ecosystems and <strong>communities that will arise</strong>, or that are <strong>vulnerable to the impacts of climate change</strong>”.</p>
+<h4 class="anchored" data-anchor-id="climate-change-act-2024">2. Climate Change Act (2024)</h4>
+<p>The <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.gov.za/sites/default/files/gcis_document/202407/50966climatechangeact222024.pdf">Climate Change Act</a> is a national act specifically mandating that provinces and municipalities “must identify and <strong>spatially map</strong>, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, <strong>risks</strong>, <strong>vulnerabilities</strong>, areas, ecosystems and <strong>communities that will arise</strong>, or that are <strong>vulnerable to the impacts of climate change</strong>”.</p>
 <p>The phrasing of this mandate is pretty typical of South African governance, which is notoriously vague about how acts should be implemented and who is going to implement them. This ultimately leads to each level of government passing the responsibility to another, with the result being little to no action from anyone.</p>
 </section>
 <section id="white-paper-for-human-settlements-2025" class="level4">
-<h4 class="anchored" data-anchor-id="white-paper-for-human-settlements-2025">2. White Paper for Human Settlements (2025)</h4>
-<p>The White Paper for Human Settlements policy document states that “government will endeavour to integrate <strong>climate resilience</strong> and sustainable development approaches into the <strong>planning, design, construction, and operation of human settlements</strong> in an effort to avoid the devastating impacts of climate change”.</p>
+<h4 class="anchored" data-anchor-id="white-paper-for-human-settlements-2025">3. White Paper for Human Settlements (2025)</h4>
+<p>The <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.dhs.gov.za/sites/default/files/Reform Symposium/White Paper Gazetted 31 January 2025.pdf">White Paper for Human Settlements</a> policy document states that “government will endeavour to integrate <strong>climate resilience</strong> and sustainable development approaches into the <strong>planning, design, construction, and operation of human settlements</strong> in an effort to avoid the devastating impacts of climate change”.</p>
 <p>Interestingly, this policy specifically mentions the integration of “innovative systems” and “new technologies” to achieve its goals, but at no point specifies what is meant by this.</p>
+</section>
+</section>
+<section id="local-level" class="level3">
+<h3 class="anchored" data-anchor-id="local-level">Local-level</h3>
+<section id="city-of-johannesburg-spatial-development-framework-2040" class="level4">
+<h4 class="anchored" data-anchor-id="city-of-johannesburg-spatial-development-framework-2040">4. City of Johannesburg Spatial Development Framework 2040</h4>
+<p>The <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://joburg.org.za/documents_/Documents/Johannesburg-Spatial-Development-Framework-2040.pdf">City of Johannesurg Spatial Development Framework</a> (SDF) is a policy document that guides spatial planning and land use decisions for the municipality. The SDF recognizes that “many of Johannesburg’s poor residents live in informal settlements … located in high-risk locations (such as flood plains) and often with minimal bulk and public services, such as waste collection and management, public transport, access to potable water, sanitation, and health facilities”. The document reiterates other local and national policies, highlighting that “<strong>in-situ upgrading</strong> of informal settlements should be the first option for intervention, with relocation only applied where upgrades are not possible or desirable for the community in question”.</p>
+<p>At no point are the two points linked, and the only mention of how this will be implemented is to “plan natural buffer zones in disaster-prone areas, protecting against flooding.</p>
+</section>
 </section>
 </section>
 <section id="using-remote-sensing" class="level2">
 <h2 class="anchored" data-anchor-id="using-remote-sensing">Using Remote Sensing</h2>
-<p>Remote sensing could be used across the country to achieve the goals that these policies set out. This would involve:</p>
+<p>Remote sensing could be used by the City of Johannesburg to achieve the goals that these policies set out. This would involve:</p>
 <ul>
-<li><p><strong>Mapping “Vulnerable Communities” (Optical Data):</strong></p>
+<li><p><strong>Mapping “Vulnerable Communities”:</strong></p>
 <p>I would use <strong>Sentinel-2 (10m)</strong> imagery to calculate the <strong>Normalized Difference Built-up Index (NDBI)</strong> along major rivers that run through informal settlements. By comparing imagery from different time periods, we can detect areas of “unmanaged expansion” which are edging towards river buffers.</p>
-<p><img src="images/clipboard-4273932886.png" class="img-fluid"></p></li>
-<li><p><strong>“Risks and Vulnerabilities” (Radar Data):</strong></p>
-<p>Because floods often occur under heavy cloud cover, I would use Sentinel-1 (Synthetic Aperture Radar which penetrates clouds to map the reflection of water). By overlaying a SAR-derived flood footprints onto current building footprints, we can identify which households are at the highest risk.</p>
-<p><a href="https://medium.com/@kemuntonyamweya_13159/flood-inundation-mapping-with-sentinel-1-satellite-data-in-google-earth-engine-ec5652e04f1c"><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*MkPrnPLuZeDuDF5IuPEVAw.jpeg" class="img-fluid"></a></p></li>
-<li><p><strong>Daily Change Detection (PlanetScope):</strong></p>
-<p>PlanetScope provides daily 3-meter resolution imagery, with which we can apply automated Machine Learning (ML) classifier to automatically “flag” new shack footprints as they appear in high flood-risk zones.</p></li>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4273932886.png" class="img-fluid figure-img"></p>
+<figcaption>Landsat / Copernicus Imagery of Informal Settlements alongside the Jukskei River, Johannesburg (Google Earth)</figcaption>
+</figure>
+</div>
+<p>Because floods often occur under heavy cloud cover, I would use Sentinel-1 (Synthetic Aperture Radar which penetrates clouds to map the reflection of water) to map the extent of historical floods.</p>
+<p><a href="https://medium.com/@kemuntonyamweya_13159/flood-inundation-mapping-with-sentinel-1-satellite-data-in-google-earth-engine-ec5652e04f1c"><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*MkPrnPLuZeDuDF5IuPEVAw.jpeg" class="img-fluid"></a></p>
+<p>By overlaying SAR-derived flood footprints onto the current informal settlement map, we can identify which households are at the highest risk.</p></li>
+<li><p><strong>Informal settlement growth detection:</strong></p>
+<p>PlanetScope provides daily 3-meter resolution imagery, with which we can apply an automated Machine Learning (ML) classifier to automatically “flag” new shack footprints as they appear in high flood-risk zones.</p></li>
 </ul>
-<section id="reflections" class="level3">
-<h3 class="anchored" data-anchor-id="reflections"><strong>Reflections</strong></h3>
+</section>
+<section id="reflections" class="level2">
+<h2 class="anchored" data-anchor-id="reflections"><strong>Reflections</strong></h2>
 <p>While municipalities do undergo enumeration and profiling to manage informal settlements, these manual interventions are completed nowhere near as often as they should be. On-top of that, the sheer number of vulnerabilities faced by people living in informal settlements (eg lack of sanitation and drinking water, heat stress, flood risk etc) makes it impossible for local governments to capture the real-time complexities faced by these areas with just ground surveys.</p>
 <p>This is where remote sensing comes in by allowing for mapping of vulnerable communities at scale. It allows for automated, regular monitoring of informal settlement expansion into high-risk zones - this could be every couple of days for rapidly growing informal settlements.</p>
 <p>This would provide municipalities with valuable and indisputable information to guide intervention efforts - such as how many homes are vulnerable to floods and exactly where these communities are located. However, the kinds of “interventions” that might take place could be potentially problematic.</p>
-<p>On the one hand, this would provide an evidence-base which encourages government, municipal and private funding and infrastructure development in informal settlements. Basically achieving the goal of the White Paper for Human Settlements to plan and construct human settlement in a manner which will “avoid the devastating impacts of climate change”.</p>
-<p>On the other hand, it is likely that mapping these vulnerable communities will lead to near-immediate forced relocation. While this might sound like a good thing (who wants to live next to a river at high risk of flooding, right?), the reality is a lot more nuanced. Relocations might resolve flood vulnerabilities but increase socio-economic vulnerabilities (for example, people might not be able to access their jobs anymore).</p>
-<p>This is a really challenging trade-off. At the beginning of this task, I thought this would be a great way to integrate remote sensing into policy. But the more I think about it more deeply the more I realize that my approach was pretty flawed. When I started, the ‘end result’ in my mind was the <strong>data</strong> - <em>a map of vulnerable communities in informal settlements</em>. In reality, the ‘end result’ should have been <strong>action</strong> - <em>what interventions will take place using the information from the map</em>? Even though the resulting data is objective, the implications of it are highly political.</p>
-<p>Other reflections:</p>
-<ul>
-<li><p>Within the vulnerabilities map, you could map the “undevelopable” areas (1:50 year flood zone?) vs “developable” areas –&gt; this will show where municipalities can do in-situ upgrades (with no need for relocation) and areas where immediate action is required.</p></li>
-<li><p>How do we stop people from moving here again in the future?</p></li>
-<li><p>Shift it from perspective from mapping already vulnerable communities (who would be forced to relocation), to mapping which high risk areas are most likely expanded into “danger zones”, and how can this be intervened before it becomes problematic.</p></li>
-</ul>
+<p>On the one hand, this would provide an evidence-base which encourages government, municipal and private funding and infrastructure development in informal settlements, through in-situ upgrading like that mentioned in the Johannesburg SDP.</p>
+<p>On the other hand, it is likely that mapping these vulnerable communities will lead to near-immediate forced relocation because the government might view upgrades as “not possible or desirable for the community in question”. While this might sound like a good thing (who wants to live next to a river at high risk of flooding, right?), the reality is a lot more nuanced. Relocations might resolve flood vulnerabilities but increase socio-economic vulnerabilities (for example, people might not be able to access their jobs anymore).</p>
+<p>This is a really challenging trade-off. At the beginning of this task, I thought this would be a great way to integrate remote sensing into policy. But the more I think about it more deeply the more I realize that my approach was pretty flawed. When I started, the ‘end result’ in my mind was the <strong>data</strong> - <em>a map of vulnerable communities in informal settlements</em>. In reality, the ‘end result’ should have carefully considered the consequent <strong>action</strong> - <em>what interventions will take place using the information from the map</em>? Even though the resulting data is largely objective, the implications of it are highly political.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -643,12 +699,12 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./3_Corrections.html" class="pagination-link" aria-label="Corrections">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Corrections</span>
+      <a href="./3_Enhancements.html" class="pagination-link" aria-label="Enancements">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Enancements</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./6_GEE.html" class="pagination-link" aria-label="Google Earth Engine">
+      <a href="./5_GEE.html" class="pagination-link" aria-label="Google Earth Engine">
         <span class="nav-page-text">Google Earth Engine</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

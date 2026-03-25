@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Google Earth Engine – Remote Sensing Portfolio</title>
+<title>Enancements – Remote Sensing Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -85,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./6_classification_1.html" rel="next">
-<link href="./4_policy.html" rel="prev">
+<link href="./4_policy.html" rel="next">
+<link href="./1_RS_intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -125,6 +90,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -137,7 +131,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5_GEE.html">Google Earth Engine</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_Enhancements.html">Enancements</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -176,7 +170,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_Enhancements.html" class="sidebar-item-text sidebar-link">
+  <a href="./3_Enhancements.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Enancements</span></a>
   </div>
 </li>
@@ -188,7 +182,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_GEE.html" class="sidebar-item-text sidebar-link active">
+  <a href="./5_GEE.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Earth Engine</span></a>
   </div>
 </li>
@@ -226,18 +220,18 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-gee" id="toc-what-is-gee" class="nav-link active" data-scroll-target="#what-is-gee">What is GEE?</a></li>
-  <li><a href="#accessing-data" id="toc-accessing-data" class="nav-link" data-scroll-target="#accessing-data">Accessing Data</a></li>
-  <li><a href="#applying-gee-to-cape-town" id="toc-applying-gee-to-cape-town" class="nav-link" data-scroll-target="#applying-gee-to-cape-town">Applying GEE to Cape Town</a>
+  <li><a href="#setting-the-scene-cape-town" id="toc-setting-the-scene-cape-town" class="nav-link active" data-scroll-target="#setting-the-scene-cape-town">Setting the scene … Cape Town</a></li>
+  <li><a href="#corrections" id="toc-corrections" class="nav-link" data-scroll-target="#corrections">Corrections</a></li>
+  <li><a href="#joining-data-sets" id="toc-joining-data-sets" class="nav-link" data-scroll-target="#joining-data-sets">Joining Data Sets</a></li>
+  <li><a href="#enhancements" id="toc-enhancements" class="nav-link" data-scroll-target="#enhancements">Enhancements</a>
   <ul class="collapse">
-  <li><a href="#scaling" id="toc-scaling" class="nav-link" data-scroll-target="#scaling">Scaling</a></li>
-  <li><a href="#image-cloud-to-a-single-image" id="toc-image-cloud-to-a-single-image" class="nav-link" data-scroll-target="#image-cloud-to-a-single-image">Image cloud to a single image</a></li>
-  </ul></li>
-  <li><a href="#feature-enhancements" id="toc-feature-enhancements" class="nav-link" data-scroll-target="#feature-enhancements">Feature Enhancements</a>
-  <ul class="collapse">
+  <li><a href="#ndvi" id="toc-ndvi" class="nav-link" data-scroll-target="#ndvi">NDVI</a></li>
   <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture">Texture</a></li>
-  <li><a href="#ndvi-vegetation" id="toc-ndvi-vegetation" class="nav-link" data-scroll-target="#ndvi-vegetation">NDVI (vegetation)</a></li>
-  <li><a href="#ndmi-moisture" id="toc-ndmi-moisture" class="nav-link" data-scroll-target="#ndmi-moisture">NDMI (moisture)</a></li>
+  <li><a href="#principle-component-analysis" id="toc-principle-component-analysis" class="nav-link" data-scroll-target="#principle-component-analysis">Principle Component Analysis</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
+  <ul class="collapse">
+  <li><a href="#the-built-up-area-debate" id="toc-the-built-up-area-debate" class="nav-link" data-scroll-target="#the-built-up-area-debate">The built-up area debate</a></li>
   </ul></li>
   <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a></li>
   </ul>
@@ -248,7 +242,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Google Earth Engine</h1>
+<h1 class="title">Enancements</h1>
 </div>
 
 
@@ -265,135 +259,190 @@ div.csl-indent {
 </header>
 
 
-<section id="what-is-gee" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-gee">What is GEE?</h2>
-<p>GEE is a cloud-based geospatial service that allows for the analysis of massive datasets at planetary scale, all completed incredibly quickly. GEE stores an unbelievable amount of Earth Observation data (much of which is already pre-processed) on its servers, and users are able to run complex tasks (controlled via JavaScript code) without needing to download data to their local machines. This has revolutionized how scientists can use this data, shifting from a download and pre-processing intensive workflow to allowing people to focus on large-scale research in countless fields.</p>
-<p>In this page, I will explore the introductory basics of the GEE platform, focusing on my home city - Cape Town in South Africa.</p>
-</section>
-<section id="accessing-data" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-data">Accessing Data</h2>
-<p>JavaScript (JS) is used to access data hosted on the GEE API. GEE provides a really nice Data Catalog, which groups the datasets into general themes (like climate &amp; weather, imagery and geophysical) which you can easily and intuitively explore. Each dataset has its own page with additional information, and importantly, a JS code chunk example for how to access and load the data.</p>
-<p>This is the code chunk that GEE provides for the <a href="https://developers.google.com/earth-engine/datasets/catalog/JAXA_GPM_L3_GSMaP_v6_operational?_gl=1*vgxgvg*_up*MQ..*_ga*NDMxNDkzMDgxLjE3NzIwMTkwMDY.*_ga_SM8HXJ53K2*czE3NzIwMTkwMDUkbzEkZzAkdDE3NzIwMTkwMDUkajYwJGwwJGgw">Global Satellite Mapping of Precipitation</a> dataset:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dataset <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'JAXA/GPM_L3/GSMaP/v6/operational'</span>)                   </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                  <span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">date</span>(<span class="st">'2018-08-06'</span><span class="op">,</span> <span class="st">'2018-08-07'</span>))<span class="op">;</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> precipitation <span class="op">=</span> dataset<span class="op">.</span><span class="fu">select</span>(<span class="st">'hourlyPrecipRate'</span>)<span class="op">;</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> precipitationVis <span class="op">=</span> {</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">30.0</span><span class="op">,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">palette</span><span class="op">:</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'1621a2'</span><span class="op">,</span> <span class="st">'ffffff'</span><span class="op">,</span> <span class="st">'03ffff'</span><span class="op">,</span> <span class="st">'13ff03'</span><span class="op">,</span> <span class="st">'efff00'</span><span class="op">,</span> <span class="st">'ffb103'</span><span class="op">,</span> <span class="st">'ff2300'</span>]<span class="op">,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span> </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">setCenter</span>(<span class="op">-</span><span class="fl">90.7</span><span class="op">,</span> <span class="fl">26.12</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(precipitation<span class="op">,</span> precipitationVis<span class="op">,</span> <span class="st">'Precipitation'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>GEE also standardizes the architecture of all of its datasets, making swapping between datasets or combining different datasets (eg LandSat and Sentinel) a lot easier than it would be on other platforms since there is no need for reformatting.</p>
-</section>
-<section id="applying-gee-to-cape-town" class="level2">
-<h2 class="anchored" data-anchor-id="applying-gee-to-cape-town">Applying GEE to Cape Town</h2>
-<p>One of the nice parts of GEE is that it deals with raster data really well, but it also does for vector data. We loaded a shapefile of municipal boundaries for South Africa (from <a href="https://gadm.org/download_country.html">GADM</a>) and use this to ‘bound’ our search for satellite data and only include data which is overlapping this region.</p>
-<section id="scaling" class="level3">
-<h3 class="anchored" data-anchor-id="scaling">Scaling</h3>
-<p>When we first load the data, it comes up dark and we can’t see much of what’s going on. This is because raw satellite data (like Landsat Level-2 Data of Surface Reflectance) is stored in a compressed format to save space. The compressed format uses a specific scale factor (in our case 0.0000275) and an additive offset (-0.2) which must be applied to revert each pixel back to their true physical values. Different Landsat collections of data have different scale factors and offsets, which can be found <a href="https://www.usgs.gov/faqs/how-do-i-use-a-scale-factor-landsat-level-2-science-products">here</a>. Once we’ve transformed this, the image looks a lot more like what we would expect:</p>
-<p><img src="images/clipboard-3028928926.png" class="img-fluid"></p>
-</section>
-<section id="image-cloud-to-a-single-image" class="level3">
-<h3 class="anchored" data-anchor-id="image-cloud-to-a-single-image">Image cloud to a single image</h3>
-<section id="reducing-the-entire-image-cloud" class="level4">
-<h4 class="anchored" data-anchor-id="reducing-the-entire-image-cloud">Reducing the entire image cloud</h4>
-<p>When we first loaded the Landsat data for the region (using filters of date, cloud cover etc), it gave us an image cloud containing 5 different images (from multiple dates). To turn the whole collection of images into a single ‘best’ image, we use a reducer which takes the median (or mean, min, max etc) value for each pixel <em>across the whole image collection</em>.</p>
-</section>
-<section id="dealing-with-overlapping-tiles-only" class="level4">
-<h4 class="anchored" data-anchor-id="dealing-with-overlapping-tiles-only">Dealing with overlapping tiles only</h4>
-<p>We could also choose to only deal with the pixels of overlapping tiles, either applying a <strong>mosaic</strong> (which we discussed in the <strong><em>Enhancements page</em></strong>), or by taking the <strong>mean</strong> value of the overlapping pixels across the whole image collection.</p>
-<p><img src="images/clipboard-2235784366.png" class="img-fluid"></p>
-<p>We can see above that the median reducer is very effective at removing clouds and shadows, because these are usually ‘extreme’ values that are excluded in the resulting reduced image.</p>
-<p>There’s no single ‘best’ way to do this (which seems to be a recurring theme with RS!). And choosing how to join images will depend on the context: how cloudy the region is, what temporal scales are wanting to be explored etc.</p>
-</section>
-<section id="seasonal-composites" class="level4">
-<h4 class="anchored" data-anchor-id="seasonal-composites">Seasonal composites</h4>
-<p>Using a median reducer across a year’s worth of data is usually acceptable for trying to classify objects which change minimally over time (like water, often has the same spectral properties across time*). Median reducers are the most commonly used method to simplify large amounts of data for classifiers, and it looks something like this:</p>
+<section id="setting-the-scene-cape-town" class="level2">
+<h2 class="anchored" data-anchor-id="setting-the-scene-cape-town">Setting the scene … Cape Town</h2>
+<p>Cape Town is one of the biggest cities in Africa (14th largest by population), and most people from around the world will immediately associate it with it’s main feature: Table Mountain. The city is located within the bounds of the ocean, and is surrounded around a mountain (57 km squared in size), which is globally recognized as a biodiversity hotspot characterized by the unique Fynbos biome.</p>
+<p>The city is also characterised by stark socio-economic disparities that can be seen at small spatial scales, largely as a result of its Apartheid history.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-2223601139.png" class="img-fluid figure-img"></p>
-<figcaption>Annual median composite example (<a href="https://www.youtube.com/watch?v=WvaBZbph_cU&amp;t=1725s">Google Earth</a>)</figcaption>
+<p><img src="images/clipboard-458231652.png" class="img-fluid figure-img"></p>
+<figcaption>Map of Cape Town by Land Use (<a href="https://www.researchgate.net/figure/City-of-Cape-Town-location-map_fig2_348505449">Garcia Álvarez and Camacho Almedo, 2021</a>)</figcaption>
 </figure>
 </div>
-<p>But is there a better way? For anything that undergoes drastic temporal changes, the answer is yes!</p>
-<p>What if we took the median composites over seasons rather than the whole year?</p>
+</section>
+<section id="corrections" class="level2">
+<h2 class="anchored" data-anchor-id="corrections">Corrections</h2>
+<p>Corrections are critical steps in remote sensing pre-processing. Although most of the remotely sensed imagery that we would download has already ‘corrected’, it is important to understand what processes have been taken place to achieve this Analysis Ready Data (ARD).</p>
+<ul>
+<li><p><strong>Geometric corrections:</strong> align images with ground coordinates using Ground Control Points to ensure spatial accuracy</p></li>
+<li><p><strong>Atmospheric corrections</strong> address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations</p></li>
+</ul>
+</section>
+<section id="joining-data-sets" class="level2">
+<h2 class="anchored" data-anchor-id="joining-data-sets">Joining Data Sets</h2>
+<p>Satellite images are limited by the satellite’s specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scenes (images from a unique combination of path and row) are separate from one another, and require merging or mosaicking to join them and create a continous image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-4116484766.png" class="img-fluid figure-img"></p>
-<figcaption>Seasonal median composite example (<a href="https://www.youtube.com/watch?v=WvaBZbph_cU&amp;t=1725s">Google Earth</a>)</figcaption>
+<p><img src="images/clipboard-3614561003.png" class="img-fluid figure-img"></p>
+<figcaption>Diagram showing four scenes over Cape Town from Landsat 8 imagery, divided into paths and rows</figcaption>
 </figure>
 </div>
-<p>With this method, a year’s worth of pixels is reduced to only 4 numbers per band, but important phenological information is retained. The code to achieve this (taken from <a href="https://www.youtube.com/watch?v=WvaBZbph_cU&amp;t=1725s">Google Earth</a>) is also really simple:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">seasonalComposite</span>(start) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> collection</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">calendarRange</span>(start<span class="op">,</span> start<span class="op">.</span><span class="fu">add</span>(<span class="dv">2</span>)<span class="op">,</span> <span class="st">"month"</span>))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">median</span>()</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Make mosaics from months 1-3, 4-6, 7-9, 10-12</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> seasons <span class="op">=</span> ee<span class="op">.</span><span class="fu">List</span>([<span class="dv">1</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">10</span>])<span class="op">.</span><span class="fu">map</span>(seasonalComposite)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> composite <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(seasons)<span class="op">.</span><span class="fu">toBands</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><span class="citation" data-cites="Immitzer2019">Immitzer et al. (<a href="references.html#ref-Immitzer2019" role="doc-biblioref">2019</a>)</span> demonstrates the efficacy of this by using multi-temporal Sentinel-2 data to classify tree <em>species</em>. Not just forest vs non-forest classification, but individual tree species classification. They found that incorperating imagery from across the entire growing season (and in doing so, including the unique seasonal phenology of each species) significantly improved the accuracy of the classification.</p>
-<p>You might be thinking that these seasonal composites are probably only useful for things like vegetation classification. Well, think again!</p>
-<p>Instead of land/species cover classification, <span class="citation" data-cites="Lyu2024">Lyu et al. (<a href="references.html#ref-Lyu2024" role="doc-biblioref">2024</a>)</span> utilized four seasonal Sentinel-2 composites (and a bunch of complex math I won’t pretend to understand) to estimate the number of stories in individual buildings. 61 Chinese cities with various building types were included in the study, 47 to train the model and the remaining 14 to test the model</p>
+<p>The first option is to do a basic joining of adjacent datasets, which often leads to an image collection with sharp edges between the different images (especially if the images were collected on different days). Furthermore, this technique will only include one image per scene in the final image collection.</p>
+<p>Mosaicking is a more complex process that deals with overlapping areas a bit better by blending the overlapping areas together to create a seamless image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-2858265143.png" class="img-fluid figure-img"></p>
-<figcaption>Building shadow changes across four seasonal composite images from Sentinel-2, Beijing <span class="citation" data-cites="Lyu2024">(<a href="references.html#ref-Lyu2024" role="doc-biblioref">Lyu et al. 2024</a>)</span></figcaption>
+<p><img src="images/clipboard-2660477946.png" class="img-fluid figure-img"></p>
+<figcaption>Difference between a simple join and mosaicking (using feathering technique) for four images</figcaption>
+</figure>
+</div>
+<section id="clipping" class="level4">
+<h4 class="anchored" data-anchor-id="clipping">Clipping</h4>
+<p>We then clip our final image to the Cape Town municipal boundary.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-559100773.png" class="img-fluid figure-img"></p>
+<figcaption>True Colour Composite of Cape Town, South Africa</figcaption>
 </figure>
 </div>
 </section>
 </section>
+<section id="enhancements" class="level2">
+<h2 class="anchored" data-anchor-id="enhancements">Enhancements</h2>
+<p>We can use a technique called enhancements to, well, enhance properties (like colour or brightness) of an image to make certain features more easy to see (like buildings, moisture or vegetation).</p>
+<p>For <strong>ratio enhancements</strong>, the ratio largely depends on the spectral signature of the object or feature that you want to detect.</p>
+<section id="ndvi" class="level3">
+<h3 class="anchored" data-anchor-id="ndvi">NDVI</h3>
+<p>The <strong>Normalised Difference Vegetation Index</strong> is a enhancement ratio which utilizes the fact that healthy plants reflect lots of infrared wavelengths and absorb red wavelengths to highlight areas which have healthy vegetation.</p>
+<p><span class="math display">\[
+NDVI = \frac{NIR - Red}{NIR + Red}
+\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value Range</th>
+<th>Surface / Land Cover Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-1 to 0</td>
+<td>Water bodies, snow, clouds, non-vegetated surfaces (e.g., buildings)</td>
+</tr>
+<tr class="even">
+<td>0 to 0.1</td>
+<td>Barren areas, rocks, sand, or snow</td>
+</tr>
+<tr class="odd">
+<td>0.2 to 0.5</td>
+<td>Sparse vegetation, shrubs, grasslands</td>
+</tr>
+<tr class="even">
+<td>0.6 to 1.0</td>
+<td>Dense, healthy vegetation</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2333187872.png" class="img-fluid figure-img"></p>
+<figcaption>NDVI values greater than 0.15 in Cape Town, South Africa</figcaption>
+</figure>
+</div>
+<p>From the image above, we can clearly see the high NDVI values on Table Mountain, and the vegetated areas to the north of the municipality.</p>
 </section>
-<section id="feature-enhancements" class="level2">
-<h2 class="anchored" data-anchor-id="feature-enhancements">Feature Enhancements</h2>
-<p>One of the best features in GEE is that we can quickly and easily implement feature enhancements to get a summary of some of the features in an area … what land types is covering it, how much water is there, how healthy is the vegetation, how much of the area is built up? More detailed information about enhancements was discussed <strong><em>here</em></strong>, but for now let’s have a look at what’s happening in Cape Town!</p>
 <section id="texture" class="level3">
 <h3 class="anchored" data-anchor-id="texture">Texture</h3>
-<p>Let’s look side-by-side at a residential area and an agricultural area at the same zoom level to explore what the colours in the texture map mean.</p>
-<p><img src="images/clipboard-4172120534.png" class="img-fluid"></p>
-<p>On the left hand side, we have a residential area (mainly comprised of informal settlements) with lots of bright pink. This is telling us that the pixels in this area of the map are characterized by high contrast with their surrounding pixels, and there are irregular changes in reflectance.</p>
-<p>On the left, we have an agricultural area which is much darker. We can see from the satellite image that the fields/vegeatation in this area is, for the most part, quite uniform with not a lot of changes in colour or reflectance (other than the odd road or clump of buildings).</p>
+<p>Texture is an enhancement which gets a sense of the roughness or smoothness of an image by measuring the spatial variation of grey values between each pixel and the pixels that surround it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1464936709.png" class="img-fluid figure-img"></p>
+<figcaption>Grey Level Co-occurence Matrix (GLCM) texture for Cape Town, South Africa. The dotted line highlights the roughness of urban informal and township settlements</figcaption>
+</figure>
+</div>
+<p>The urban informal and urban township areas of the municipality (circled in the figure) are associated with lower texture values, reflective of its more heterogeneous or ‘rough’ urban form.</p>
 </section>
-<section id="ndvi-vegetation" class="level3">
-<h3 class="anchored" data-anchor-id="ndvi-vegetation">NDVI (vegetation)</h3>
-<p><img src="images/clipboard-4142147629.png" class="img-fluid"></p>
-<p>Here is a map of NDVI for Cape Town…basically, a map which shows where there is vegetation.</p>
-<p>We can immediately see that Cape Town has <strong>a lot</strong> of vegetation. It is also pretty easy to spot Table Mountain (west section of the city) and the Hottentots Holland Mountains (to the east side), which is a lot darker green than the rest of the city.</p>
+<section id="principle-component-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="principle-component-analysis">Principle Component Analysis</h3>
+<p>PCA is a statistical method which reduces the huge amounts of imagery data (which is typical for multi-band satellite imagery with lots of spectral bands) into an uncorrelated, smaller dataset. The resulting first component (PC1) will capture most of the variance within the dataset, while retaining majority of the original information.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Component</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Standard Deviation</td>
+<td>2,49</td>
+<td>0,99</td>
+<td>0,83</td>
+<td>0,81</td>
+<td>0,53</td>
+<td>0,31</td>
+</tr>
+<tr class="odd">
+<td>Proportion of Variance</td>
+<td>0,69</td>
+<td>0,11</td>
+<td>0,08</td>
+<td>0,07</td>
+<td>0,03</td>
+<td>0,01</td>
+</tr>
+<tr class="even">
+<td>Cumulative Proportion</td>
+<td>0,69</td>
+<td>0,80</td>
+<td>0,88</td>
+<td>0,95</td>
+<td>0,98</td>
+<td>0,99</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="ndmi-moisture" class="level3">
-<h3 class="anchored" data-anchor-id="ndmi-moisture">NDMI (moisture)</h3>
-<p>Similar to the NDVI calculation, we can calculate the Normalized Difference Moisture Index as a way to see where there are high levels of moisture.</p>
-<p><img src="images/clipboard-192247863.png" class="img-fluid"></p>
-<p>For the most part, I think the NDMI captured the moisture landscape of Cape Town Pretty well! The more densely vegetated areas of the mountain are dark blue, while the drier, more sandy soils of the southern peninsula is more pink/red showing less moisture. Something I did find slightly interesting was this discrepancy between two of the vleis (small wetlands) located in the heart of the city, pictured below:</p>
-<p><img src="images/clipboard-1918665002.png" class="img-fluid"></p>
-<p>The red colour is outlining Sandvlei and the purple outlines Zeekoevlei. Both are filled with water in the satellite image, but according to the NBMI, only Zeekoevlei has a high moisture value. I haven’t been able to get to the bottom of this, but it might have something to do with sandvlei being shallower and having more clear water than zeekoevlei (which is deeper and has more algae/micro organism content).</p>
+</section>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p>The application of enhancements is unbelievably diverse, and there’s pretty much an enhancement or index for most things you can think of - there’s a whopping 519 on the spectral <a href="https://www.indexdatabase.de/db/i.php?offset=1">Index Data Base</a>! From Soil Adjusted Vegetation Index (SAVI), Burn Area Index (BAI) and Normalized Difference Built-up Index (NDBI) to Normalized Difference Snow Index (NDSI).</p>
+<section id="the-built-up-area-debate" class="level3">
+<h3 class="anchored" data-anchor-id="the-built-up-area-debate">The built-up area debate</h3>
+<p>NDBI is a widely used remote sensing method for detecting built up areas <span class="citation" data-cites="Isgenderzade2026">(<a href="references.html#ref-Isgenderzade2026" role="doc-biblioref">Isgenderzade et al. 2026</a>)</span>. However, its effectiveness in distinguishing between built-up land and open land in dry, rural regions, such as Bayat Sub-district in Central Java, is limited <span class="citation" data-cites="oknisia2025">(<a href="references.html#ref-oknisia2025" role="doc-biblioref">Oknisia and Nugraini 2025</a>)</span>. More novel approaches are continuously being developed. For example, <span class="citation" data-cites="Zheng2021">Zheng, Tang, and Wang (<a href="references.html#ref-Zheng2021" role="doc-biblioref">2021</a>)</span> combined NDVI, NDWI, NDBI and Nighttime light (NTL) from the Suomi National Polar-orbiting Partnership Visible Infrared Imaging Radiometer Suite (NPP-VIIRS) to monitor urban built-up areas in the Greater Bay Area. Textural analysis is becoming increasingly used for mapping informal settlements, especially GLCMs <span class="citation" data-cites="Matarira2022">(<a href="references.html#ref-Matarira2022" role="doc-biblioref">Matarira, Mutanga, and Naidu 2022</a>)</span>. Some consider this method advantageous because of its ability to extract detail like structural information (like irregular density), which spectral indices often miss due building materials having similar spectral signatures <span class="citation" data-cites="Matarira2022">(<a href="references.html#ref-Matarira2022" role="doc-biblioref">Matarira, Mutanga, and Naidu 2022</a>)</span>.</p>
+<p>But wait….there’s more!</p>
+<p><span class="citation" data-cites="Mudau2021">Mudau and Mhangara (<a href="references.html#ref-Mudau2021" role="doc-biblioref">2021</a>)</span> found that GLCM textural measures and NDVI performed poorly in separating informal and formal settlements compared to the iron index, built-up area index and coastal blue index.</p>
 </section>
 </section>
 <section id="reflections" class="level2">
 <h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
-<section id="the-pros" class="level4">
-<h4 class="anchored" data-anchor-id="the-pros">The pros</h4>
-<p>The speed at which different functions and processes run in comparison to R or SNAP (if I can even mention this because it was so clunky I couldn’t even get it to work!) is amazing. Probably the most notable improvement for me was the ease at which you can interact with the data. Being able to toggle between different layers makes it so much easier to investigate different aspects of the landscape and notice interesting patterns or features … which is exactly how I found discrepancies like the one in <strong><em>figure x</em></strong>. Another major advantage of GEE over other platforms is eliminating the need to download large, confusingly-named satellite images onto local drives.</p>
-</section>
-<section id="the-cons" class="level4">
-<h4 class="anchored" data-anchor-id="the-cons">The cons</h4>
-<p>Having to run the entire script every time you want to add or change something instead of line-by-line or by chunk does seem like a major flaw, and one which I feel could be avoided quite easily. For the analysis I did, this didn’t slow down the process too much since I was working with quite a small geographic area, but I am skeptical about how this would impact the efficiency of larger-scale analysis. Although you can make some comments in the code (after //), this is definitely not as nice as something like a quarto or markdown document in R.</p>
-<p>Overall, I really enjoyed using GEE, and although there are elements of the GEE interface that are annoying… the pros <em>without a doubt</em> outweigh the cons.</p>
+<p>Given remote sensing’s capabilities in providing us with seemingly endless information about the earth’s surface,it’s easy to forget that it’s still a relatively new and rapidly evolving science. A lot is still being discovered, and the more I dug into the ‘built-up area debate’, the more I felt like I was in an endless loop with no chance of discovering what the correct answer was. This reinforces my takeaway from last week: the ‘best’ method doesn’t exist in isolation. The most effective approach requires a constant, critical evaluation of which methodology actually speaks to the local geographic context. If no methodology exists to achieve a particular goal, maybe it’s a good idea to come up with your own or combine others together, like <span class="citation" data-cites="Zheng2021">Zheng, Tang, and Wang (<a href="references.html#ref-Zheng2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>It’s also really cool to have read two papers from South Africa - <span class="citation" data-cites="Mudau2021">Mudau and Mhangara (<a href="references.html#ref-Mudau2021" role="doc-biblioref">2021</a>)</span> from the University of Wits in Johannesburg and <span class="citation" data-cites="Matarira2022">Matarira, Mutanga, and Naidu (<a href="references.html#ref-Matarira2022" role="doc-biblioref">2022</a>)</span> from University of KZN. It doesn’t surprise me that these academics are critical about techniques which are often not transferable to contexts in the Global South (like informal settlements). These data gaps really fascinate me. Even though remote sensing is an incredible opportunity to make data-deficient parts of the world more ‘visible’, these places often have added layers of social and political complexity, and more critical thinking is required to translate satellite imagery into on-the-ground-contexts.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Immitzer2019" class="csl-entry" role="listitem">
-Immitzer, Markus, Martin Neuwirth, Sebastian Böck, Harald Brenner, Francesco Vuolo, and Clement Atzberger. 2019. <span>“Optimal Input Features for Tree Species Classification in Central Europe Based on Multi-Temporal Sentinel-2 Data.”</span> <em>Remote Sensing</em> 11 (22). <a href="https://doi.org/10.3390/rs11222599">https://doi.org/10.3390/rs11222599</a>.
+<div id="ref-Isgenderzade2026" class="csl-entry" role="listitem">
+Isgenderzade, E, R Ragimov, R Nematzade, E Aleskerov, and F Samedov. 2026. <span>“Application of Multispectral Satellite Images for Monitoring Geotechnical Objects Based on Various Normalized Indices,”</span> 199–202. <a href="https://doi.org/10.1007/978-3-032-07678-6_35">https://doi.org/10.1007/978-3-032-07678-6_35</a>.
 </div>
-<div id="ref-Lyu2024" class="csl-entry" role="listitem">
-Lyu, Siqing, Chao Ji, Zeping Liu, Hong Tang, Liqiang Zhang, and Xin Yang. 2024. <span>“Four Seasonal Composite Sentinel-2 Images for the Large-Scale Estimation of the Number of Stories in Each Individual Building.”</span> <em>Remote Sensing of Environment</em> 303: 114017. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2024.114017">https://doi.org/10.1016/j.rse.2024.114017</a>.
+<div id="ref-Matarira2022" class="csl-entry" role="listitem">
+Matarira, D., O. Mutanga, and M. Naidu. 2022. <span>“Texture Analysis Approaches in Modelling Informal Settlements: A Review.”</span> <em>Geocarto International</em> 37 (26): 13451–78. <a href="https://doi.org/10.1080/10106049.2022.2082541">https://doi.org/10.1080/10106049.2022.2082541</a>.
+</div>
+<div id="ref-Mudau2021" class="csl-entry" role="listitem">
+Mudau, Naledzani, and Paidamwoyo Mhangara. 2021. <span>“Investigation of Informal Settlement Indicators in a Densely Populated Area Using Very High Spatial Resolution Satellite Imagery.”</span> <em>Sustainability</em> 13 (9). <a href="https://doi.org/10.3390/su13094735">https://doi.org/10.3390/su13094735</a>.
+</div>
+<div id="ref-oknisia2025" class="csl-entry" role="listitem">
+Oknisia, Elisabet, and Lysa Nugraini. 2025. <span>“Effectiveness of Normalized Difference Built-up Index in Mapping Built-up Features Across Arid Rural Regions.”</span> <em>Jurnal Penginderaan Jauh Dan Pengolahan Data Citra Digital</em> 19 (June): 1–8. <a href="https://doi.org/10.12962/inderaja.v19i1.5084">https://doi.org/10.12962/inderaja.v19i1.5084</a>.
+</div>
+<div id="ref-Zheng2021" class="csl-entry" role="listitem">
+Zheng, Yuanmao, Lina Tang, and Haowei Wang. 2021. <span>“An Improved Approach for Monitoring Urban Built-up Areas by Combining NPP-VIIRS Nighttime Light, NDVI, NDWI, and NDBI.”</span> <em>Journal of Cleaner Production</em> 328: 129488. <a href="https://doi.org/10.1016/j.jclepro.2021.129488">https://doi.org/10.1016/j.jclepro.2021.129488</a>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -798,13 +847,13 @@ Lyu, Siqing, Chao Ji, Zeping Liu, Hong Tang, Liqiang Zhang, and Xin Yang. 2024. 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./4_policy.html" class="pagination-link" aria-label="Applying RS to Climate Policy in South Africa">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Applying RS to Climate Policy in South Africa</span>
+      <a href="./1_RS_intro.html" class="pagination-link" aria-label="Introduction to Remote Sensing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Remote Sensing</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./6_classification_1.html" class="pagination-link" aria-label="Classification (part 1)">
-        <span class="nav-page-text">Classification (part 1)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./4_policy.html" class="pagination-link" aria-label="Applying RS to Climate Policy in South Africa">
+        <span class="nav-page-text">Applying RS to Climate Policy in South Africa</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

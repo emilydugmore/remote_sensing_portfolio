@@ -2,49 +2,77 @@
 
 ## Flooding in Informal Settlements
 
-South Africa's informal settlement landscape is extremely complex, and is largely a byproduct of historical spatial inclusion, rapid urbanization and severe shortage of affordable formal housing. Land on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country's metro cities (like Durban and Johannesburg), these areas which are 'unsuitable' for formal development often end up being occupied by poorer communities as a means of accessing the nearby urban economies. In addition, complete lack of municipal infrastructure in informal settlements can drive people closer to rivers for sanitation and domestic use (washing clothes and cleaning). These communities are among the most vulnerable groups in the country in terms of flooding risk and climate-driven disasters.
+South Africa's informal settlement landscape, in which over 5 million people live, is extremely complex, and largely a byproduct of historical spatial inclusion, rapid urbanization, severe shortage of affordable formal housing, and high levels of corruption in government ([Amnesty International](https://www.amnesty.org/en/latest/news/2025/11/south-africa-government-is-failing-millions-of-people-trapped-in-informal-settlements-and-impacted-by-the-climate-crisis-new-report/), 2025). Land on floodplains or alongside steep riverbanks is not suitable for formal development due to safety and insurance regulations. However, in many of the country's metro cities (like Durban, Cape Town and Johannesburg), these areas which are 'unsuitable' for formal development often end up being occupied by poorer communities because of a lack of affordable and accessible housing, and sometimes as a means of accessing the nearby urban economies. In addition, complete lack of municipal infrastructure in informal settlements can drive people closer to rivers for sanitation and domestic use (washing clothes and cleaning). These communities are among the most vulnerable groups in the country in terms of flooding risk and climate-driven disasters.
 
-[![Jukskei River flood in Alexandra Township (one of the largest townships in SA) in 2016.](https://groundup.org.za/media/uploads/images/photographers/Ihsaan%20Haffejee/JHBFlood-20161110/FLOODING%20DAMAGE%20ALEX%20IH%204.jpg)](https://groundup.org.za/article/floods-bring-hardship-and-loss-johannesburg-immigrant-community/)
+![Jukskei River flood in Alexandra Township (one of the largest townships in SA) in 2016 ([Daily Maverick](https://groundup.org.za/article/floods-bring-hardship-and-loss-johannesburg-immigrant-community/))](images/clipboard-3017866083.png)
 
-[![](https://www.amnesty.org/en/wp-content/uploads/2025/11/311952-1468x710.jpg)](https://www.amnesty.org/en/latest/news/2025/11/south-africa-government-is-failing-millions-of-people-trapped-in-informal-settlements-and-impacted-by-the-climate-crisis-new-report/)
+![A flooded informal settlement in Bloekombos, Cape Town, South Africa ([Amnesty International](https://www.amnesty.org/en/latest/news/2025/11/south-africa-government-is-failing-millions-of-people-trapped-in-informal-settlements-and-impacted-by-the-climate-crisis-new-report/))](images/clipboard-1600423010.png)
 
 ## Relevant Policies
 
 South African Legislation has recently shifted toward a more proactive, data-driven, planning approach to managing climate risks like flooding. I am going to discuss two policy documents and the potential role of remote sensing in implementing them.
 
-#### 1. Climate Change Act (2024)
+### Global-level
 
-The Climate Change Act is a national act specifically mandating that provinces and municipalities "must identify and **spatially map**, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, **risks**, **vulnerabilities**, areas, ecosystems and **communities that will arise**, or that are **vulnerable to the impacts of climate change**".
+#### 1. UN Sustainable Development Goals
+
+The most relevant UN SDGs here are:
+
+1.  No poverty
+
+    Target 1.5: By 2030, build the resilience of the poor and those in vulnerable situations and reduce their exposure and vulnerability to climate-related extreme events and other economic, social and environmental shocks and disasters
+
+2.  Clean water and sanitation
+
+    Target 6.1: By 2030, achieve universal and equitable access to safe and affordable drinking water for all
+
+    Target 6.2: By 2030, achieve access to adequate and equitable sanitation and hygiene for all and end open defecation, paying special attention to the needs of women and girls and those in vulnerable situations
+
+![The [UNSDG](https://sdgs.un.org/goals) Goals](https://www.sweco.co.uk/wp-content/uploads/sites/19/2021/07/sdg-poster.jpg)
+
+### National-level
+
+#### 2. Climate Change Act (2024)
+
+The [Climate Change Act](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.gov.za/sites/default/files/gcis_document/202407/50966climatechangeact222024.pdf) is a national act specifically mandating that provinces and municipalities "must identify and **spatially map**, within the sphere of operations of the province, district or metropolitan municipality, as the case may be, **risks**, **vulnerabilities**, areas, ecosystems and **communities that will arise**, or that are **vulnerable to the impacts of climate change**".
 
 The phrasing of this mandate is pretty typical of South African governance, which is notoriously vague about how acts should be implemented and who is going to implement them. This ultimately leads to each level of government passing the responsibility to another, with the result being little to no action from anyone.
 
-#### 2. White Paper for Human Settlements (2025)
+#### 3. White Paper for Human Settlements (2025)
 
-The White Paper for Human Settlements policy document states that "government will endeavour to integrate **climate resilience** and sustainable development approaches into the **planning, design, construction, and operation of human settlements** in an effort to avoid the devastating impacts of climate change".
+The [White Paper for Human Settlements](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.dhs.gov.za/sites/default/files/Reform%20Symposium/White%20Paper%20Gazetted%2031%20January%202025.pdf) policy document states that "government will endeavour to integrate **climate resilience** and sustainable development approaches into the **planning, design, construction, and operation of human settlements** in an effort to avoid the devastating impacts of climate change".
 
 Interestingly, this policy specifically mentions the integration of "innovative systems" and "new technologies" to achieve its goals, but at no point specifies what is meant by this.
 
+### Local-level
+
+#### 4. City of Johannesburg Spatial Development Framework 2040
+
+The [City of Johannesurg Spatial Development Framework](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://joburg.org.za/documents_/Documents/Johannesburg-Spatial-Development-Framework-2040.pdf) (SDF) is a policy document that guides spatial planning and land use decisions for the municipality. The SDF recognizes that "many of Johannesburg’s poor residents live in informal settlements ... located in high-risk locations (such as flood plains) and often with minimal bulk and public services, such as waste collection and management, public transport, access to potable water, sanitation, and health facilities". The document reiterates other local and national policies, highlighting that "**in-situ upgrading** of informal settlements should be the first option for intervention, with relocation only applied where upgrades are not possible or desirable for the community in question".
+
+At no point are the two points linked, and the only mention of how this will be implemented is to "plan natural buffer zones in disaster-prone areas, protecting against flooding.
+
 ## Using Remote Sensing
 
-Remote sensing could be used across the country to achieve the goals that these policies set out. This would involve:
+Remote sensing could be used by the City of Johannesburg to achieve the goals that these policies set out. This would involve:
 
--   **Mapping "Vulnerable Communities" (Optical Data):**
+-   **Mapping "Vulnerable Communities":**
 
     I would use **Sentinel-2 (10m)** imagery to calculate the **Normalized Difference Built-up Index (NDBI)** along major rivers that run through informal settlements. By comparing imagery from different time periods, we can detect areas of "unmanaged expansion" which are edging towards river buffers.
 
-    ![](images/clipboard-4273932886.png)
+    ![Landsat / Copernicus Imagery of Informal Settlements alongside the Jukskei River, Johannesburg (Google Earth)](images/clipboard-4273932886.png)
 
--   **"Risks and Vulnerabilities" (Radar Data):**
-
-    Because floods often occur under heavy cloud cover, I would use Sentinel-1 (Synthetic Aperture Radar which penetrates clouds to map the reflection of water). By overlaying a SAR-derived flood footprints onto current building footprints, we can identify which households are at the highest risk.
+    Because floods often occur under heavy cloud cover, I would use Sentinel-1 (Synthetic Aperture Radar which penetrates clouds to map the reflection of water) to map the extent of historical floods.
 
     [![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*MkPrnPLuZeDuDF5IuPEVAw.jpeg)](https://medium.com/@kemuntonyamweya_13159/flood-inundation-mapping-with-sentinel-1-satellite-data-in-google-earth-engine-ec5652e04f1c)
 
--   **Daily Change Detection (PlanetScope):**
+    By overlaying SAR-derived flood footprints onto the current informal settlement map, we can identify which households are at the highest risk.
 
-    PlanetScope provides daily 3-meter resolution imagery, with which we can apply automated Machine Learning (ML) classifier to automatically "flag" new shack footprints as they appear in high flood-risk zones.
+-   **Informal settlement growth detection:**
 
-### **Reflections**
+    PlanetScope provides daily 3-meter resolution imagery, with which we can apply an automated Machine Learning (ML) classifier to automatically "flag" new shack footprints as they appear in high flood-risk zones.
+
+## **Reflections**
 
 While municipalities do undergo enumeration and profiling to manage informal settlements, these manual interventions are completed nowhere near as often as they should be. On-top of that, the sheer number of vulnerabilities faced by people living in informal settlements (eg lack of sanitation and drinking water, heat stress, flood risk etc) makes it impossible for local governments to capture the real-time complexities faced by these areas with just ground surveys.
 
@@ -52,16 +80,8 @@ This is where remote sensing comes in by allowing for mapping of vulnerable comm
 
 This would provide municipalities with valuable and indisputable information to guide intervention efforts - such as how many homes are vulnerable to floods and exactly where these communities are located. However, the kinds of "interventions" that might take place could be potentially problematic.
 
-On the one hand, this would provide an evidence-base which encourages government, municipal and private funding and infrastructure development in informal settlements. Basically achieving the goal of the White Paper for Human Settlements to plan and construct human settlement in a manner which will "avoid the devastating impacts of climate change".
+On the one hand, this would provide an evidence-base which encourages government, municipal and private funding and infrastructure development in informal settlements, through in-situ upgrading like that mentioned in the Johannesburg SDP.
 
-On the other hand, it is likely that mapping these vulnerable communities will lead to near-immediate forced relocation. While this might sound like a good thing (who wants to live next to a river at high risk of flooding, right?), the reality is a lot more nuanced. Relocations might resolve flood vulnerabilities but increase socio-economic vulnerabilities (for example, people might not be able to access their jobs anymore).
+On the other hand, it is likely that mapping these vulnerable communities will lead to near-immediate forced relocation because the government might view upgrades as "not possible or desirable for the community in question". While this might sound like a good thing (who wants to live next to a river at high risk of flooding, right?), the reality is a lot more nuanced. Relocations might resolve flood vulnerabilities but increase socio-economic vulnerabilities (for example, people might not be able to access their jobs anymore).
 
-This is a really challenging trade-off. At the beginning of this task, I thought this would be a great way to integrate remote sensing into policy. But the more I think about it more deeply the more I realize that my approach was pretty flawed. When I started, the 'end result' in my mind was the **data** - *a map of vulnerable communities in informal settlements*. In reality, the 'end result' should have been **action** - *what interventions will take place using the information from the map*? Even though the resulting data is objective, the implications of it are highly political.
-
-Other reflections:
-
--   Within the vulnerabilities map, you could map the "undevelopable" areas (1:50 year flood zone?) vs "developable" areas –\> this will show where municipalities can do in-situ upgrades (with no need for relocation) and areas where immediate action is required.
-
--   How do we stop people from moving here again in the future?
-
--   Shift it from perspective from mapping already vulnerable communities (who would be forced to relocation), to mapping which high risk areas are most likely expanded into "danger zones", and how can this be intervened before it becomes problematic.
+This is a really challenging trade-off. At the beginning of this task, I thought this would be a great way to integrate remote sensing into policy. But the more I think about it more deeply the more I realize that my approach was pretty flawed. When I started, the 'end result' in my mind was the **data** - *a map of vulnerable communities in informal settlements*. In reality, the 'end result' should have carefully considered the consequent **action** - *what interventions will take place using the information from the map*? Even though the resulting data is largely objective, the implications of it are highly political.

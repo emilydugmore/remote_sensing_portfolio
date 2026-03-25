@@ -9,7 +9,7 @@ book:
   chapters:
     - index.qmd
     - 1_RS_intro.qmd
-    - 3_Corrections.qmd
+    - 3_Enhancements.qmd
     - 4_policy.qmd
     - 5_GEE.qmd
     - 6_classification_1.qmd
