@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -70,6 +90,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -171,12 +220,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#multiple-land-covers-within-a-pixel" id="toc-multiple-land-covers-within-a-pixel" class="nav-link active" data-scroll-target="#multiple-land-covers-within-a-pixel">Multiple land covers within a pixel</a></li>
+  <li><a href="#sub-pixel-analysis" id="toc-sub-pixel-analysis" class="nav-link active" data-scroll-target="#sub-pixel-analysis">Sub-pixel analysis</a>
+  <ul class="collapse">
+  <li><a href="#multiple-land-covers-within-a-pixel" id="toc-multiple-land-covers-within-a-pixel" class="nav-link" data-scroll-target="#multiple-land-covers-within-a-pixel">Multiple land covers within a pixel</a></li>
   <li><a href="#spectral-unmixing" id="toc-spectral-unmixing" class="nav-link" data-scroll-target="#spectral-unmixing">Spectral unmixing</a></li>
   <li><a href="#reclassification" id="toc-reclassification" class="nav-link" data-scroll-target="#reclassification">Reclassification</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><img src="images/clipboard-3736772450.png" class="img-fluid"></a></li>
-  <li><a href="#accuracy-assessment" id="toc-accuracy-assessment" class="nav-link" data-scroll-target="#accuracy-assessment">Accuracy assessment??</a></li>
+  </ul></li>
   <li><a href="#super-pixel-analysis" id="toc-super-pixel-analysis" class="nav-link" data-scroll-target="#super-pixel-analysis">Super-pixel analysis</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul>
 </nav>
     </div>
@@ -202,12 +255,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This week, we dig a bit deeper into classification algorithms and explore sub and super pixel analysis. ## Sub-pixel analysis</p>
+<p>This week, we dig a bit deeper into classification algorithms and explore sub and super pixel analysis.</p>
+<section id="sub-pixel-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="sub-pixel-analysis">Sub-pixel analysis</h2>
 <section id="multiple-land-covers-within-a-pixel" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-land-covers-within-a-pixel">Multiple land covers within a pixel</h3>
-<p>What happens when multiple land covers appear within a single pixel? Take this image below of one of the dams on Table Mountain. The inner area of the dam can be considered “spectrally pure”, since entire pixels are comprised of water. However, the outer edges of the dam represent a mixture of water and sand.</p>
+<p>What happens when multiple land covers appear within a single pixel? Take this image below of one of the dams on Table Mountain. The inner area of the dam can be considered ‘spectrally pure’ - 100% of these pixels are comprised of water. However, the outer edges of the dam represent a mixture of water and sand.</p>
 <p><img src="images/clipboard-4104567614.png" class="img-fluid"></p>
-<p>To deal with this, we draw points or polygons of spectrally pure pixels for each of the “end members” (basically just the land types we want to be classified). I chose 5 different end members:</p>
+<p>To deal with this, we draw points or polygons of ‘spectrally pure’ pixels for each of the end members (which are basically just the land types we want to be classified). I chose 5 different end members:</p>
 <ol type="1">
 <li>Urban</li>
 <li>Agricultural</li>
@@ -267,25 +322,75 @@ ul.task-list li input[type="checkbox"] {
 <section id="reclassification" class="level3">
 <h3 class="anchored" data-anchor-id="reclassification">Reclassification</h3>
 <p>We then use the values of these fractions to reclassify the image (into only the 5 categories of land cover, rather than the proportions of each). We do this by ‘hardening’ the sub-pixel image and classify each pixel that is above a given threshold of land cover. We used a threshold of 50% and 70% (i.e., a pixel is classified into a given land type when it’s proportion exceeds 50% or 70%).</p>
-<p>The algorithm appears to have performed relatively well, and we specifically assign pixels which had no dominant pixel proportion a black colour so that we can see in which areas there was high spectral mixing.</p>
+<p>The algorithm appears to have performed relatively well. I specifically assign pixels which had no dominant pixel proportion to a black colour, so that we can see in which areas there was high spectral mixing (i.e., high uncertainty for classification).</p>
 <p><img src="images/clipboard-2276546459.png" class="img-fluid"></p>
-<p>An area in which the algorithm didn’t perform well was with mountain shadows, which returned high proportions of the water end member and were thus classified as such. This could have been avoided by including an NDVI or NDWI index within the image collection.</p>
+<p>An area in which the algorithm didn’t perform well was with mountain shadows, which returned high proportions of the water end member and were thus classified as such. This probably could have been avoided by including an NDVI or NDWI index as one of the inputs in the classification.</p>
 </section>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section"><img src="images/clipboard-3736772450.png" class="img-fluid"></h3>
 </section>
-<section id="accuracy-assessment" class="level3">
-<h3 class="anchored" data-anchor-id="accuracy-assessment">Accuracy assessment??</h3>
-<p>Something from a paper here??</p>
 </section>
 <section id="super-pixel-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="super-pixel-analysis">Super-pixel analysis</h2>
-<p>Instead of breaking pixels into smaller parts, super-pixel analysis, or object-based image analysis groups similar pixels together. Below is the output of the clusters formed using the simple non-iterative clustering (SNIC) method.</p>
+<p>Instead of breaking pixels into smaller parts, super-pixel analysis, or object-based image analysis (OBIA) groups similar pixels together. Below is the output of the clusters formed using the simple non-iterative clustering (SNIC) method.</p>
 <p><img src="images/clipboard-4259562036.png" class="img-fluid"></p>
-<p>It seems as though the heterogeanous nature of the landscape means that the output is rather noisy, and I am not quite sure what information can be extracted from an output like this.</p>
-<p><a href="https://www.researchgate.net/figure/Results-of-applying-the-Simple-Non-Iterative-Clustering-SNIC-algorithm-and-the_fig5_345082789" class="uri">https://www.researchgate.net/figure/Results-of-applying-the-Simple-Non-Iterative-Clustering-SNIC-algorithm-and-the_fig5_345082789</a></p>
+<p>It seems as though the heterogeneous nature of the landscape means that the output is rather noisy, and I am not quite sure what information can be extracted from an output like this. But the utility of it elsewhere is clear…</p>
+</section>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p><span class="citation" data-cites="amani2020">Amani et al. (<a href="references.html#ref-amani2020" role="doc-biblioref">2020</a>)</span> produced the 2018 Annual Space-Based Crop Inventory (ACI) map for Canada, and describes the methodology for doing so. To capture crop phenology and temporal patterns (remember this from <strong><em>seasonal composites</em></strong>!), the study extracted 18 total feature layers for the year 2018:</p>
+<ul>
+<li><p>SAR: Bi-monthly mean values for VV and VH polarizations (12 features)</p></li>
+<li><p>Optical: Four-month median composites of NDVI and NDWI (6 features)</p></li>
+</ul>
+<p>This 18-layer stack was processed using the SNIC algorithm, grouping pixels into segments to reduce noise and improve classification reliability.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3187778873.png" class="img-fluid figure-img"></p>
+<figcaption>Results of applying SNIC algorithm to croplands in Canada <span class="citation" data-cites="amani2020">(<a href="references.html#ref-amani2020" role="doc-biblioref">Amani et al. 2020</a>)</span></figcaption>
+</figure>
+</div>
+<p>An Artificial Neural Network (ANN) algorithm was then used to classify each object into one of 17 different crop classes. The accuracy assessment produced the following results:</p>
+<ul>
+<li><p>Overall Accuracy = 77%</p></li>
+<li><p>Kappa Coefficient = 0.74</p></li>
+<li><p>Producer Accuracy = 79%</p></li>
+<li><p>User Accuracy = 77%</p></li>
+</ul>
+<p>These are impressive results, especially considering the study area was approximately 2.803 million <span class="math inline">\(km^2\)</span> across 10 provinces, representing about 28% of Canada’s terrestrial landmass.</p>
+<p>Object-based Image Analysis has been used to map informal settlements across the world <span class="citation" data-cites="kuffer2016">(<a href="references.html#ref-kuffer2016" role="doc-biblioref">Kuffer, Pfeffer, and Sliuzas 2016</a>)</span>, from Durban, South Africa <span class="citation" data-cites="Matarira2023">(<a href="references.html#ref-Matarira2023" role="doc-biblioref">Matarira et al. 2023</a>)</span> to Pune, India <span class="citation" data-cites="shekhar2012">(<a href="references.html#ref-shekhar2012" role="doc-biblioref">Shekhar 2012</a>)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-193300748.png" class="img-fluid figure-img"></p>
+<figcaption>Map of 87 publications mapping informal settlements using RS methods <span class="citation" data-cites="kuffer2016">(<a href="references.html#ref-kuffer2016" role="doc-biblioref">Kuffer, Pfeffer, and Sliuzas 2016</a>)</span></figcaption>
+</figure>
+</div>
+<p>Between 2000 and 2015, OBIA was the most common method used to do map informal settlements, comprising 32% of all publications on the topic <span class="citation" data-cites="kuffer2016">(<a href="references.html#ref-kuffer2016" role="doc-biblioref">Kuffer, Pfeffer, and Sliuzas 2016</a>)</span>. However, <span class="citation" data-cites="kohli2013">Kohli et al. (<a href="references.html#ref-kohli2013" role="doc-biblioref">2013</a>)</span> found that while high-level form and morphology of informal settlements are transferable, the specific rules and thresholds selected in OBIA are not. Differences in local building materials, roof colors, and urban density meant that a rule set created for Ahmedabad required significant manual ‘calibration’ to work in Kalyan <span class="citation" data-cites="kohli2013">(<a href="references.html#ref-kohli2013" role="doc-biblioref">Kohli et al. 2013</a>)</span></p>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>Once again, local context is essential for accurate classification. It’s quite crazy to think that <span class="citation" data-cites="amani2020">Amani et al. (<a href="references.html#ref-amani2020" role="doc-biblioref">2020</a>)</span> was able to classify croplands into 17 different crop classes for over a quarter of the country’s landmass, while <span class="citation" data-cites="kohli2013">Kohli et al. (<a href="references.html#ref-kohli2013" role="doc-biblioref">2013</a>)</span> found that the accuracy of mapping informal settlements just 500km apart was completely different. This speaks to the much more complex, random, opportunistic nature of informality and its morphology. It is much harder to capture the finer details of informality than formality, and as a result requires much more in-depth consideration of the methodology.</p>
+<p>I have focused a lot of my reflections on debates on <strong>how</strong> best to go about classifying things like informal settlements, and not really paid any attention to the <strong>why</strong>. Understanding more about the way in which informal settlements expand, contract, diverge, converge is extremely important for predicting how they will change in the future.</p>
+<p>In doing my own classification of Cape Town, it was sometimes easy to be a bit pessimistic about the results sometimes. Seeing a map of a landscape I know extremely well, with quite a lot of mistakes (mountain shadows classified as water…), seemed a bit pointless. But an important distinction that the <span class="citation" data-cites="amani2020">Amani et al. (<a href="references.html#ref-amani2020" role="doc-biblioref">2020</a>)</span> paper made me realize is scaleablity. And no, I’m not saying that it would be useful to do a sub-par classification of the whole of South Africa. I mean that, the scale at which you consider the context (<em>are those big dams or mountain shadows? … is the roof fabric of this informal settlement different to its neighboring one? … is the phenology of this crop different to another?</em>), is the scale at which you will be able to effectively apply your classification.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-amani2020" class="csl-entry" role="listitem">
+Amani, Meisam, Mohammad Kakooei, Armin Moghimi, Arsalan Ghorbanian, Babak Ranjgar, Sahel Mahdavi, Andrew Davidson, et al. 2020. <span>“Application of Google Earth Engine Cloud Computing Platform, Sentinel Imagery, and Neural Networks for Crop Mapping in Canada.”</span> <em>Remote Sensing</em> 12 (October): 3561. <a href="https://doi.org/10.3390/rs12213561">https://doi.org/10.3390/rs12213561</a>.
+</div>
+<div id="ref-kohli2013" class="csl-entry" role="listitem">
+Kohli, Divyani, Pankaj Warwadekar, Norman Kerle, Richard Sliuzas, and Alfred Stein. 2013. <span>“Transferability of Object-Oriented Image Analysis Methods for Slum Identification.”</span> <em>Remote Sensing</em> 5 (9): 4209–28. <a href="https://doi.org/10.3390/rs5094209">https://doi.org/10.3390/rs5094209</a>.
+</div>
+<div id="ref-kuffer2016" class="csl-entry" role="listitem">
+Kuffer, Monika, Karin Pfeffer, and Richard Sliuzas. 2016. <span>“Slums from Space—15 Years of Slum Mapping Using Remote Sensing.”</span> <em>Remote Sensing</em> 8 (6). <a href="https://doi.org/10.3390/rs8060455">https://doi.org/10.3390/rs8060455</a>.
+</div>
+<div id="ref-Matarira2023" class="csl-entry" role="listitem">
+Matarira, Dadirai, Onisimo Mutanga, Maheshvari Naidu, and Marco Vizzari. 2023. <span>“Object-Based Informal Settlement Mapping in Google Earth Engine Using the Integration of Sentinel-1, Sentinel-2, and PlanetScope Satellite Data.”</span> <em>Land</em> 12 (1). <a href="https://doi.org/10.3390/land12010099">https://doi.org/10.3390/land12010099</a>.
+</div>
+<div id="ref-shekhar2012" class="csl-entry" role="listitem">
+Shekhar, S. 2012. <span>“DETECTING SLUMS FROM QUICK BIRD DATA IN PUNE USING AN OBJECT ORIENTED APPROACH.”</span> <em>The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences</em> XXXIX-B8: 519–24. <a href="https://doi.org/10.5194/isprsarchives-XXXIX-B8-519-2012">https://doi.org/10.5194/isprsarchives-XXXIX-B8-519-2012</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -241,7 +241,8 @@ div.csl-indent {
   </ul></li>
   <li><a href="#applications-informal-settlement-mapping" id="toc-applications-informal-settlement-mapping" class="nav-link" data-scroll-target="#applications-informal-settlement-mapping">Applications: Informal Settlement mapping</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
-  <li><a href="#not-to-be-marked-a-tangent-on-how-we-deal-with-clouds" id="toc-not-to-be-marked-a-tangent-on-how-we-deal-with-clouds" class="nav-link" data-scroll-target="#not-to-be-marked-a-tangent-on-how-we-deal-with-clouds">NOT TO BE MARKED: A tangent on how we deal with clouds</a>
+  <li><a href="#not-to-be-marked" id="toc-not-to-be-marked" class="nav-link" data-scroll-target="#not-to-be-marked">NOT TO BE MARKED:</a></li>
+  <li><a href="#a-tangent-on-how-we-deal-with-clouds" id="toc-a-tangent-on-how-we-deal-with-clouds" class="nav-link" data-scroll-target="#a-tangent-on-how-we-deal-with-clouds">A tangent on how we deal with clouds</a>
   <ul class="collapse">
   <li><a href="#option-1-cloudy-pixel-percentage" id="toc-option-1-cloudy-pixel-percentage" class="nav-link" data-scroll-target="#option-1-cloudy-pixel-percentage">Option 1: Cloudy pixel percentage</a></li>
   <li><a href="#option-2-quality-assurance" id="toc-option-2-quality-assurance" class="nav-link" data-scroll-target="#option-2-quality-assurance">Option 2: Quality Assurance</a></li>
@@ -402,10 +403,10 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-1328210847.png" class="img-fluid figure-img"></p>
-<figcaption>Zoomed in view of an informal settlement (delineated in between the black lines) and formal settlements, Dar es Salaam. From left to right: Sentinel Imagery; OSM Building footprints; Random Forest Classification (without building density); Random Forest Classification (with building density). Note: The delineation of informal settlements was drawn subjectively based off Sentinel imagery and well-known features of informal settlements - such as presence of metal roofing and branching nature of road networks.</figcaption>
+<figcaption>Zoomed in view of an informal settlement (delineated in between the black lines) and formal settlements, Dar es Salaam. From left to right: Sentinel Imagery; OSM Building footprints; Random Forest Classification (without building density); Random Forest Classification (with building density). Note: The delineation of informal settlements was drawn subjectively based off Sentinel imagery using well-known features of informal settlements - such as the presence of metal roofing and branching nature of road networks.</figcaption>
 </figure>
 </div>
-<p>We can see from the figure above, that including building density in the RF model resulted in more clustered informal settlement classifications. ***</p>
+<p>Including building density as an input in the RF classification model resulted in a more contiguous classification of informal settlements. Excluding it from the model resulted in the classification being more fragmented and dispersed.</p>
 <p>This method, to my knowledge, is not well-documented in the literature, so it’s difficult to compare it to other methodologies. To try and place it within the wider field of remote sensing to identify informal settlements, consider <span class="citation" data-cites="kuffer2016">Kuffer, Pfeffer, and Sliuzas (<a href="references.html#ref-kuffer2016" role="doc-biblioref">2016</a>)</span>’s systematic review of 15 years of scientific literature (2000–2015) focused on this exact application. The review highlighted the following morphological features as being the most important in informal settlements:</p>
 <ul>
 <li><p>Size (smaller buildings)</p></li>
@@ -429,8 +430,11 @@ div.csl-indent {
 <p>It’s quite crazy to think that Ballinger was able to achieve what seems like a really good model for detecting informal settlements, and that was using the most simple of the four methodologies that <span class="citation" data-cites="kuffer2016">Kuffer, Pfeffer, and Sliuzas (<a href="references.html#ref-kuffer2016" role="doc-biblioref">2016</a>)</span> outlined. The sheer amount of papers which are focused on improving the identification of informal settlements makes me quite hopeful. This is an area which is often under-represented in the literature, but it seems like that’s not the case for RS studies (although, maybe there is also an element of confirmation bias here since I did fall into a bit of a rabbit whole with this topic!). The fact that so much of the freely-available satellite imagery has a global extent means that people who care about and are interested in these under-represented areas are less limited by the data-deficiency that they so often face. Although there are <em>always</em> political and social biases embedded in any sort of representation of the real world, it seems like RS offers one of the least bias of these representations.</p>
 <p>I thoroughly enjoyed learning about classification, and, even more so, seeing how easy it is to implement in GEE (phew!). It seems like a very practical and relevant topic, and one which can be applied to a broad range of fields. I’m excited to delve even deeper next week!</p>
 </section>
-<section id="not-to-be-marked-a-tangent-on-how-we-deal-with-clouds" class="level2">
-<h2 class="anchored" data-anchor-id="not-to-be-marked-a-tangent-on-how-we-deal-with-clouds">NOT TO BE MARKED: A tangent on how we deal with clouds</h2>
+<section id="not-to-be-marked" class="level2">
+<h2 class="anchored" data-anchor-id="not-to-be-marked">NOT TO BE MARKED:</h2>
+</section>
+<section id="a-tangent-on-how-we-deal-with-clouds" class="level2">
+<h2 class="anchored" data-anchor-id="a-tangent-on-how-we-deal-with-clouds">A tangent on how we deal with clouds</h2>
 <section id="option-1-cloudy-pixel-percentage" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-cloudy-pixel-percentage">Option 1: Cloudy pixel percentage</h3>
 <p>Most of the satellite imagery data comes with a bunch of metadata about the imagery. One of these pieces of information is the CLOUDY_PIXEL_PERCENTAGE, which represents the cloud cover for the <strong>entire tile</strong>. In this method, we would filter the entire collection of images based on a given cloud coverage (in our case 1%):</p>

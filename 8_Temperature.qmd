@@ -25,3 +25,5 @@ Remote sensors can provide incredibly valuable information about temperature, bo
 ![](images/clipboard-3390413648.png)
 
 Using temperature as one of our inputs for classification??? –\> reference?
+
+Informal settlements??

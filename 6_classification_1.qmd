@@ -149,9 +149,9 @@ So how did the classification actually perform?
 
 Ballinger doesn't show the results of the accuracy assessment, so we're left to do our own visual assessments of how the model performed:
 
-![Zoomed in view of an informal settlement (delineated in between the black lines) and formal settlements, Dar es Salaam. From left to right: Sentinel Imagery; OSM Building footprints; Random Forest Classification (without building density); Random Forest Classification (with building density). Note: The delineation of informal settlements was drawn subjectively based off Sentinel imagery and well-known features of informal settlements - such as presence of metal roofing and branching nature of road networks. ](images/clipboard-1328210847.png)
+![Zoomed in view of an informal settlement (delineated in between the black lines) and formal settlements, Dar es Salaam. From left to right: Sentinel Imagery; OSM Building footprints; Random Forest Classification (without building density); Random Forest Classification (with building density). Note: The delineation of informal settlements was drawn subjectively based off Sentinel imagery using well-known features of informal settlements - such as the presence of metal roofing and branching nature of road networks. ](images/clipboard-1328210847.png)
 
-We can see from the figure above, that including building density in the RF model resulted in more clustered informal settlement classifications. \*\*\*
+Including building density as an input in the RF classification model resulted in a more contiguous classification of informal settlements. Excluding it from the model resulted in the classification being more fragmented and dispersed.
 
 This method, to my knowledge, is not well-documented in the literature, so it's difficult to compare it to other methodologies. To try and place it within the wider field of remote sensing to identify informal settlements, consider @kuffer2016's systematic review of 15 years of scientific literature (2000–2015) focused on this exact application. The review highlighted the following morphological features as being the most important in informal settlements:
 
