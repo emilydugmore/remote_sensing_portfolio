@@ -47,7 +47,7 @@ When we first loaded the Landsat data for the region (using filters of date, clo
 
 #### Dealing with overlapping tiles only
 
-We could also choose to only deal with the pixels of overlapping tiles, either applying a **mosaic** (which we discussed in the ***Enhancements page***), or by taking the **mean** value of the overlapping pixels across the whole image collection.
+We could also choose to only deal with the pixels of overlapping tiles, either applying a **mosaic**, or by taking the **mean** value of the overlapping pixels across the whole image collection.
 
 ![Different methods for creating single images from an image collection.](images/clipboard-2235784366.png)
 

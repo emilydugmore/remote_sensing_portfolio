@@ -16,7 +16,7 @@ Corrections are critical steps in remote sensing pre-processing. Although most o
 
 -   **Atmospheric corrections** address environmental factors like scattering and absorption, allowing for consistent comparison of imagery across different times and locations
 
-## Joining Data Sets
+## Joining Images {#joins}
 
 Satellite images are limited by the satellite's specific paths and rows (i.e., its route as it moves through space). When we download imagery from sites like Earth Explorer, scenes (images from a unique combination of path and row) are separate from one another, and require merging or mosaicking to join them and create a continous image.
 
@@ -49,7 +49,7 @@ NDVI = \frac{NIR - Red}{NIR + Red}
 $$
 
 | Value Range | Surface / Land Cover Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | -1 to 0 | Water bodies, snow, clouds, non-vegetated surfaces (e.g., buildings) |
 | 0 to 0.1 | Barren areas, rocks, sand, or snow |
 | 0.2 to 0.5 | Sparse vegetation, shrubs, grasslands |

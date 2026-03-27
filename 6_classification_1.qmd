@@ -1,6 +1,6 @@
 # Classification (part 1) {.unnumbered}
 
-Building from the content in the previous section on ***Google Earth Engine,*** we move onto running our own classification algorithms.
+Building from the content in the previous section,we move onto running our own classification algorithms.
 
 First, we'll run through a brief step-by-step of how you run a classification. I've included a lot of code chunks in between text here to show just how quick and easy it is to run this in GEE.
 
@@ -14,7 +14,7 @@ We do this by drawing polygons around areas of known land cover type.
 
 ### Step 2: Split pixels into training & validation
 
-We want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because...**xyz**
+We want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because the pixels within the polygons will be spatially auto-correlated.
 
 To do this we:
 

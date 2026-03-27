@@ -44,7 +44,7 @@ The algorithm appears to have performed relatively well. I specifically assign p
 
 An area in which the algorithm didn't perform well was with mountain shadows, which returned high proportions of the water end member and were thus classified as such. This probably could have been avoided by including an NDVI or NDWI index as one of the inputs in the classification.
 
-### ![](images/clipboard-3736772450.png)
+![](images/clipboard-3736772450.png)
 
 ## Super-pixel analysis
 
