@@ -9,6 +9,7 @@ book:
   chapters:
     - index.qmd
     - 1_RS_intro.qmd
+    - 2_Presentation.qmd
     - 3_Enhancements.qmd
     - 4_policy.qmd
     - 5_GEE.qmd
