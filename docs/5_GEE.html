@@ -236,7 +236,6 @@ div.csl-indent {
   <li><a href="#feature-enhancements" id="toc-feature-enhancements" class="nav-link" data-scroll-target="#feature-enhancements">Feature Enhancements</a>
   <ul class="collapse">
   <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture">Texture</a></li>
-  <li><a href="#ndvi-vegetation" id="toc-ndvi-vegetation" class="nav-link" data-scroll-target="#ndvi-vegetation">NDVI (vegetation)</a></li>
   <li><a href="#ndmi-moisture" id="toc-ndmi-moisture" class="nav-link" data-scroll-target="#ndmi-moisture">NDMI (moisture)</a></li>
   </ul></li>
   <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a></li>
@@ -267,12 +266,12 @@ div.csl-indent {
 
 <section id="what-is-gee" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-gee">What is GEE?</h2>
-<p>GEE is a cloud-based geospatial service that allows for the analysis of massive datasets at planetary scale, all completed incredibly quickly. GEE stores an unbelievable amount of Earth Observation data (much of which is already pre-processed) on its servers, and users are able to run complex tasks (controlled via JavaScript code) without needing to download data to their local machines. This has revolutionized how scientists can use this data, shifting from a download and pre-processing intensive workflow to allowing people to focus on large-scale research in countless fields.</p>
+<p>GEE is a cloud-based service for local to planetary-scale geospatial analysis. By hosting massive, pre-processed datasets on its servers, it allows users to run complex JavaScript (JS) code without needing to download data locally. This has allowed RS users to shift their focus from time-consuming data management to large-scale research, across an impressive range of fields.</p>
 <p>In this page, I will explore the introductory basics of the GEE platform, focusing on my home city - Cape Town in South Africa.</p>
 </section>
 <section id="accessing-data" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-data">Accessing Data</h2>
-<p>JavaScript (JS) is used to access data hosted on the GEE API. GEE provides a really nice Data Catalog, which groups the datasets into general themes (like climate &amp; weather, imagery and geophysical) which you can easily and intuitively explore. Each dataset has its own page with additional information, and importantly, a JS code chunk example for how to access and load the data.</p>
+<p>JS is used to access data hosted on the GEE API. Each dataset has its own page with additional information, and importantly, a JS code chunk example is provided showing how to access and load the data.</p>
 <p>This is the code chunk that GEE provides for the <a href="https://developers.google.com/earth-engine/datasets/catalog/JAXA_GPM_L3_GSMaP_v6_operational?_gl=1*vgxgvg*_up*MQ..*_ga*NDMxNDkzMDgxLjE3NzIwMTkwMDY.*_ga_SM8HXJ53K2*czE3NzIwMTkwMDUkbzEkZzAkdDE3NzIwMTkwMDUkajYwJGwwJGgw">Global Satellite Mapping of Precipitation</a> dataset:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dataset <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'JAXA/GPM_L3/GSMaP/v6/operational'</span>)                   </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                  <span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">date</span>(<span class="st">'2018-08-06'</span><span class="op">,</span> <span class="st">'2018-08-07'</span>))<span class="op">;</span> </span>
@@ -290,11 +289,16 @@ div.csl-indent {
 </section>
 <section id="applying-gee-to-cape-town" class="level2">
 <h2 class="anchored" data-anchor-id="applying-gee-to-cape-town">Applying GEE to Cape Town</h2>
-<p>One of the nice parts of GEE is that it deals with raster data really well, but it also does for vector data. We loaded a shapefile of municipal boundaries for South Africa (from <a href="https://gadm.org/download_country.html">GADM</a>) and use this to ‘bound’ our search for satellite data and only include data which is overlapping this region.</p>
+<p>We loaded a shapefile of municipal boundaries for South Africa (from <a href="https://gadm.org/download_country.html">GADM</a>) and use this to ‘bound’ our search for satellite data and only include data which is overlapping this region.</p>
 <section id="scaling" class="level3">
 <h3 class="anchored" data-anchor-id="scaling">Scaling</h3>
-<p>When we first load the data, it comes up dark and we can’t see much of what’s going on. This is because raw satellite data (like Landsat Level-2 Data of Surface Reflectance) is stored in a compressed format to save space. The compressed format uses a specific scale factor (in our case 0.0000275) and an additive offset (-0.2) which must be applied to revert each pixel back to their true physical values. Different Landsat collections of data have different scale factors and offsets, which can be found <a href="https://www.usgs.gov/faqs/how-do-i-use-a-scale-factor-landsat-level-2-science-products">here</a>. Once we’ve transformed this, the image looks a lot more like what we would expect:</p>
-<p><img src="images/clipboard-3028928926.png" class="img-fluid"></p>
+<p>When we first load the data, it comes up dark and we can’t see much of what’s going on. This is because raw satellite data (like Landsat Level-2 Data of Surface Reflectance) is stored in a compressed format to save space. The compressed format uses a specific scale factor and an additive offset (found <a href="https://www.usgs.gov/faqs/how-do-i-use-a-scale-factor-landsat-level-2-science-products">here</a>) which must be applied to revert each pixel back to their true physical values.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3028928926.png" class="img-fluid figure-img"></p>
+<figcaption>Landsat imagery before (left) and after (right) scaling factors are applied</figcaption>
+</figure>
+</div>
 </section>
 <section id="image-cloud-to-a-single-image" class="level3">
 <h3 class="anchored" data-anchor-id="image-cloud-to-a-single-image">Image cloud to a single image</h3>
@@ -305,7 +309,12 @@ div.csl-indent {
 <section id="dealing-with-overlapping-tiles-only" class="level4">
 <h4 class="anchored" data-anchor-id="dealing-with-overlapping-tiles-only">Dealing with overlapping tiles only</h4>
 <p>We could also choose to only deal with the pixels of overlapping tiles, either applying a <strong>mosaic</strong> (which we discussed in the <strong><em>Enhancements page</em></strong>), or by taking the <strong>mean</strong> value of the overlapping pixels across the whole image collection.</p>
-<p><img src="images/clipboard-2235784366.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2235784366.png" class="img-fluid figure-img"></p>
+<figcaption>Different methods for creating single images from an image collection.</figcaption>
+</figure>
+</div>
 <p>We can see above that the median reducer is very effective at removing clouds and shadows, because these are usually ‘extreme’ values that are excluded in the resulting reduced image.</p>
 <p>There’s no single ‘best’ way to do this (which seems to be a recurring theme with RS!). And choosing how to join images will depend on the context: how cloudy the region is, what temporal scales are wanting to be explored etc.</p>
 </section>
@@ -338,38 +347,46 @@ div.csl-indent {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> composite <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(seasons)<span class="op">.</span><span class="fu">toBands</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="citation" data-cites="Immitzer2019">Immitzer et al. (<a href="references.html#ref-Immitzer2019" role="doc-biblioref">2019</a>)</span> demonstrates the efficacy of this by using multi-temporal Sentinel-2 data to classify tree <em>species</em>. Not just forest vs non-forest classification, but individual tree species classification. They found that incorperating imagery from across the entire growing season (and in doing so, including the unique seasonal phenology of each species) significantly improved the accuracy of the classification.</p>
 <p>You might be thinking that these seasonal composites are probably only useful for things like vegetation classification. Well, think again!</p>
-<p>Instead of land/species cover classification, <span class="citation" data-cites="Lyu2024">Lyu et al. (<a href="references.html#ref-Lyu2024" role="doc-biblioref">2024</a>)</span> utilized four seasonal Sentinel-2 composites (and a bunch of complex math I won’t pretend to understand) to estimate the number of stories in individual buildings. 61 Chinese cities with various building types were included in the study, 47 to train the model and the remaining 14 to test the model</p>
+<p>Instead of land/species cover classification, <span class="citation" data-cites="Lyu2024">Lyu et al. (<a href="references.html#ref-Lyu2024" role="doc-biblioref">2024</a>)</span> utilized four seasonal Sentinel-2 composites to estimate the number of stories in individual buildings. I won’t pretend to understand the complex maths and solar geometry principles that they used, but basically, it uses the idea that in winter, the peak height of the sun is lower than in summer, creating more shadows from buildings. 61 Chinese cities with various building types were included in the study, 47 to train the model and the remaining 14 to test the model.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-2858265143.png" class="img-fluid figure-img"></p>
 <figcaption>Building shadow changes across four seasonal composite images from Sentinel-2, Beijing <span class="citation" data-cites="Lyu2024">(<a href="references.html#ref-Lyu2024" role="doc-biblioref">Lyu et al. 2024</a>)</span></figcaption>
 </figure>
 </div>
+<p>This is an insanely cool application of RS, and although the geometric technicalities are a bit beyond me, it shows the versatility of somewhat simple concepts, like seasonal composites, in solving complex problems at scale.</p>
 </section>
 </section>
 </section>
 <section id="feature-enhancements" class="level2">
 <h2 class="anchored" data-anchor-id="feature-enhancements">Feature Enhancements</h2>
-<p>One of the best features in GEE is that we can quickly and easily implement feature enhancements to get a summary of some of the features in an area … what land types is covering it, how much water is there, how healthy is the vegetation, how much of the area is built up? More detailed information about enhancements was discussed <strong><em>here</em></strong>, but for now let’s have a look at what’s happening in Cape Town!</p>
+<p>One of the best parts in GEE is that we can quickly and easily implement feature enhancements to get a summary of some of the features in an area.</p>
 <section id="texture" class="level3">
 <h3 class="anchored" data-anchor-id="texture">Texture</h3>
-<p>Let’s look side-by-side at a residential area and an agricultural area at the same zoom level to explore what the colours in the texture map mean.</p>
-<p><img src="images/clipboard-4172120534.png" class="img-fluid"></p>
-<p>On the left hand side, we have a residential area (mainly comprised of informal settlements) with lots of bright pink. This is telling us that the pixels in this area of the map are characterized by high contrast with their surrounding pixels, and there are irregular changes in reflectance.</p>
-<p>On the left, we have an agricultural area which is much darker. We can see from the satellite image that the fields/vegeatation in this area is, for the most part, quite uniform with not a lot of changes in colour or reflectance (other than the odd road or clump of buildings).</p>
-</section>
-<section id="ndvi-vegetation" class="level3">
-<h3 class="anchored" data-anchor-id="ndvi-vegetation">NDVI (vegetation)</h3>
-<p><img src="images/clipboard-4142147629.png" class="img-fluid"></p>
-<p>Here is a map of NDVI for Cape Town…basically, a map which shows where there is vegetation.</p>
-<p>We can immediately see that Cape Town has <strong>a lot</strong> of vegetation. It is also pretty easy to spot Table Mountain (west section of the city) and the Hottentots Holland Mountains (to the east side), which is a lot darker green than the rest of the city.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4172120534.png" class="img-fluid figure-img"></p>
+<figcaption>Zoomed-in views of texture in a residential and agricultural area in Cape Town, South Africa. Pink areas are ‘rough’ while dark areas are ‘smooth’.</figcaption>
+</figure>
+</div>
+<p>The residential area (which is mainly comprised of informal settlements) is characterized by pixels that have high contrast with their surrounding pixels and irregular changes in reflectance. The agricultural area is much more uniform, which makes sense given the homogenous nature of the mono-culture farming that occurs here.</p>
 </section>
 <section id="ndmi-moisture" class="level3">
 <h3 class="anchored" data-anchor-id="ndmi-moisture">NDMI (moisture)</h3>
-<p>Similar to the NDVI calculation, we can calculate the Normalized Difference Moisture Index as a way to see where there are high levels of moisture.</p>
-<p><img src="images/clipboard-192247863.png" class="img-fluid"></p>
-<p>For the most part, I think the NDMI captured the moisture landscape of Cape Town Pretty well! The more densely vegetated areas of the mountain are dark blue, while the drier, more sandy soils of the southern peninsula is more pink/red showing less moisture. Something I did find slightly interesting was this discrepancy between two of the vleis (small wetlands) located in the heart of the city, pictured below:</p>
-<p><img src="images/clipboard-1918665002.png" class="img-fluid"></p>
+<p>The Normalized Difference Moisture Index tells us where there are high levels of moisture.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-192247863.png" class="img-fluid figure-img"></p>
+<figcaption>Normalised Difference Moisture Index for Cape Town, South Africa. Blue/purple areas are associated with high moisture.</figcaption>
+</figure>
+</div>
+<p>For the most part, I think the NDMI captured the moisture landscape of Cape Town Pretty well! The more densely vegetated areas of the mountain are dark blue, while the drier, more sandy soils of the southern peninsula are more pink/red showing less moisture. Something I did find slightly interesting was this discrepancy between two of the vleis (small wetlands) located in the heart of the city, pictured below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1918665002.png" class="img-fluid figure-img"></p>
+<figcaption>Comparison of two vleis (wetlands) with contrasting NDMI values, Cape Town, South Africa</figcaption>
+</figure>
+</div>
 <p>The red colour is outlining Sandvlei and the purple outlines Zeekoevlei. Both are filled with water in the satellite image, but according to the NBMI, only Zeekoevlei has a high moisture value. I haven’t been able to get to the bottom of this, but it might have something to do with sandvlei being shallower and having more clear water than zeekoevlei (which is deeper and has more algae/micro organism content).</p>
 </section>
 </section>
@@ -377,7 +394,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
 <section id="the-pros" class="level4">
 <h4 class="anchored" data-anchor-id="the-pros">The pros</h4>
-<p>The speed at which different functions and processes run in comparison to R or SNAP (if I can even mention this because it was so clunky I couldn’t even get it to work!) is amazing. Probably the most notable improvement for me was the ease at which you can interact with the data. Being able to toggle between different layers makes it so much easier to investigate different aspects of the landscape and notice interesting patterns or features … which is exactly how I found discrepancies like the one in <strong><em>figure x</em></strong>. Another major advantage of GEE over other platforms is eliminating the need to download large, confusingly-named satellite images onto local drives.</p>
+<p>The speed at which different functions and processes run in comparison to R or SNAP (if I can even mention this because it was so clunky I couldn’t even get it to work!) is amazing. Probably the most notable improvement for me was the ease at which you can interact with the data. Being able to toggle between different layers makes it so much easier to investigate different aspects of the landscape and notice interesting patterns or features … which is exactly how I found discrepancies like the different NDMI values of the two vleis. Another major advantage of GEE over other platforms is eliminating the need to download large, confusingly-named satellite images onto local drives.</p>
 </section>
 <section id="the-cons" class="level4">
 <h4 class="anchored" data-anchor-id="the-cons">The cons</h4>

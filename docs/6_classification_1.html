@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -206,23 +226,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#step-1-get-training-data" id="toc-step-1-get-training-data" class="nav-link active" data-scroll-target="#step-1-get-training-data">Step 1: Get Training Data</a></li>
-  <li><a href="#step-2-split-pixels-training-or-validation" id="toc-step-2-split-pixels-training-or-validation" class="nav-link" data-scroll-target="#step-2-split-pixels-training-or-validation">Step 2: Split pixels (training or validation)</a></li>
+  <li><a href="#step-by-step" id="toc-step-by-step" class="nav-link active" data-scroll-target="#step-by-step">Step-by-step</a>
+  <ul class="collapse">
+  <li><a href="#step-1-get-training-data" id="toc-step-1-get-training-data" class="nav-link" data-scroll-target="#step-1-get-training-data">Step 1: Get Training Data</a></li>
+  <li><a href="#step-2-split-pixels-into-training-validation" id="toc-step-2-split-pixels-into-training-validation" class="nav-link" data-scroll-target="#step-2-split-pixels-into-training-validation">Step 2: Split pixels into training &amp; validation</a></li>
   <li><a href="#step-3-train-the-model" id="toc-step-3-train-the-model" class="nav-link" data-scroll-target="#step-3-train-the-model">Step 3: Train the model</a></li>
   <li><a href="#step-4-conduct-classification" id="toc-step-4-conduct-classification" class="nav-link" data-scroll-target="#step-4-conduct-classification">Step 4: Conduct classification</a></li>
   <li><a href="#step-5-validating-assessing-accuracy" id="toc-step-5-validating-assessing-accuracy" class="nav-link" data-scroll-target="#step-5-validating-assessing-accuracy">Step 5: Validating &amp; assessing accuracy</a></li>
-  <li><a href="#different-models" id="toc-different-models" class="nav-link" data-scroll-target="#different-models">Different models</a>
+  </ul></li>
+  <li><a href="#classification-models" id="toc-classification-models" class="nav-link" data-scroll-target="#classification-models">Classification models</a>
   <ul class="collapse">
   <li><a href="#cart" id="toc-cart" class="nav-link" data-scroll-target="#cart">CART</a></li>
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   </ul></li>
-  <li><a href="#how-do-we-deal-with-clouds" id="toc-how-do-we-deal-with-clouds" class="nav-link" data-scroll-target="#how-do-we-deal-with-clouds">How do we deal with clouds?</a>
+  <li><a href="#applications-informal-settlement-mapping" id="toc-applications-informal-settlement-mapping" class="nav-link" data-scroll-target="#applications-informal-settlement-mapping">Applications: Informal Settlement mapping</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#not-to-be-marked-a-tangent-on-how-we-deal-with-clouds" id="toc-not-to-be-marked-a-tangent-on-how-we-deal-with-clouds" class="nav-link" data-scroll-target="#not-to-be-marked-a-tangent-on-how-we-deal-with-clouds">NOT TO BE MARKED: A tangent on how we deal with clouds</a>
   <ul class="collapse">
   <li><a href="#option-1-cloudy-pixel-percentage" id="toc-option-1-cloudy-pixel-percentage" class="nav-link" data-scroll-target="#option-1-cloudy-pixel-percentage">Option 1: Cloudy pixel percentage</a></li>
   <li><a href="#option-2-quality-assurance" id="toc-option-2-quality-assurance" class="nav-link" data-scroll-target="#option-2-quality-assurance">Option 2: Quality Assurance</a></li>
   <li><a href="#comparison-of-the-2-methods" id="toc-comparison-of-the-2-methods" class="nav-link" data-scroll-target="#comparison-of-the-2-methods">Comparison of the 2 methods</a></li>
   </ul></li>
-  <li><a href="#cart-1" id="toc-cart-1" class="nav-link" data-scroll-target="#cart-1">CART</a></li>
   </ul>
 </nav>
     </div>
@@ -248,10 +272,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>There’s a lot of code chunks in between text. I decided to include this to show just how easy and intuitive all of this is.</p>
-<section id="step-1-get-training-data" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-get-training-data">Step 1: Get Training Data</h2>
-<p>The first step of classification (irrespective of what type of model you are going to use) is to get some training data. We do this using the GEE draw polygon tool, creating a different layer for each land cover type.</p>
+<p>Building from the content in the previous section on <strong><em>Google Earth Engine,</em></strong> we move onto running our own classification algorithms.</p>
+<p>First, we’ll run through a brief step-by-step of how you run a classification. I’ve included a lot of code chunks in between text here to show just how quick and easy it is to run this in GEE.</p>
+<section id="step-by-step" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step">Step-by-step</h2>
+<section id="step-1-get-training-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-get-training-data">Step 1: Get Training Data</h3>
+<p>We do this by drawing polygons around areas of known land cover type.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-3497887048.png" class="img-fluid figure-img" width="300"></p>
@@ -259,12 +286,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="step-2-split-pixels-training-or-validation" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-split-pixels-training-or-validation">Step 2: Split pixels (training or validation)</h2>
+<section id="step-2-split-pixels-into-training-validation" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-split-pixels-into-training-validation">Step 2: Split pixels into training &amp; validation</h3>
 <p>We want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because…<strong>xyz</strong></p>
 <p>To do this we:</p>
 <ol type="1">
-<li>Select a number of pixels from each class</li>
+<li>Select a number of pixels (1000) from each class</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> pixel_number<span class="op">=</span> <span class="dv">1000</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -305,14 +332,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Scale here is the resolution that is used to extract values. Here, it is 10m (the resolution of Sentinel 2 Imagery). If we were worried about memory we could increase the scale, and each 10m x 10m pixel would be re-sampled to a larger resolution.</p>
 </section>
-<section id="step-3-train-the-model" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-train-the-model">Step 3: Train the model</h2>
+<section id="step-3-train-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-train-the-model">Step 3: Train the model</h3>
 <p>This step is achieved in just ONE line of code! We chose to use the random forest model here.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rf1_pixel <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileRandomForest</span>(<span class="dv">100</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">train</span>(training<span class="op">,</span> <span class="st">'class'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-4-conduct-classification" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-conduct-classification">Step 4: Conduct classification</h2>
+<section id="step-4-conduct-classification" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-conduct-classification">Step 4: Conduct classification</h3>
 <p>Here, we apply our trained model from the previous step to our study area image, and add this as a layer on the map.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rf2_pixel <span class="op">=</span> waytwo_clip<span class="op">.</span><span class="fu">classify</span>(rf1_pixel)<span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -326,8 +353,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  ]}<span class="op">,</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"RF_pixel"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-5-validating-assessing-accuracy" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-validating-assessing-accuracy">Step 5: Validating &amp; assessing accuracy</h2>
+<section id="step-5-validating-assessing-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-validating-assessing-accuracy">Step 5: Validating &amp; assessing accuracy</h3>
 <p>To assess the training model’s accuracy pre-validation:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainAccuracy <span class="op">=</span> rf1_pixel<span class="op">.</span><span class="fu">confusionMatrix</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To validate the model and assess its accuracy:</p>
@@ -336,23 +363,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> testAccuracy <span class="op">=</span> validated<span class="op">.</span><span class="fu">errorMatrix</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">'classification'</span>)<span class="op">;</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> consumers<span class="op">=</span>testAccuracy<span class="op">.</span><span class="fu">consumersAccuracy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="different-models" class="level2">
-<h2 class="anchored" data-anchor-id="different-models">Different models</h2>
+</section>
+<section id="classification-models" class="level2">
+<h2 class="anchored" data-anchor-id="classification-models">Classification models</h2>
 <p>There are a number of different classification models that you can choose to use in GEE, but we are only going to focus on two.</p>
 <section id="cart" class="level3">
 <h3 class="anchored" data-anchor-id="cart">CART</h3>
 <p><img src="images/clipboard-1689082410.png" class="img-fluid"></p>
-<p>The Classification and Regression Trees (CART) model constructs a binary decision tree, which can deal with both categorical and continuous outcome variables. It does this by recursively splitting the dataset into smaller subsets which best minimize the sum of squared residuals (continuous data) and the Gini Impurity (discrete data). It continues to make these splits until the optimal decision tree is made, which roughly balances over-fitting (where the model has too many branches and struggles to classify data that it hasn’t seen before) and under-fitting (the model incorrectly classifies).</p>
+<p>The CART model constructs a binary decision tree by recursively splitting data into subsets that minimize impurity, balancing the risk of over-fitting against model simplicity.</p>
 </section>
 <section id="random-forests" class="level3">
 <h3 class="anchored" data-anchor-id="random-forests">Random Forests</h3>
 <p><img src="images/clipboard-2107674319.png" class="img-fluid"></p>
-<p>Random Forests are similar to CARTs, but instead of coming up with just one decision tree, the result is a ‘random forest’ of loads of decision trees. It does this by taking a bunch of bootstrap samples of the training data. Within each bootstrap sample, about two thirds are kept ‘in the bag’ and one third is ‘out of the bag’ (OOB). The data kept in the bag is used to train the model, and create a decision tree. During this process, every time a node is reached, the tree can only choose from a random selection of independent variables (in our case, this is our spectral bands). Once the decision tree is made, we then use the OOB data (which the model has never seen) to see how that individual decision tree performs…and this gives us the OOB error.</p>
-<p>When we use the resulting random forest model to classify a pixel, all of the decision trees in the forest “vote” simultaneously to give the best prediction. The performance of this model is validated against the 30% of the <strong>training data</strong> that was held back from the whole random forest model to begin with. This is a bit of a confusing detail…but basically, the OOB error is an ‘internal’ check that happens for each bootstrap sample, and validation is the ‘external’ check that is applied to the model that we get at the end.</p>
+<p>Random Forest improves on CART by creating an <em>forest</em> of decision trees through ‘bagging.’ By training each tree on a random subset of data and features, the model uses a ‘majority vote’ to classify pixels, providing a more robust result than a single tree.</p>
 </section>
 </section>
-<section id="how-do-we-deal-with-clouds" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-we-deal-with-clouds">How do we deal with clouds?</h2>
+<section id="applications-informal-settlement-mapping" class="level2">
+<h2 class="anchored" data-anchor-id="applications-informal-settlement-mapping">Applications: Informal Settlement mapping</h2>
+<p>CASA’s Ollie Ballinger used a random forest classifier to identify and map informal settlements in Dar es Salaam, Tansania. The GEE app can be found <a href="https://ollielballinger.users.earthengine.app/view/ism">here</a>, the code for the app <a href="https://code.earthengine.google.com/065e25995dbe069beec41883b79b2ca9">here</a>, and a very in-depth explanation of the code <a href="https://oballinger.github.io/CASA0025/W08_ISM.html">here</a>.</p>
+<p>Ballinger used nearly identical methods to the step-by-step above, with a few additional steps. Firstly, NDVI and NDBI we calculated and used to filter out non-urban landcover from the imagery (only pixels with NDVI &lt; 0.3 and NDBI &gt; 0 were included in the classification). Secondly, he included OSM <strong>building footprint data</strong> in the classification.</p>
+<p>The reciprocal of each building footprint’s area was added and converted into a raster, then a Gaussian kernel was used to calculate the density of small buildings in a given area.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1248978210.png" class="img-fluid figure-img"></p>
+<figcaption>Visualisation of Guassian kernel calculation on reciprocal building footprint areas for a pixel in an informal settlement (left) and a formal settlement (right) in Dar es Salaam, Tanzania (<a href="https://oballinger.github.io/CASA0025/W08_ISM.html">Ollie Ballinger</a>)</figcaption>
+</figure>
+</div>
+<p>When this is applied to the entire layer, the result is a raster layer that can be used to identify areas with high building density, which are likely to be informal settlements:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-738491898.png" class="img-fluid figure-img"></p>
+<figcaption>Raster layer of building density across an informal settlement (left) and formal settlement (right) in Dar es Salaam, Tanzania, (<a href="https://oballinger.github.io/CASA0025/W08_ISM.html">Ollie Ballinger</a>)</figcaption>
+</figure>
+</div>
+<p>The building density raster layer was used as one of the inputs in the classification training (alongside B2, B3, B4, B8, B8A, B11, B12, NDVI, B8_contrast).</p>
+<p>So how did the classification actually perform?</p>
+<p>Ballinger doesn’t show the results of the accuracy assessment, so we’re left to do our own visual assessments of how the model performed:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1328210847.png" class="img-fluid figure-img"></p>
+<figcaption>Zoomed in view of an informal settlement (delineated in between the black lines) and formal settlements, Dar es Salaam. From left to right: Sentinel Imagery; OSM Building footprints; Random Forest Classification (without building density); Random Forest Classification (with building density). Note: The delineation of informal settlements was drawn subjectively based off Sentinel imagery and well-known features of informal settlements - such as presence of metal roofing and branching nature of road networks.</figcaption>
+</figure>
+</div>
+<p>We can see from the figure above, that including building density in the RF model resulted in more clustered informal settlement classifications. ***</p>
+<p>This method, to my knowledge, is not well-documented in the literature, so it’s difficult to compare it to other methodologies. To try and place it within the wider field of remote sensing to identify informal settlements, consider <span class="citation" data-cites="kuffer2016">Kuffer, Pfeffer, and Sliuzas (<a href="references.html#ref-kuffer2016" role="doc-biblioref">2016</a>)</span>’s systematic review of 15 years of scientific literature (2000–2015) focused on this exact application. The review highlighted the following morphological features as being the most important in informal settlements:</p>
+<ul>
+<li><p>Size (smaller buildings)</p></li>
+<li><p>Density (high roof coverage density &amp; lack of public green spaces)</p></li>
+<li><p>Pattern (organic layout structure with no orderly road arrangement)</p></li>
+<li><p>Site characteristics (Further proximity to infrastructure, and often hazardous locations like flood prone areas or on steep slopes)</p></li>
+</ul>
+<p><span class="citation" data-cites="kuffer2016">Kuffer, Pfeffer, and Sliuzas (<a href="references.html#ref-kuffer2016" role="doc-biblioref">2016</a>)</span> found a clear evolution in the field: an advance in methodologies which incorporate increasingly complex morphological features. This is summarized in the figure below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2404182359.png" class="img-fluid figure-img"></p>
+<figcaption>Informal settlement mapping methods increasing in complexity (left) and their associated image elements <span class="citation" data-cites="kuffer2016">Kuffer, Pfeffer, and Sliuzas (<a href="references.html#ref-kuffer2016" role="doc-biblioref">2016</a>)</span></figcaption>
+</figure>
+</div>
+<p>So far, we’ve only worked with pixel-based classification, which the above figure classifies as the simplest of the methods, only considering tone and colour as the main input to train the model.</p>
+<p>So where does Ballinger’s method fit?</p>
+<p>The methodology clearly sits within pixel-based classification, but Ballinger goes beyond the tone and colour elements and is able to capture elements of size and density into the pixel-based classification by applying the Guassian kernel calculation on reciprocal building footprint areas. This seems like a really innovative way to incorporate more complex features into less computationally intensive algorithms.</p>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>It’s quite crazy to think that Ballinger was able to achieve what seems like a really good model for detecting informal settlements, and that was using the most simple of the four methodologies that <span class="citation" data-cites="kuffer2016">Kuffer, Pfeffer, and Sliuzas (<a href="references.html#ref-kuffer2016" role="doc-biblioref">2016</a>)</span> outlined. The sheer amount of papers which are focused on improving the identification of informal settlements makes me quite hopeful. This is an area which is often under-represented in the literature, but it seems like that’s not the case for RS studies (although, maybe there is also an element of confirmation bias here since I did fall into a bit of a rabbit whole with this topic!). The fact that so much of the freely-available satellite imagery has a global extent means that people who care about and are interested in these under-represented areas are less limited by the data-deficiency that they so often face. Although there are <em>always</em> political and social biases embedded in any sort of representation of the real world, it seems like RS offers one of the least bias of these representations.</p>
+<p>I thoroughly enjoyed learning about classification, and, even more so, seeing how easy it is to implement in GEE (phew!). It seems like a very practical and relevant topic, and one which can be applied to a broad range of fields. I’m excited to delve even deeper next week!</p>
+</section>
+<section id="not-to-be-marked-a-tangent-on-how-we-deal-with-clouds" class="level2">
+<h2 class="anchored" data-anchor-id="not-to-be-marked-a-tangent-on-how-we-deal-with-clouds">NOT TO BE MARKED: A tangent on how we deal with clouds</h2>
 <section id="option-1-cloudy-pixel-percentage" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-cloudy-pixel-percentage">Option 1: Cloudy pixel percentage</h3>
 <p>Most of the satellite imagery data comes with a bunch of metadata about the imagery. One of these pieces of information is the CLOUDY_PIXEL_PERCENTAGE, which represents the cloud cover for the <strong>entire tile</strong>. In this method, we would filter the entire collection of images based on a given cloud coverage (in our case 1%):</p>
@@ -394,30 +472,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Option 1 is very fast and computationally “cheap”, while option 2 involves more complex code and more processing power. One of the main disadvantages of option 1 is that it is very restrictive with image selection. Here’s a <em>very</em> basic figure to help visualize a situation where this would be a problem:</p>
 <p><img src="images/clipboard-1113084654.png" class="img-fluid"></p>
 <p>In the above figure, tile 2 probably has around 40% and tile 3 around 5%. If we set our limit of cloudy pixel percentage to 1%, both of these images wouldn’t have been included in the image collection even though <strong>none over the clouds were covering our study area</strong>. This is where option 2 would be much more beneficial, as this isn’t as strict about filtering out cloudy images and deals with clouds by masking them out.</p>
-<p>Okay, let’s move away from the cloud tangent and get back to classification.</p>
-</section>
-</section>
-<section id="cart-1" class="level2">
-<h2 class="anchored" data-anchor-id="cart-1">CART</h2>
-<p>Classification And Regression Trees. This model is a single decision tree which looks at our</p>
-<p>Talk about:</p>
-<ul>
-<li><p>import stuff and how this can save time and code space</p></li>
-<li><p>Other cool vector layers (coral)</p></li>
-<li><p>Code “chunks” with dropdowns</p>
-<ul>
-<li><p>add /* and */ between chunks that you want commented out</p></li>
-<li><p>multi line comments</p>
-<pre><code>/**
- * Function to mask clouds using the Sentinel-2 QA band
- * @param {ee.Image} image Sentinel-2 image
- * @return {ee.Image} cloud masked Sentinel-2 image</code></pre></li>
-</ul></li>
-<li><p>2 different options when dealing with clouds</p></li>
-<li><p>maybe speak about the print and map functions, inspector and console and tasks</p></li>
-</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-kuffer2016" class="csl-entry" role="listitem">
+Kuffer, Monika, Karin Pfeffer, and Richard Sliuzas. 2016. <span>“Slums from Space—15 Years of Slum Mapping Using Remote Sensing.”</span> <em>Remote Sensing</em> 8 (6). <a href="https://doi.org/10.3390/rs8060455">https://doi.org/10.3390/rs8060455</a>.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->

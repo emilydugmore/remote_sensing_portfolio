@@ -1,7 +1,6 @@
 # Classification (part 2) {.unnumbered}
 
-This week, we dig a bit deeper into classification algorithms and explore sub and super pixel analysis.
-## Sub-pixel analysis
+This week, we dig a bit deeper into classification algorithms and explore sub and super pixel analysis. \## Sub-pixel analysis
 
 ### Multiple land covers within a pixel
 

@@ -1,20 +1,24 @@
 # Classification (part 1) {.unnumbered}
 
-There's a lot of code chunks in between text. I decided to include this to show just how easy and intuitive all of this is.
+Building from the content in the previous section on ***Google Earth Engine,*** we move onto running our own classification algorithms.
 
-## Step 1: Get Training Data
+First, we'll run through a brief step-by-step of how you run a classification. I've included a lot of code chunks in between text here to show just how quick and easy it is to run this in GEE.
 
-The first step of classification (irrespective of what type of model you are going to use) is to get some training data. We do this using the GEE draw polygon tool, creating a different layer for each land cover type.
+## Step-by-step
+
+### Step 1: Get Training Data
+
+We do this by drawing polygons around areas of known land cover type.
 
 ![Training data polygons: mountain (purple), sand (red), water (blue), urban (yellow) and agricultural (green)](images/clipboard-3497887048.png){width="300"}
 
-## Step 2: Split pixels (training or validation)
+### Step 2: Split pixels into training & validation
 
 We want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because...**xyz**
 
 To do this we:
 
-1.  Select a number of pixels from each class
+1.  Select a number of pixels (1000) from each class
 
 ``` javascript
 var pixel_number= 1000;
@@ -65,7 +69,7 @@ var validation = waytwo_clip.select(bands).sampleRegions({
 
 Scale here is the resolution that is used to extract values. Here, it is 10m (the resolution of Sentinel 2 Imagery). If we were worried about memory we could increase the scale, and each 10m x 10m pixel would be re-sampled to a larger resolution.
 
-## Step 3: Train the model
+### Step 3: Train the model
 
 This step is achieved in just ONE line of code! We chose to use the random forest model here.
 
@@ -74,7 +78,7 @@ var rf1_pixel = ee.Classifier.smileRandomForest(100)
     .train(training, 'class');
 ```
 
-## Step 4: Conduct classification
+### Step 4: Conduct classification
 
 Here, we apply our trained model from the previous step to our study area image, and add this as a layer on the map.
 
@@ -92,7 +96,7 @@ Map.addLayer(rf2_pixel, {min: 1, max: 5,
   "RF_pixel");
 ```
 
-## Step 5: Validating & assessing accuracy
+### Step 5: Validating & assessing accuracy
 
 To assess the training model's accuracy pre-validation:
 
@@ -109,7 +113,7 @@ var testAccuracy = validated.errorMatrix('class', 'classification');
 var consumers=testAccuracy.consumersAccuracy()
 ```
 
-## Different models
+## Classification models
 
 There are a number of different classification models that you can choose to use in GEE, but we are only going to focus on two.
 
@@ -117,17 +121,67 @@ There are a number of different classification models that you can choose to use
 
 ![](images/clipboard-1689082410.png)
 
-The Classification and Regression Trees (CART) model constructs a binary decision tree, which can deal with both categorical and continuous outcome variables. It does this by recursively splitting the dataset into smaller subsets which best minimize the sum of squared residuals (continuous data) and the Gini Impurity (discrete data). It continues to make these splits until the optimal decision tree is made, which roughly balances over-fitting (where the model has too many branches and struggles to classify data that it hasn't seen before) and under-fitting (the model incorrectly classifies).
+The CART model constructs a binary decision tree by recursively splitting data into subsets that minimize impurity, balancing the risk of over-fitting against model simplicity.
 
 ### Random Forests
 
 ![](images/clipboard-2107674319.png)
 
-Random Forests are similar to CARTs, but instead of coming up with just one decision tree, the result is a 'random forest' of loads of decision trees. It does this by taking a bunch of bootstrap samples of the training data. Within each bootstrap sample, about two thirds are kept 'in the bag' and one third is 'out of the bag' (OOB). The data kept in the bag is used to train the model, and create a decision tree. During this process, every time a node is reached, the tree can only choose from a random selection of independent variables (in our case, this is our spectral bands). Once the decision tree is made, we then use the OOB data (which the model has never seen) to see how that individual decision tree performs...and this gives us the OOB error.
+Random Forest improves on CART by creating an *forest* of decision trees through 'bagging.' By training each tree on a random subset of data and features, the model uses a 'majority vote' to classify pixels, providing a more robust result than a single tree.
 
-When we use the resulting random forest model to classify a pixel, all of the decision trees in the forest "vote" simultaneously to give the best prediction. The performance of this model is validated against the 30% of the **training data** that was held back from the whole random forest model to begin with. This is a bit of a confusing detail...but basically, the OOB error is an 'internal' check that happens for each bootstrap sample, and validation is the 'external' check that is applied to the model that we get at the end.
+## Applications: Informal Settlement mapping
 
-## How do we deal with clouds?
+CASA's Ollie Ballinger used a random forest classifier to identify and map informal settlements in Dar es Salaam, Tansania. The GEE app can be found [here](https://ollielballinger.users.earthengine.app/view/ism), the code for the app [here](https://code.earthengine.google.com/065e25995dbe069beec41883b79b2ca9), and a very in-depth explanation of the code [here](https://oballinger.github.io/CASA0025/W08_ISM.html).
+
+Ballinger used nearly identical methods to the step-by-step above, with a few additional steps. Firstly, NDVI and NDBI we calculated and used to filter out non-urban landcover from the imagery (only pixels with NDVI \< 0.3 and NDBI \> 0 were included in the classification). Secondly, he included OSM **building footprint data** in the classification.
+
+The reciprocal of each building footprint's area was added and converted into a raster, then a Gaussian kernel was used to calculate the density of small buildings in a given area.
+
+![Visualisation of Guassian kernel calculation on reciprocal building footprint areas for a pixel in an informal settlement (left) and a formal settlement (right) in Dar es Salaam, Tanzania ([Ollie Ballinger](https://oballinger.github.io/CASA0025/W08_ISM.html))](images/clipboard-1248978210.png)
+
+When this is applied to the entire layer, the result is a raster layer that can be used to identify areas with high building density, which are likely to be informal settlements:
+
+![Raster layer of building density across an informal settlement (left) and formal settlement (right) in Dar es Salaam, Tanzania, ([Ollie Ballinger](https://oballinger.github.io/CASA0025/W08_ISM.html))](images/clipboard-738491898.png)
+
+The building density raster layer was used as one of the inputs in the classification training (alongside B2, B3, B4, B8, B8A, B11, B12, NDVI, B8_contrast).
+
+So how did the classification actually perform?
+
+Ballinger doesn't show the results of the accuracy assessment, so we're left to do our own visual assessments of how the model performed:
+
+![Zoomed in view of an informal settlement (delineated in between the black lines) and formal settlements, Dar es Salaam. From left to right: Sentinel Imagery; OSM Building footprints; Random Forest Classification (without building density); Random Forest Classification (with building density). Note: The delineation of informal settlements was drawn subjectively based off Sentinel imagery and well-known features of informal settlements - such as presence of metal roofing and branching nature of road networks. ](images/clipboard-1328210847.png)
+
+We can see from the figure above, that including building density in the RF model resulted in more clustered informal settlement classifications. \*\*\*
+
+This method, to my knowledge, is not well-documented in the literature, so it's difficult to compare it to other methodologies. To try and place it within the wider field of remote sensing to identify informal settlements, consider @kuffer2016's systematic review of 15 years of scientific literature (2000–2015) focused on this exact application. The review highlighted the following morphological features as being the most important in informal settlements:
+
+-   Size (smaller buildings)
+
+-   Density (high roof coverage density & lack of public green spaces)
+
+-   Pattern (organic layout structure with no orderly road arrangement)
+
+-   Site characteristics (Further proximity to infrastructure, and often hazardous locations like flood prone areas or on steep slopes)
+
+@kuffer2016 found a clear evolution in the field: an advance in methodologies which incorporate increasingly complex morphological features. This is summarized in the figure below:
+
+![Informal settlement mapping methods increasing in complexity (left) and their associated image elements @kuffer2016](images/clipboard-2404182359.png)
+
+So far, we've only worked with pixel-based classification, which the above figure classifies as the simplest of the methods, only considering tone and colour as the main input to train the model.
+
+So where does Ballinger's method fit?
+
+The methodology clearly sits within pixel-based classification, but Ballinger goes beyond the tone and colour elements and is able to capture elements of size and density into the pixel-based classification by applying the Guassian kernel calculation on reciprocal building footprint areas. This seems like a really innovative way to incorporate more complex features into less computationally intensive algorithms.
+
+## Reflection
+
+It's quite crazy to think that Ballinger was able to achieve what seems like a really good model for detecting informal settlements, and that was using the most simple of the four methodologies that @kuffer2016 outlined. The sheer amount of papers which are focused on improving the identification of informal settlements makes me quite hopeful. This is an area which is often under-represented in the literature, but it seems like that's not the case for RS studies (although, maybe there is also an element of confirmation bias here since I did fall into a bit of a rabbit whole with this topic!). The fact that so much of the freely-available satellite imagery has a global extent means that people who care about and are interested in these under-represented areas are less limited by the data-deficiency that they so often face. Although there are *always* political and social biases embedded in any sort of representation of the real world, it seems like RS offers one of the least bias of these representations.
+
+I thoroughly enjoyed learning about classification, and, even more so, seeing how easy it is to implement in GEE (phew!). It seems like a very practical and relevant topic, and one which can be applied to a broad range of fields. I'm excited to delve even deeper next week!
+
+## NOT TO BE MARKED: 
+
+## A tangent on how we deal with clouds
 
 ### Option 1: Cloudy pixel percentage
 
@@ -183,32 +237,3 @@ Option 1 is very fast and computationally "cheap", while option 2 involves more 
 ![](images/clipboard-1113084654.png)
 
 In the above figure, tile 2 probably has around 40% and tile 3 around 5%. If we set our limit of cloudy pixel percentage to 1%, both of these images wouldn't have been included in the image collection even though **none over the clouds were covering our study area**. This is where option 2 would be much more beneficial, as this isn't as strict about filtering out cloudy images and deals with clouds by masking them out.
-
-Okay, let's move away from the cloud tangent and get back to classification.
-
-## CART
-
-Classification And Regression Trees. This model is a single decision tree which looks at our
-
-Talk about:
-
--   import stuff and how this can save time and code space
-
--   Other cool vector layers (coral)
-
--   Code "chunks" with dropdowns
-
-    -   add /\* and \*/ between chunks that you want commented out
-
-    -   multi line comments
-
-        ```         
-        /**
-         * Function to mask clouds using the Sentinel-2 QA band
-         * @param {ee.Image} image Sentinel-2 image
-         * @return {ee.Image} cloud masked Sentinel-2 image
-        ```
-
--   2 different options when dealing with clouds
-
--   maybe speak about the print and map functions, inspector and console and tasks
