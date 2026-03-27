@@ -1,3 +1,15 @@
 # About {.unnumbered}
 
-Introduction to myself blah blah blah
+![](images/clipboard-4093116049.jpeg)
+
+Hello! I'm Emily Dugmore ... welcome to my CASA0023 Remote Sensing learning diary!
+
+I am from Cape Town, South Africa, which, as you will soon see, features a lot in the contents of this diary. I first moved to Cape Town in 2019 to start my studies at the University of Cape Town, and completed a BSc majoring in Applied Biology and Ocean & Atmosphere Science as well as Honours in Biological Science.
+
+Although working a lot with climate and ocean models, I haven't really done any academic work on Remote Sensing before. In a personal capacity, I use Google Earth a lot for plotting out hiking routes and looking for different natural features to explore when I'm travelling.
+
+I am really excited about this module, and particularly the opportunity it presents to put data scarce regions of the Global South 'on the map' (another theme I will explore a lot in this diary).
+
+All of the entries in this diary are accompanied by lots of graphics. This is because I am a visual learner and am always conscious about figuring out how to make complex ideas and concepts more easy to understand - which for me is best done visually.
+
+I hope you enjoy this diary, and thanks for taking the time to read it!

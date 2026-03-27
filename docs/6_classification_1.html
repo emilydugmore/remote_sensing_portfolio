@@ -273,7 +273,7 @@ div.csl-indent {
 </header>
 
 
-<p>Building from the content in the previous section on <strong><em>Google Earth Engine,</em></strong> we move onto running our own classification algorithms.</p>
+<p>Building from the content in the previous section,we move onto running our own classification algorithms.</p>
 <p>First, we’ll run through a brief step-by-step of how you run a classification. I’ve included a lot of code chunks in between text here to show just how quick and easy it is to run this in GEE.</p>
 <section id="step-by-step" class="level2">
 <h2 class="anchored" data-anchor-id="step-by-step">Step-by-step</h2>
@@ -289,7 +289,7 @@ div.csl-indent {
 </section>
 <section id="step-2-split-pixels-into-training-validation" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-split-pixels-into-training-validation">Step 2: Split pixels into training &amp; validation</h3>
-<p>We want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because…<strong>xyz</strong></p>
+<p>We want to retain a portion of the above training data to validate/test our classification model. It is important to make this split by pixels rather than polygons, because the pixels within the polygons will be spatially auto-correlated.</p>
 <p>To do this we:</p>
 <ol type="1">
 <li>Select a number of pixels (1000) from each class</li>
